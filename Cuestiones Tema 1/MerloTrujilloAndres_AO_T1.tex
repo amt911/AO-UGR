@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx, graphics, float, fancyhdr, titling}
+\usepackage{listings}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
+
+%\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
+
+\renewcommand{\footrulewidth}{0.4pt}
+\title{
+\includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
+\vspace*{1in}
+\textbf{Cuestiones Tema 1} \\
+Animación por Ordenador \\
+\vspace*{0.5in}}
+\author{Andrés Merlo Trujillo \\
+andresmerlo@correo.ugr.es \\
+77147239H \\ 
+\vspace*{0.5in} \\
+E.T.S. de Ingenierías Informática y de Telecomunicación \\
+\textbf{Universidad de Granada}} \date{\today}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
+\fancyhead[L]{Andrés Merlo Trujillo}
+\fancyhead[R]{Animación por Ordenador}
+%\section{Ejercicio 1}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%\end{figure}
+
+\section{¿Qué es la animación?}
+
+La animación es un proceso que permite dar la ilusión de movimiento a las imágenes, haciendo que se dé la ilusión de que la escena está cambiando. [WIKIPEDIA] 
+
+\bigskip
+
+Existen diversas técnicas de animación, pero todas ellas residen en el hecho de realizar múltiples imágenes con cambios ligeros y que se presentan de manera sucesiva de manera rápida y constante, dando la sensación de movimiento y que las cosas cambian (luz, forma, color, posición, etc.). Además, por norma general, se suelen usar 24 fotogramas por segundo para generar las animaciones (aunque también puede ser más alta, generando una sensación de movimiento más fluida). [TRANS]
+
+\bigskip
+
+A lo largo de la historia han existido diversos precursores de la animación, desde pinturas prehistóricas hasta proyecciones de imágenes. [TRANS]
+
+\section{Buscad información sobre el fenómeno Phi e indicad la relación con la animación y lo comentado hasta ahora.}
+
+El fenómeno phi, es una ilusión óptica que permite tener sensación de movimiento en donde hay imágenes estáticas que cambian a una frecuencia determinada [WIKIPEDIA2]. 
+
+\bigskip
+
+Todo esto se basa en la persistencia retiniana (o persistencia visual), que consiste en una limitación del ojo humano para procesar las imágenes a tanta velocidad, haciendo que se vea movimiento en esta sucesión [WIKIPEDIA3]. Esto hace que el cerebro interpole las imágenes para darles suavidad.
+
+\bigskip
+
+La relación con la animación se basa en estos dos conceptos, ya que sirven de ``herramienta'' básica para poder generar la sensación de movimiento esperado de las imágenes estáticas creadas para hacer la animación. 
+
+
+\end{document}
