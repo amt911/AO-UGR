@@ -66,7 +66,7 @@ En cuanto a la animacion, lo voy a dividir en dos subsecciones.
 
 \subsection{Pelota que rebota sobre cubo (P1, C1)}
 
-En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmovil a lo largo de toda la animacion. Tambien he querido hacerlo un poco mas realista, por lo que he animado mediante \textit{keyframes} un intento de aceleracion de la gravedad, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
+En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmovil a lo largo de toda la animacion. Tambien he querido hacerlo un poco mas realista, por lo que he animado mediante \textit{keyframes} un intento de aceleracion de la gravedad y de rozamiento, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
 
 \begin{enumerate}
     \item Inicial que se encuentra en el aire.
@@ -90,6 +90,23 @@ Como se puede observar, cuando la pelota se encuentra en lo alto, comeinza parad
 
 \subsection{Pelota que empuja cubo (P2, C2)}
 
-mec
+Para esta animacion es necesario animar tanto la pelota como el cubo. Aqui he tenido principalmente en cuenta el rozamiento, ya que llega un momento en el que la pelota y el cubo acaban frenando.
+
+\bigskip
+
+Por tanto, los \textit{keyframes} de la pelota son:
+
+\begin{enumerate}
+    \item Posicion inicial, alejada del cubo.
+    \item Se encuentra sobre el cubo, tocandolo.
+    \item Se encuentra en la posicion final, donde se desea que pare.
+\end{enumerate}
+
+Mientras que para el cubo son:
+
+\begin{enumerate}
+    \item Posicion inicial, alejado de la pelota.
+    \item 
+\end{enumerate}
 
 \end{document}
