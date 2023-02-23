@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx, graphics, float, fancyhdr, titling}
+\usepackage{listings}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
+
+%\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
+
+\renewcommand{\footrulewidth}{0.4pt}
+\title{
+\includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
+\vspace*{1in}
+\textbf{Memoria de la práctica 1} \\
+Animación por Ordenador \\
+\vspace*{0.5in}}
+\author{Andrés Merlo Trujillo \\
+andresmerlo@correo.ugr.es \\
+77147239H \\ 
+\vspace*{0.5in} \\
+E.T.S. de Ingenierías Informática y de Telecomunicación \\
+\textbf{Universidad de Granada}} \date{\today}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
+\fancyhead[L]{Andrés Merlo Trujillo}
+\fancyhead[R]{Animación por Ordenador}
+%\section{Ejercicio 1}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%\end{figure}
+
+\section{Ejercicio 1}
+
+En este ejercicio se pide realizar dos animaciones: una primera de una pelota que rebota sobre un cubo, y una segunda con una pelota que empuja un cubo.
+
+\bigskip
+
+
+Lo primero que he realizado ha sido crear dos cubos y dos esfera y los he colocado en el sitio inicial; es decir, la primera en el aire y la otra lejos, aún sin tocar el cubo.
+
+
+%imagen de la escena inicial.
+
+
+En cuanto a la animacion, lo voy a dividir en dos subsecciones.
+
+\subsection{Pelota que rebota sobre cubo (P1, C1)}
+
+En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmovil a lo largo de toda la animacion. Tambien he querido hacerlo un poco mas realista, por lo que he animado mediante \textit{keyframes} un intento de aceleracion de la gravedad, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
+
+\begin{enumerate}
+    \item Inicial que se encuentra en el aire.
+    \item Sobre el cubo tocandolo (porque ha caido).
+    \item En el aire de nuevo, pero mas bajo.
+    \item Sobre el cubo de nuevo.
+    \item Se repiten los dos pasos anteriores varias veces, cada vez con menos altura.
+\end{enumerate}
+
+A continuacion se encuentran las imagenes de todos los \textit{keyframes} de esta animacion:
+
+%imagenes
+
+
+Cabe destacar que si bien no se pedia modificar la curva, lo he realizado para que tenga aun mas realismo la animacion (dentro de lo que cabe). A continuacion muestro una captura de la forma de la curva de la animacion:
+
+%imatgen de la curva
+
+
+Como se puede observar, cuando la pelota se encuentra en lo alto, comeinza parada y poco a poco va acelerando debido a al gravedad, y cuando rebota en el cubo, mantiene la velocidad y poco a poco va frenando de nuevo por la gravedad, hasta llegar al punto mas alto, que cae de nuevo siguiendo los pasos anteriores.
+
+\subsection{Pelota que empuja cubo (P2, C2)}
+
+mec
+
+\end{document}
