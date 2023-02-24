@@ -155,4 +155,32 @@ En cuanto a las curvas de interpolacion, he usado los mismo tipos de curva que e
 
 \section{Ejercicio 3}
 
+En este ejercicio se pide animar un pendulo, en mi caso compuesto por un prisma cuadrangular (cubo estirado en el eje Z) y una esfera.
+
+%Imagen de esto
+
+Para la realizacion de la animacion, lo primero que he hecho ha sido crear un grupo con ambas figuras para que su gestion sea mas facil. Despues, era necesario mover el eje de donde se mueve el grupo (pivote). Tras mirar en la documentacion (\href{https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2021/ENU/3DSMax-Animation/files/GUID-6872F014-4785-43D9-A83B-C774507907B3-htm.html}{Enlace}) hace falta seguir los siguientes pasos para mover el pivote y que se muevan correctamente:
+
+\begin{enumerate}
+    \item Seleccionar el grupo y abrir el panel de jerarquia (\textit{Hierarchy Panel}):
+    
+    %foto de eso
+
+    \item Seleccionar la opción de \textit{Affect Pivot Only} y moverlos con la herramienta de \textit{Select and Move}, usada para mover los distintos objetos de la escena y mover el eje de coordenadas mas grueso que ha aparecido hasta el punto donde se deberia colgar (justo encima del palo que une a la esfera).
+    
+    %imagen de movido
+
+    \item Salir de este modo para poder animar la figura, que se anima de igual forma que en los ejercicios anteriores.
+\end{enumerate}
+
+En cuanto a la animacion, la he realizado con dos \textit{keyframes}: uno para la posición más a la izquierda y otro para la posición más a la derecha. Además, he tenido en cuenta que al ser ciclico, los \textit{keyframes} deben estar al principio, en el medio y al final, para que la animacion se pueda \textit{loopear}. Estos son:
+
+\begin{enumerate}
+    \item Rotado lo maximo a la izquierda posible (inicio).
+    \item Rotado lo mas a la derecha posible (mitad).
+    \item Rotado de nuevo lo mas a la izquierda posible (final).
+\end{enumerate}
+
+%fotos de los keyframes
+
 \end{document}
