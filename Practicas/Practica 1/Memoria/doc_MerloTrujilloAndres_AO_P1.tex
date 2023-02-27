@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx, graphics, float, fancyhdr, titling}
+\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{fancyhdr}
@@ -60,31 +60,100 @@ Lo primero que he realizado ha sido crear dos cubos y dos esferas y los he coloc
 
 
 %imagen de la escena inicial.
-
-
+\section{Ejercicio 1}
 En cuanto a la animación, lo voy a dividir en dos subsecciones.
 
 \subsection{Pelota que rebota sobre cubo (P1, C1)}
 
-En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmóvil a lo largo de toda la animación. También he querido hacerlo un poco más realista, por lo que he animado mediante \textit{keyframes} un intento de aceleración de la gravedad y de rozamiento, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
+En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmóvil a lo largo de toda la animación. También he querido hacerlo un poco más realista, por lo que he animado mediante \textit{keyframes} un intento de aceleración de la gravedad y de rozamiento, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. 
+
+\bigskip
+
+A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
 
 \begin{enumerate}
-    \item Inicial que se encuentra en el aire.
+    \item Instante 1: Se encuentra en el aire.
     \item Sobre el cubo tocándolo (porque ha caído).
     \item En el aire de nuevo, pero más bajo.
     \item Sobre el cubo de nuevo.
     \item Se repiten los dos pasos anteriores varias veces, cada vez con menos altura.
 \end{enumerate}
 
-A continuación se encuentran las imágenes de todos los \textit{keyframes} de esta animación:
-
+A continuación se muestran todos los \textit{keyframes} para la pelota que rebota sobre el cubo.
 %imagenes
+%\begin{figure}
+%    \centering
+%    \begin{subfigure}[b]{0.3\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{graph1}
+%        \caption{$y=x$}
+%        \label{fig:y equals x}
+%    \end{subfigure}
+%    \hfill
 
+\begin{figure}
+    \centering
+    \begin{subfigure}[H]{0.15\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/p1_ins1.png}
+	    \caption{\textit{Keyframe} en el instante 1.}
+	\end{subfigure}   
+    \hfill
+	\begin{subfigure}[H]{0.15\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/p1_ins15.png}
+	    \caption{\textit{Keyframe} en el instante 15.}
+	\end{subfigure}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins25.png}
+    \caption{\textit{Keyframe} en el instante 25.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins15.png}
+    \caption{\textit{Keyframe} en el instante 35.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins40.png}
+    \caption{\textit{Keyframe} en el instante 40.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins15.png}
+    \caption{\textit{Keyframe} en el instante 45.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins48.png}
+    \caption{\textit{Keyframe} en el instante 48.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/p1_ins15.png}
+    \caption{\textit{Keyframe} en el instante 52.}
+\end{figure}
 
 Cabe destacar que si bien no se pedía modificar la curva, lo he realizado para que tenga aún más realismo la animación (dentro de lo que cabe). A continuación muestro una captura de la forma de la curva de la animación:
 
 
 %imatgen de la curva
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\textwidth]{imagenes/curva_p1.png}
+    \caption{Curva de interpolación para la pelota que rebota sobre el cubo.}
+\end{figure}
 
 
 Como se puede observar, cuando la pelota se encuentra en lo alto, comienza parada y poco a poco va acelerando debido a la gravedad, y cuando rebota en el cubo, mantiene la velocidad y poco a poco va frenando de nuevo por la gravedad, hasta llegar al punto más alto, que cae de nuevo siguiendo los pasos anteriores.
