@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$#" -eq 1 ]; then
+	[ ! -d "cropped" ] && mkdir cropped
+	
+	for f in *.png; do
+		convert "$f" -crop "$1" "cropped/$f"
+	done
+else
+	echo "./batch_crop {x}x{y}{+/-}{x}{+/-}{y}"
+	exit 1
+fi

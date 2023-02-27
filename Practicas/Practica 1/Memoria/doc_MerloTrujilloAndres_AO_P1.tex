@@ -406,10 +406,22 @@ Para la realización de la animación, lo primero que he hecho ha sido crear un 
     \item Seleccionar el grupo y abrir el panel de jerarquía (\textit{Hierarchy Panel}):
     
     %foto de eso
+	\begin{figure}[H]
+	    \centering
+	    \includegraphics[width=0.6\textwidth]{imagenes/Ejercicio 3/pivote_menu.png}
+	    \caption{Menú derecho, junto a los botones a los que es necesario darle.}
+	\end{figure}
+
 
     \item Seleccionar la opción de \textit{Affect Pivot Only} y moverlos con la herramienta de \textit{Select and Move}, usada para mover los distintos objetos de la escena y mover el eje de coordenadas más grueso que ha aparecido hasta el punto donde se debería colgar (justo encima del palo que une a la esfera).
     
     %imagen de movido
+	\begin{figure}[H]
+	    \centering
+	    \includegraphics[width=0.6\textwidth]{imagenes/Ejercicio 3/pivote_pivot.png}
+        \caption{Pivote movido al punto donde se cuelga el péndulo.}
+	\end{figure}
+
 
     \item Salir de este modo para poder animar la figura, que se anima de igual forma que en los ejercicios anteriores.
 \end{enumerate}
@@ -422,6 +434,41 @@ En cuanto a la animación, la he realizado con dos \textit{keyframes}: uno para 
     \item Rotado de nuevo lo más a la izquierda posible (final).
 \end{enumerate}
 
+\bigskip
+
+A continuación se encuentran las imágenes con los \textit{keyframes}:
 %fotos de los keyframes
+
+\begin{figure}[H]
+    \centering
+	\begin{subfigure}[H]{0.3\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 3/pen_0.png}
+        \caption{\textit{Keyframe} en el instante 0.}
+	\end{subfigure}
+    \hfill
+	\begin{subfigure}[H]{0.3\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 3/pen_50.png}
+        \caption{\textit{Keyframe} en el instante 50.}
+	\end{subfigure}
+    \hfill
+	\begin{subfigure}[H]{0.3\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 3/pen_0.png}
+        \caption{\textit{Keyframe} en el instante 100.}
+	\end{subfigure}
+    \caption{\textit{Keyframes} de la animación del péndulo.}
+\end{figure}
+
+\bigskip
+
+Y en cuanto a la curva de interpolación, me he asegurado que frene cuando llega a los extremos:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio 3/curva.png}
+    \caption{Curva de interpolación para la animación del péndulo.}
+\end{figure}
 
 \end{document}
