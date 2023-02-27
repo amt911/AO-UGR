@@ -46,10 +46,10 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %\section{Ejercicio 1}
 %\begin{figure}[H]
 %    \centering
-%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/passwdfile.png}
 %\end{figure}
 
-\section{Ejercicio 1}
+\section{Ejercicio 1 - Control de peso}
 
 En este ejercicio se pide realizar dos animaciones: una primera de una pelota que rebota sobre un cubo, y una segunda con una pelota que empuja un cubo.
 
@@ -72,7 +72,7 @@ En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantene
 A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
 
 \begin{enumerate}
-    \item Instante 1: Se encuentra en el aire.
+    \item Se encuentra en el aire.
     \item Sobre el cubo tocándolo (porque ha caído).
     \item En el aire de nuevo, pero más bajo.
     \item Sobre el cubo de nuevo.
@@ -80,7 +80,7 @@ A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
 \end{enumerate}
 
 A continuación se muestran todos los \textit{keyframes} para la pelota que rebota sobre el cubo.
-%imagenes
+%imagenes/Ejercicio 1
 %\begin{figure}
 %    \centering
 %    \begin{subfigure}[b]{0.3\textwidth}
@@ -95,50 +95,52 @@ A continuación se muestran todos los \textit{keyframes} para la pelota que rebo
     \centering
     \begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins1.png}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins1.png}
 	    \caption{\textit{Keyframe} en el instante 1.}
 	\end{subfigure}   
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins15.png}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins15.png}
 	    \caption{\textit{Keyframe} en el instante 15.}
 	\end{subfigure}
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins25.png}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins25.png}
 	    \caption{\textit{Keyframe} en el instante 25.}
 	\end{subfigure}
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins15.png}
-	    \caption{\textit{Keyframe} en el instante 15.}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins15.png}
+	    \caption{\textit{Keyframe} en el instante 35.}
 	\end{subfigure}
-    \hfill
+\end{figure}
+
+\begin{figure}[H]
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins40.png}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins40.png}
 	    \caption{\textit{Keyframe} en el instante 40.}
 	\end{subfigure}
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins15.png}
-	    \caption{\textit{Keyframe} en el instante 15.}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins15_short.png}
+	    \caption{\textit{Keyframe} en el instante 45.}
 	\end{subfigure}
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins48.png}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins48.png}
 	    \caption{\textit{Keyframe} en el instante 48.}
 	\end{subfigure}
     \hfill
 	\begin{subfigure}[H]{0.15\textwidth}
 	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/p1_ins15.png}
-	    \caption{\textit{Keyframe} en el instante 15.}
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p1_ins15_short.png}
+	    \caption{\textit{Keyframe} en el instante 52.}
 	\end{subfigure}
 \end{figure}
 
@@ -148,7 +150,7 @@ Cabe destacar que si bien no se pedía modificar la curva, lo he realizado para 
 %imatgen de la curva
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curva_p1.png}
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curva_p1.png}
     \caption{Curva de interpolación para la pelota que rebota sobre el cubo.}
 \end{figure}
 
@@ -161,7 +163,7 @@ Para esta animación es necesario animar tanto la pelota como el cubo. Aquí he 
 
 \bigskip
 
-Por tanto, los \textit{keyframes} de la pelota son:
+Por tanto, los \textit{keyframes} de la \textbf{pelota} son:
 
 \begin{enumerate}
     \item Posición inicial, alejada del cubo.
@@ -169,16 +171,69 @@ Por tanto, los \textit{keyframes} de la pelota son:
     \item Se encuentra en la posición final, donde se desea que pare.
 \end{enumerate}
 
-Mientras que para el cubo son:
+\bigskip
+
+% Y a continuación muestro los \textit{keyframes} de la pelota:
+
+%keyframes
+
+% Y la curva interpolación es completamente lineal antes de impactar con el cubo y luego va frenando poco cuando impacta, para frenar del todo.
+
+%funcion
+
+
+Mientras que para el \textbf{cubo} son:
 
 \begin{enumerate}
     \item Posición inicial, alejado de la pelota. Comienza en el instante en el que la pelota impacta con el cubo.
     \item Posición final donde se desea que se quede el cubo (hay que recordar que debe ser la posición de la pelota, más el radio y la mitad de la longitud del cubo).
 \end{enumerate}
 
-En cuanto a la curva para interpolar, he usado una función lineal para la parte antes de que la pelota impacte con el cubo, y cuando impacta, ambas tienen una función que hace que frenen suavemente.
+Y los \textit{keyframes} de la pelota y el cubo, al darse en el mismo instante, se puede ver en las mismas imágenes. Dichas imágenes son las siguientes:
 
-%funciones tanto para el cubo como para la pelota.
+%fotos
+
+\begin{figure}[H]
+    \centering 
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p2_ins1.png}
+	    \caption{Pelota: \textit{Keyframe} en el instante 1.}
+        \caption{Cubo: El cubo no tiene aún ningún \textit{keyframe}.}
+	\end{subfigure}
+    \hfill
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p2_ins10.png}
+	    \caption{Pelota: \textit{Keyframe} en el instante 10.}
+        \caption{Cubo: \textit{Keyframe} en el instante 10.}
+	\end{subfigure}
+    \hfill
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/p2_ins40.png}
+	    \caption{Pelota: \textit{Keyframe} en el instante 40.}
+	    \caption{Cubo: \textit{Keyframe} en el instante 40.}
+	\end{subfigure}
+    \caption{\textit{Keyframes}, tanto para el cubo como la pelota.}
+\end{figure}
+
+Y la curva de interpolación para la pelota comienza lineal hasta tocar el cubo y luego va frenando poco a poco. Mientras que para el cubo solo va frenando poco a poco.
+
+\bigskip
+
+%funcion para el cubo 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Ejercicio 1/curva_p2.png}
+    \caption{Curva de interpolación para la pelota.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Ejercicio 1/curva_c2.png}
+    \caption{Curva de interpolación para el cubo.}
+\end{figure}
 
 
 \section{Ejercicio 2}
