@@ -56,57 +56,58 @@ En este ejercicio se pide realizar dos animaciones: una primera de una pelota qu
 \bigskip
 
 
-Lo primero que he realizado ha sido crear dos cubos y dos esfera y los he colocado en el sitio inicial; es decir, la primera en el aire y la otra lejos, aún sin tocar el cubo.
+Lo primero que he realizado ha sido crear dos cubos y dos esferas y los he colocado en el sitio inicial; es decir, la primera en el aire y la otra lejos, aún sin tocar el cubo.
 
 
 %imagen de la escena inicial.
 
 
-En cuanto a la animacion, lo voy a dividir en dos subsecciones.
+En cuanto a la animación, lo voy a dividir en dos subsecciones.
 
 \subsection{Pelota que rebota sobre cubo (P1, C1)}
 
-En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmovil a lo largo de toda la animacion. Tambien he querido hacerlo un poco mas realista, por lo que he animado mediante \textit{keyframes} un intento de aceleracion de la gravedad y de rozamiento, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
+En este caso, solo es necesario animar la pelota, ya que el cubo se va a mantener inmóvil a lo largo de toda la animación. También he querido hacerlo un poco más realista, por lo que he animado mediante \textit{keyframes} un intento de aceleración de la gravedad y de rozamiento, pero el resultado no es muy convincente. Para ello, he tenido en cuenta que en cada rebote, la altura de la pelota va a ser cada vez menor y que va a tardar algo menos en caer de nuevo. A modo de resumen, la pelota tiene los siguientes \textit{keyframes}:
 
 \begin{enumerate}
     \item Inicial que se encuentra en el aire.
-    \item Sobre el cubo tocandolo (porque ha caido).
-    \item En el aire de nuevo, pero mas bajo.
+    \item Sobre el cubo tocándolo (porque ha caído).
+    \item En el aire de nuevo, pero más bajo.
     \item Sobre el cubo de nuevo.
     \item Se repiten los dos pasos anteriores varias veces, cada vez con menos altura.
 \end{enumerate}
 
-A continuacion se encuentran las imagenes de todos los \textit{keyframes} de esta animacion:
+A continuación se encuentran las imágenes de todos los \textit{keyframes} de esta animación:
 
 %imagenes
 
 
-Cabe destacar que si bien no se pedia modificar la curva, lo he realizado para que tenga aun mas realismo la animacion (dentro de lo que cabe). A continuacion muestro una captura de la forma de la curva de la animacion:
+Cabe destacar que si bien no se pedía modificar la curva, lo he realizado para que tenga aún más realismo la animación (dentro de lo que cabe). A continuación muestro una captura de la forma de la curva de la animación:
+
 
 %imatgen de la curva
 
 
-Como se puede observar, cuando la pelota se encuentra en lo alto, comeinza parada y poco a poco va acelerando debido a al gravedad, y cuando rebota en el cubo, mantiene la velocidad y poco a poco va frenando de nuevo por la gravedad, hasta llegar al punto mas alto, que cae de nuevo siguiendo los pasos anteriores.
+Como se puede observar, cuando la pelota se encuentra en lo alto, comienza parada y poco a poco va acelerando debido a la gravedad, y cuando rebota en el cubo, mantiene la velocidad y poco a poco va frenando de nuevo por la gravedad, hasta llegar al punto más alto, que cae de nuevo siguiendo los pasos anteriores.
 
 \subsection{Pelota que empuja cubo (P2, C2)}
 
-Para esta animacion es necesario animar tanto la pelota como el cubo. Aqui he tenido principalmente en cuenta el rozamiento, ya que llega un momento en el que la pelota y el cubo acaban frenando.
+Para esta animación es necesario animar tanto la pelota como el cubo. Aquí he tenido principalmente en cuenta el rozamiento, ya que llega un momento en el que la pelota y el cubo acaban frenando.
 
 \bigskip
 
 Por tanto, los \textit{keyframes} de la pelota son:
 
 \begin{enumerate}
-    \item Posicion inicial, alejada del cubo.
-    \item Se encuentra sobre el cubo, tocandolo.
-    \item Se encuentra en la posicion final, donde se desea que pare.
+    \item Posición inicial, alejada del cubo.
+    \item Se encuentra sobre el cubo, tocándolo.
+    \item Se encuentra en la posición final, donde se desea que pare.
 \end{enumerate}
 
 Mientras que para el cubo son:
 
 \begin{enumerate}
-    \item Posicion inicial, alejado de la pelota. Comienza en el instante en el que la pelota impacta con el cubo.
-    \item Posicion final donde se desea que se quede el cubo (hay que recordar que debe ser la posicion de la pelota, más el radio y la mitad de la logintud del cubo).
+    \item Posición inicial, alejado de la pelota. Comienza en el instante en el que la pelota impacta con el cubo.
+    \item Posición final donde se desea que se quede el cubo (hay que recordar que debe ser la posición de la pelota, más el radio y la mitad de la longitud del cubo).
 \end{enumerate}
 
 En cuanto a la curva para interpolar, he usado una función lineal para la parte antes de que la pelota impacte con el cubo, y cuando impacta, ambas tienen una función que hace que frenen suavemente.
@@ -116,21 +117,21 @@ En cuanto a la curva para interpolar, he usado una función lineal para la parte
 
 \section{Ejercicio 2}
 
-En este ejercicio se pide realizar la animacion de dos pelotas de distinto material: una primera de goma y otra de bolos. Sabiendo esto, es necesario que la animacion sea distinta en ambas.
+En este ejercicio se pide realizar la animación de dos pelotas de distinto material: una primera de goma y otra de bolos. Sabiendo esto, es necesario que la animación sea distinta en ambas.
 
-Por tanto, para la aniamcion de una pelota de goma he tenido en cuenta que tarde mas en caer, que su rebote sea mas alto y que dé mas rebotes que la de bolos.
+Por tanto, para la animación de una pelota de goma he tenido en cuenta que tarde más en caer, que su rebote sea más alto y que dé más rebotes que la de bolos.
 
-En cambio, la de bolos cae mas rapido, debido a su masa, y solo da un pequeño rebote hasta pararse del todo.
+En cambio, la de bolos cae más rápido, debido a su masa, y solo da un pequeño rebote hasta pararse del todo.
 
 
 Entonces, los \textit{keyframes} para la pelota de goma son:
 
 \begin{enumerate}
     \item Comienza desde el punto de partida, a cierta distancia del suelo.
-    \item A continuacion se encuentra en el suelo.
-    \item Despues se encuetnra de nuevo a cierta altura, pero menos que la anterior vez.
-    \item Despues de nuevo al suelo.
-    \item Se repiten los dos pasos anteriores varias veces para dar mas relismo de que sea un material que rebota mucho.
+    \item A continuación se encuentra en el suelo.
+    \item Después se encuentra de nuevo a cierta altura, pero menos que la anterior vez.
+    \item Después de nuevo al suelo.
+    \item Se repiten los dos pasos anteriores varias veces para dar más realismo de que sea un material que rebota mucho.
 \end{enumerate}
 
 %foto de los keyframes
@@ -139,46 +140,46 @@ Y la pelota de bolos tiene los siguientes \textit{keyframes}:
 
 \begin{enumerate}
     \item Comienza desde el punto de partida, a cierta distancia del suelo y a la misma altura que la otra pelota.
-    \item A continuacion se encuentra en el suelo.
+    \item A continuación se encuentra en el suelo.
     \item Se encuentra a muy poca altura sobre el suelo.
     \item En el suelo definitivamente.
 \end{enumerate}
 
 %foto de los keyframes
 
-Si bien lo he dicho anteriormente, cabe destacar que la pelota de bolos cae mas rapido que la otra, pero puede que sea casi imperceptible.
+Si bien lo he dicho anteriormente, cabe destacar que la pelota de bolos cae más rápido que la otra, pero puede que sea casi imperceptible.
 
-En cuanto a las curvas de interpolacion, he usado los mismo tipos de curva que en el ejercicio anterior con la pelota que rebota sobre el cubo, teniendo en cuenta la aceleracion de la gravedad. 
+En cuanto a las curvas de interpolación, he usado los mismos tipos de curva que en el ejercicio anterior con la pelota que rebota sobre el cubo, teniendo en cuenta la aceleración de la gravedad. 
 
 %mostrar curvas de interpolacion.
 
 
 \section{Ejercicio 3}
 
-En este ejercicio se pide animar un pendulo, en mi caso compuesto por un prisma cuadrangular (cubo estirado en el eje Z) y una esfera.
+En este ejercicio se pide animar un péndulo, en mi caso compuesto por un prisma cuadrangular (cubo estirado en el eje Z) y una esfera.
 
 %Imagen de esto
 
-Para la realizacion de la animacion, lo primero que he hecho ha sido crear un grupo con ambas figuras para que su gestion sea mas facil. Despues, era necesario mover el eje de donde se mueve el grupo (pivote). Tras mirar en la documentacion (\href{https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2021/ENU/3DSMax-Animation/files/GUID-6872F014-4785-43D9-A83B-C774507907B3-htm.html}{Enlace}) hace falta seguir los siguientes pasos para mover el pivote y que se muevan correctamente:
+Para la realización de la animación, lo primero que he hecho ha sido crear un grupo con ambas figuras para que su gestión sea más fácil. Después, era necesario mover el eje de donde se mueve el grupo (pivote). Tras mirar en la documentación (\href{https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2021/ENU/3DSMax-Animation/files/GUID-6872F014-4785-43D9-A83B-C774507907B3-htm.html}{Enlace}) hace falta seguir los siguientes pasos para mover el pivote y que se muevan correctamente:
 
 \begin{enumerate}
-    \item Seleccionar el grupo y abrir el panel de jerarquia (\textit{Hierarchy Panel}):
+    \item Seleccionar el grupo y abrir el panel de jerarquía (\textit{Hierarchy Panel}):
     
     %foto de eso
 
-    \item Seleccionar la opción de \textit{Affect Pivot Only} y moverlos con la herramienta de \textit{Select and Move}, usada para mover los distintos objetos de la escena y mover el eje de coordenadas mas grueso que ha aparecido hasta el punto donde se deberia colgar (justo encima del palo que une a la esfera).
+    \item Seleccionar la opción de \textit{Affect Pivot Only} y moverlos con la herramienta de \textit{Select and Move}, usada para mover los distintos objetos de la escena y mover el eje de coordenadas más grueso que ha aparecido hasta el punto donde se debería colgar (justo encima del palo que une a la esfera).
     
     %imagen de movido
 
     \item Salir de este modo para poder animar la figura, que se anima de igual forma que en los ejercicios anteriores.
 \end{enumerate}
 
-En cuanto a la animacion, la he realizado con dos \textit{keyframes}: uno para la posición más a la izquierda y otro para la posición más a la derecha. Además, he tenido en cuenta que al ser ciclico, los \textit{keyframes} deben estar al principio, en el medio y al final, para que la animacion se pueda \textit{loopear}. Estos son:
+En cuanto a la animación, la he realizado con dos \textit{keyframes}: uno para la posición más a la izquierda y otro para la posición más a la derecha. Además, he tenido en cuenta que al ser cíclico, los \textit{keyframes} deben estar al principio, en el medio y al final, para que la animación se pueda \textit{loopear}. Estos son:
 
 \begin{enumerate}
-    \item Rotado lo maximo a la izquierda posible (inicio).
-    \item Rotado lo mas a la derecha posible (mitad).
-    \item Rotado de nuevo lo mas a la izquierda posible (final).
+    \item Rotado lo máximo a la izquierda posible (inicio).
+    \item Rotado lo más a la derecha posible (mitad).
+    \item Rotado de nuevo lo más a la izquierda posible (final).
 \end{enumerate}
 
 %fotos de los keyframes
