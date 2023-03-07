@@ -26,6 +26,7 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
+    citecolor=black
 }
 
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
@@ -57,15 +58,15 @@ Voy a explicar cada uno de los principios en subsecciones a continuación.
 % slow: arreglar forma en que se dicen las cosas (esta muy raro escrito)
 \subsection{Overlap \& Follow Through}
 
-Son dos técnicas que se utilizan con el objetivo de crear una animación más realista y para dar la sensación de que el personaje tiene una inercia [https://www.brownbagfilms.com/labs/entry/12-principles-of-animation-follow-through-and-overlapping-action-tutorials]. La idea principal de estas técnicas las partes secundarias de un personaje se mueven a un ritmo diferente del personaje durante el movimiento del mismo y mantienen una inercia cuando el personjae se para.
+Son dos técnicas que se utilizan con el objetivo de crear una animación más realista y para dar la sensación de que el personaje tiene una inercia \cite{overlap}. La idea principal de estas técnicas las partes secundarias de un personaje se mueven a un ritmo diferente del personaje durante el movimiento del mismo y mantienen una inercia cuando el personjae se para.
 
 \bigskip
 
-\textit{Follow Through} se basa en la idea en que ciertas partes conectadas a un personaje/objeto se seguirán moviendo después de que dicho objeto haya parado [https://www.brownbagfilms.com/labs/entry/12-principles-of-animation-follow-through-and-overlapping-action-tutorials].
+\textit{Follow Through} se basa en la idea en que ciertas partes conectadas a un personaje/objeto se seguirán moviendo después de que dicho objeto haya parado \cite{overlap}.
 
 \bigskip
 
-Mientras que el \textit{Overlapping} se basa en la idea en que las partes conectadas a un personaje/objeto se moverán a un ritmo diferente del mismo [https://www.brownbagfilms.com/labs/entry/12-principles-of-animation-follow-through-and-overlapping-action-tutorials], normalmente en el sentido contrario en el que se mueven el personaje, para dar sensación de velocidad.
+Mientras que el \textit{Overlapping} se basa en la idea en que las partes conectadas a un personaje/objeto se moverán a un ritmo diferente del mismo \cite{overlap}, normalmente en el sentido contrario en el que se mueven el personaje, para dar sensación de velocidad.
 
 \bigskip
 
@@ -75,22 +76,23 @@ Ejemplos de este principio pueden ser: movimientos de brazos de un personaje, mo
     \centering
     \includegraphics[width=\textwidth]{imagenes/overlap-08.jpg}
     \caption{Ejemplo del principio de \textit{Overlapping} y \textit{Follow Through}. Se puede ver en las orejas y la corbata.}
-    \caption{Enalce: https://www.robert-kuczera.de/3d-character-animation-tutorial-secondary-actoin.html}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://www.robert-kuczera.de/3d-character-animation-tutorial-secondary-actoin.html}}
 \end{figure}
 
 \subsection{Slow-in \& Slow-out}
 
 % Este principio consiste en que los objetos cuando se mueven en la vida real no lo hacen de manera abrupta, sino acelerando para comenzar a moverse y decelerando cuando se van a parar. 
 
-Este principio consiste en hacer que un objeto acelere cuando vaya a comenzar a moverse y decelere cuando se vaya a parar. Esto se hace de esta forma porque en la vida real los objetos no se mueven sin antes acelerar o decelerar. Realizar una animación sin este principio puede hacer que los movimientos parezcan naturales, robóticos y abruptos. [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation]
+Este principio consiste en hacer que un objeto acelere cuando vaya a comenzar a moverse y decelere cuando se vaya a parar. Esto se hace de esta forma porque en la vida real los objetos no se mueven sin antes acelerar o decelerar. Realizar una animación sin este principio puede hacer que los movimientos parezcan naturales, robóticos y abruptos. \cite{plural}
 
 \bigskip
 
-Un ejemplo de este principio es en un coche que sale de parado y luego frena de nuevo, el coche necesita un tiempo para llegar a la velocidad deseada; es decir, una aceleracion. Luego cuando frena pasa exactamente lo mismo, no para bruscamente, sino que va decelerando poco a poco. [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation]
+Un ejemplo de este principio es en un coche que sale de parado y luego frena de nuevo, el coche necesita un tiempo para llegar a la velocidad deseada; es decir, una aceleracion. Luego cuando frena pasa exactamente lo mismo, no para bruscamente, sino que va decelerando poco a poco. \cite{plural}
 
 \bigskip
 
-En animación tradicional, esto se realiza haciendo uso de espaciados: en el comienzo y final de la animación se dibujan más fotogramas seguidos, mientras que en el resto se mantiene un espaciado mayor, pero constante, para que el resultado final sea el correcto [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation]. El espaciado menor producirá que se le dedique más tiempo (fotogramas) a la animación, mientras que el mayor menos, haciendo que se de dicha sensación.
+En animación tradicional, esto se realiza haciendo uso de espaciados: en el comienzo y final de la animación se dibujan más fotogramas seguidos, mientras que en el resto se mantiene un espaciado mayor, pero constante, para que el resultado final sea el correcto \cite{plural}. El espaciado menor producirá que se le dedique más tiempo (fotogramas) a la animación, mientras que el mayor menos, haciendo que se de dicha sensación.
 
 \bigskip
 
@@ -100,12 +102,13 @@ En la animación por ordenador, normalmente se suele hacer con una curva \textit
     \centering
     \includegraphics[width=\textwidth]{imagenes/Slow-In-and-Slow-Out.jpg}
     \caption{Ejemplo del principio \textit{Slow-In \& Slow-Out}. Se puede ver como el péndulo en los extremos acelera y decelera mediante el espaciado de los fotogramas.}
-    \caption{Enalce: https://darvideo.tv/dictionary/slow-in-slow-out/}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://darvideo.tv/dictionary/slow-in-slow-out/}}
 \end{figure}
 
 \subsection{Arcos}
 
-En la vida real, gran parte de los movimientos y acciones que se producen suelen seguir una trayectoria circular, denominada arco [https://dsource.in/course/principles-animation/arcs]. Estos arcos se pueden producir porque incide mas de una fuerza en el objeto, haciendo que este se mueva trazando un arco [https://es.linkedin.com/learning/fundamentos-de-la-animacion/arcos-de-la-animacion]. Otro motivo es porque existen objetos que poseen un pivote (como un brazo), haciendo que el movimiento que realicen se restrinja al arco.
+En la vida real, gran parte de los movimientos y acciones que se producen suelen seguir una trayectoria circular, denominada arco \cite{arcsdsource}. Estos arcos se pueden producir porque incide mas de una fuerza en el objeto, haciendo que este se mueva trazando un arco \cite{arcslinkedin}. Otro motivo es porque existen objetos que poseen un pivote (como un brazo), haciendo que el movimiento que realicen se restrinja al arco.
 
 \bigskip
 
@@ -119,23 +122,25 @@ Algunos ejemplos que se pueden beneficiar de los arcos son: rebote de una pelota
     \centering
     \includegraphics[width=\textwidth]{imagenes/arm-arc.jpg}
     \caption{Ejemplo del principio Arcos. Se puede ver como el movimiento del brazo sigue un arco.}
-    \caption{Enalce: https://johnhannonblog.wordpress.com/2015/12/01/12-principles-of-animation-arc/}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://johnhannonblog.wordpress.com/2015/12/01/12-principles-of-animation-arc/}}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/bouncing-ball.png}
     \caption{Otro ejemplo de Arcos. La fuerza de la gravedad y la fuerza de lanzamiento hacen que cree un arco.}
-    \caption{Enalce: https://idearocketanimation.com/13721-12-principles-of-animation-gifs/}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://idearocketanimation.com/13721-12-principles-of-animation-gifs/}}
 \end{figure}
 
 \subsection{Acción secundaria}
 
-Consiste en las acciones que enfatizan la accion principal para darle mas vida a la animacion y hacer que las acciones del personaje sean mas convincentes. Debe ser algo sutil, que no distraiga o tape la accion principal, ya que solo debe aportar mas expresividad a la principal. [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation]
+Consiste en las acciones que enfatizan la accion principal para darle mas vida a la animacion y hacer que las acciones del personaje sean mas convincentes. Debe ser algo sutil, que no distraiga o tape la accion principal, ya que solo debe aportar mas expresividad a la principal. \cite{plural}
 
 \bigskip
 
-Además, permite mostrar de manera subconsciente lo que el personaje está pensando [https://idearocketanimation.com/13721-12-principles-of-animation-gifs/], como su estado de ánimo.
+Además, permite mostrar de manera subconsciente lo que el personaje está pensando \cite{idearocket}, como su estado de ánimo.
 
 \bigskip
 
@@ -145,7 +150,8 @@ Un ejemplo de esto es alguien esperando (acción principal) en una sala de esper
     \centering
     \includegraphics[width=\textwidth]{imagenes/secondary-action.png}
     \caption{Ejemplo de acción secundaria. Se puede ver que puede transmitir otra sensación la posición de los brazos.}
-    \caption{Enalce: https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation}}
 \end{figure}
 
 
@@ -153,11 +159,12 @@ Un ejemplo de esto es alguien esperando (acción principal) en una sala de esper
     \centering
     \includegraphics[width=\textwidth]{imagenes/sec-ac.jpg}
     \caption{Otro ejemplo de acción secundaria. Se puede ver que la expresión facial se complementa con los brazos levantados.}
-    \caption{Enalce: https://animation2012.weebly.com/secondary-action.html}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://animation2012.weebly.com/secondary-action.html}}
 \end{figure}
 \subsection{Timing}
 
-Consiste en como distribuir los fotogramas de una acción; es decir, en cuantos fotogramas se debe realizar una acción [https://idearocketanimation.com/13721-12-principles-of-animation-gifs/].
+Consiste en como distribuir los fotogramas de una acción; es decir, en cuantos fotogramas se debe realizar una acción \cite{idearocket}.
 
 \bigskip
 
@@ -173,7 +180,8 @@ Otro ejemplo puede ser el de un espectador en una pista de carreras observando l
     \centering
     \includegraphics[width=\textwidth]{imagenes/image-9_timing.jpg}
     \caption{Ejemplo de \textit{timing}.}
-    \caption{Enalce: https://www.360south.com.au/blog/article/27/the-12-principles-of-animation-part-three.html}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://www.360south.com.au/blog/article/27/the-12-principles-of-animation-part-three.html}}
 \end{figure}
 
 \subsection{Exageración}
@@ -188,19 +196,21 @@ Un ejemplo clásico es el de un personaje sorprendido, ya que normalmente los an
     \centering
     \includegraphics[width=\textwidth]{imagenes/080104_eyes.jpg}
     \caption{Ejemplo de exageracion.}
-    \caption{Enalce: https://nutchelleblog.wordpress.com/2015/11/22/exaggeration/}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://nutchelleblog.wordpress.com/2015/11/22/exaggeration/}}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/Exaggeration.png}
     \caption{Otro ejemplo de exageracion mas realista.}
-    \caption{Enalce: https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation}}
 \end{figure}
 
 \subsection{Poses sólidas}
 
-Se refiere a la habilidad de crear dibujos tridimensionales que tengan una sensaci'on de peso, profundidad y volumen correctos y convicentes [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation].
+Se refiere a la habilidad de crear dibujos tridimensionales que tengan una sensacion de peso, profundidad y volumen correctos y convicentes \cite{plural}.
 
 \bigskip
 
@@ -208,18 +218,19 @@ Es esencial que los animadores tengan una clara comprensión del espacio tridime
 
 \bigskip
 
-Otro aspecto importante de las poses sólidas es el de evitar \textit{twinning}, que como se dijo en clase, consiste en evitar poner cualquier par de extremidades simétricas, ya que resulta muy forzado y rígido [https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation].
+Otro aspecto importante de las poses sólidas es el de evitar \textit{twinning}, que como se dijo en clase, consiste en evitar poner cualquier par de extremidades simétricas, ya que resulta muy forzado y rígido \cite{plural}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/homer-solid-drawing.jpg}
     \caption{Ejemplo de poses sólidas. Aparece Homer en diferentes perspectivas correctamente. También es un buen ejemplo de \textit{twinning}, es demasiado rígido al ser simétrico.}
-    \caption{Enalce: https://johnhannonblog.wordpress.com/2015/12/01/12-principles-of-animation-solid-drawing/}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://johnhannonblog.wordpress.com/2015/12/01/12-principles-of-animation-solid-drawing/}}
 \end{figure}
 
 \subsection{Personalidad}
 
-Se basa en la idea de crear personajes atractivos (en el sentido de que sean agradables a la vista) y carismáticos, incluyendo incluso los antagonistas. Esto hace que sean más fáciles de recordar, más interesantes para el espectador e incluso puede hacer que tengan conexión emocional con un personaje. [https://idearocketanimation.com/13721-12-principles-of-animation-gifs/]
+Se basa en la idea de crear personajes atractivos (en el sentido de que sean agradables a la vista) y carismáticos, incluyendo incluso los antagonistas. Esto hace que sean más fáciles de recordar, más interesantes para el espectador e incluso puede hacer que tengan conexión emocional con un personaje. \cite{idearocket}
 
 \bigskip
 
@@ -230,7 +241,8 @@ La forma más común es caricaturizando a los personajes; es decir, agrandar los
     \centering
     \includegraphics[width=\textwidth]{imagenes/appeal.jpg}
     \caption{Personajes basados en distintas formas para que tengan más personalidad.}
-    \caption{Enalce: https://www.kdanmobile.com/en/animation-desk/education/animation-principle-character-design}
+    \vspace{10pt}
+    \footnotesize{Fuente: \url{https://www.kdanmobile.com/en/animation-desk/education/animation-principle-character-design}}
 \end{figure}
 
 \section{Usando 3DS Max, aplica la técnica de Slow-in \& Slow-out para conseguir los siguientes efectos y justifica en qué momento se está aplicando cada uno}
@@ -254,4 +266,13 @@ La aceleración desde una pose (en este caso el movimiento de la esfera) se real
 \subsection{Deceleración hacia una pose}
 
 La deceleración se realiza justo antes de que acabe la animación, ya que es el caso contrario al anterior; es decir, la pendiente de la función se va haciendo menor conforme se acerca al \textit{keyframe}, haciendo que recorra cada vez menos distancia por unidad de tiempo.
+
+
+\begin{thebibliography}{1}
+    \bibitem{overlap} Definición de \textit{Overlapping y Follow Through}: \url{https://www.brownbagfilms.com/labs/entry/12-principles-of-animation-follow-through-and-overlapping-action-tutorials} 
+    \bibitem{plural} Definición de \textit{Slow-in \& Slow-out}, acciones secundarias y poses sólidas. Inlcuyendo ejemplos para \textit{Slow-in \& Slow-out}: \url{https://www.pluralsight.com/blog/film-games/understanding-12-principles-animation}
+    \bibitem{arcsdsource} Parte de la definición de Arcos: \url{https://dsource.in/course/principles-animation/arcs}
+    \bibitem{arcslinkedin} Continuación de la definición de Arcos: \url{https://es.linkedin.com/learning/fundamentos-de-la-animacion/arcos-de-la-animacion}
+    \bibitem{idearocket} Definiciones de Acción secundaria, \textit{Timing} y Personalidad: \url{https://idearocketanimation.com/13721-12-principles-of-animation-gifs/}
+\end{thebibliography}
 \end{document}
