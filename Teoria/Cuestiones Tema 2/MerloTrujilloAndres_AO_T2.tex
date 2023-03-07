@@ -232,4 +232,26 @@ La forma más común es caricaturizando a los personajes; es decir, agrandar los
     \caption{Personajes basados en distintas formas para que tengan más personalidad.}
     \caption{Enalce: https://www.kdanmobile.com/en/animation-desk/education/animation-principle-character-design}
 \end{figure}
+
+\section{Usando 3DS Max, aplica la técnica de Slow-in \& Slow-out para conseguir los siguientes efectos y justifica en qué momento se está aplicando cada uno}
+
+Para realizar la prueba, he animado una esfera para que se mueva en la escena y he abierto el editor de curvas para observar la curva resultante. Cabe destacar que 3ds Max por defecto anima usando Slow-in/Slow-out, por lo que no ha sido necesario modificar la forma de la curva, solo he modificado un poco la forma para que la aceleracion y el frenado sean mas pronunciados.
+
+\bigskip
+
+La curva resultante de la animación es la siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curva.png}
+    \caption{Curva de animación para la esfera.}
+\end{figure}
+
+El eje X de la gráfica representa el tiempo transcurrido, mientras que el eje Y representa la posición/rotación/escalado del objeto (en este caso translacion en el eje Y).
+
+\subsection{Aceleración desde una pose}
+La aceleración desde una pose (en este caso el movimiento de la esfera) se realiza al principio de la animación porque la pendiente de la función comienza a ser mayor, haciendo que cada vez recorra más distancia en la misma cantidad de tiempo.
+\subsection{Deceleración hacia una pose}
+
+La deceleración se realiza justo antes de que acabe la animación, ya que es el caso contrario al anterior; es decir, la pendiente de la función se va haciendo menor conforme se acerca al \textit{keyframe}, haciendo que recorra cada vez menos distancia por unidad de tiempo.
 \end{document}
