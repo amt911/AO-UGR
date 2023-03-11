@@ -58,7 +58,7 @@ Voy a explicar cada uno de los principios en subsecciones a continuación.
 % slow: arreglar forma en que se dicen las cosas (esta muy raro escrito)
 \subsection{Overlap \& Follow Through}
 
-Son dos técnicas que se utilizan con el objetivo de crear una animación más realista y para dar la sensación de que el personaje tiene una inercia \cite{overlap}. La idea principal de estas técnicas las partes secundarias de un personaje se mueven a un ritmo diferente del personaje durante el movimiento del mismo y mantienen algo de inercia cuando el personaje se para.
+Son dos técnicas que se utilizan con el objetivo de crear una animación más realista y para dar la sensación de que el personaje tiene una inercia \cite{overlap}. La idea principal de estas técnicas es que las partes secundarias se muevan a un ritmo diferente cuando el personaje se encuentre en movimiento y que mantengan algo de inercia cuando el personaje se pare, haciendo un efecto similar al de un rebote.
 
 \bigskip
 
@@ -70,23 +70,23 @@ Mientras que el \textit{Overlapping} se fundamenta en que las partes conectadas 
 
 \bigskip
 
-Ejemplos de este principio pueden ser: movimientos de brazos de un personaje, movimiento de las orejas de un animal que corre y luego para, o incluso el movimiento de antenas de un personaje.
+Ejemplos de este principio pueden ser: movimiento de brazos de un personaje, movimiento de las orejas de un animal que corre y luego para, o incluso el movimiento de antenas de un personaje.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{imagenes/overlap-08.jpg}
-    \caption{Ejemplo del principio de \textit{Overlapping} y \textit{Follow Through}. Se puede ver en las orejas y la corbata.}
+    \caption{Ejemplo del principio de \textit{Overlapping} y \textit{Follow Through}. Se puede ver en las orejas, la corbata y el hocico.}
     \vspace{10pt}
     \footnotesize{Fuente: \url{https://www.robert-kuczera.de/3d-character-animation-tutorial-secondary-actoin.html}}
 \end{figure}
 
 \subsection{Slow-in \& Slow-out}
 
-Este principio consiste en hacer que un objeto acelere cuando vaya a comenzar a moverse y decelere cuando se vaya a parar. En la vida real, los objetos no se mueven sin antes acelerar o desacelerar, por lo que omitir este principio en una animación puede hacer que los movimientos parezcan poco naturales, robóticos y abruptos. \cite{plural}
+Este principio consiste en hacer que un objeto acelere cuando vaya a comenzar a moverse y desacelere cuando se vaya a parar. En la vida real, los objetos no se mueven sin antes acelerar o desacelerar, por lo que omitir este principio en una animación puede hacer que los movimientos parezcan poco naturales, robóticos y abruptos \cite{plural}.
 
 \bigskip
 
-Un ejemplo de este principio es el de un coche que comienza parado, para después llegar a una velocidad y finalmente detenerse de nuevo. El coche necesita un tiempo para llegar a la velocidad deseada; es decir, una aceleración. Luego cuando frena pasa exactamente lo mismo, no para bruscamente, sino que va desacelerando poco a poco. \cite{plural}
+Un ejemplo de este principio es el de un coche que comienza parado, para después llegar a una velocidad y finalmente detenerse de nuevo. El coche necesita un tiempo para llegar a la velocidad deseada; es decir, una aceleración. Luego, cuando frena, pasa exactamente lo mismo, no para bruscamente, sino que va desacelerando poco a poco \cite{plural}.
 
 \bigskip
 
@@ -94,7 +94,7 @@ En animación tradicional, esto se realiza utilizando la técnica de espaciados.
 
 \bigskip
 
-En animación por ordenador, normalmente se utiliza una curva \textit{Ease-In/Ease-Out}, cuyo resultado es el mismo que empleando las técnicas mencionadas anteriormente para las animaciones tradicionales, pero requiriendo menos esfuerzo y de manera automática.
+En animación por ordenador, normalmente se utiliza una curva \textit{Ease-In/Ease-Out}, cuyo resultado es el mismo que empleando las técnicas mencionadas anteriormente para las animaciones tradicionales, pero con una mayor facilidad y rapidez en su aplicación, ya que el espaciado se genera de manera automática siguiendo la forma de la curva.
 
 \begin{figure}[H]
     \centering
@@ -122,6 +122,9 @@ Algunos ejemplos que se pueden beneficiar de los arcos son: rebote de una pelota
     \centering
     \includegraphics[width=0.6\textwidth]{imagenes/arm-arc.jpg}
     \caption{Ejemplo del principio Arcos. Se puede ver como el movimiento del brazo sigue un arco.}
+    \vspace{5pt}
+    \footnotesize{Imagen reescalada para mejorar su resolución y nitidez.}
+
     \vspace{10pt}
     \footnotesize{Fuente: \url{https://johnhannonblog.wordpress.com/2015/12/01/12-principles-of-animation-arc/}}
 \end{figure}
@@ -138,11 +141,7 @@ Algunos ejemplos que se pueden beneficiar de los arcos son: rebote de una pelota
 
 % Consiste en las acciones que enfatizan la acción principal para darle más vida a la animación y hacer que las acciones del personaje sean más convincentes. Debe ser algo sutil, que no distraiga o tape la acción principal, ya que solo debe aportar más expresividad a la principal. \cite{plural}
 
-Se trata de las acciones que enfatizan la acción principal y le otorgan más vida a la animación, lo que hace que las acciones del personaje resulten más convincentes. Las acciones secundarias deben ser sutiles y no distraer o tapar la acción principal, ya que solo deben aportar más expresividad a esta \cite{plural}.
-
-\bigskip
-
-Además, permite mostrar de manera subconsciente lo que el personaje está pensando \cite{idearocket}, como su estado de ánimo.
+Se trata de las acciones que enfatizan la acción principal y le otorgan más vida a la animación, lo que hace que las acciones del personaje resulten más convincentes. Las acciones secundarias deben ser sutiles y no distraer o tapar la acción principal, ya que solo deben aportar más expresividad a esta \cite{plural}. Además, permite mostrar de manera subconsciente lo que el personaje está pensando \cite{idearocket}, como su estado de ánimo.
 
 \bigskip
 
@@ -166,13 +165,15 @@ Un ejemplo de esto es alguien en una sala esperando (acción principal), si se l
     \vspace{10pt}
     \footnotesize{Fuente: \url{https://animation2012.weebly.com/secondary-action.html}}
 \end{figure}
+
+
 \subsection{Timing}
 
-Consiste en como distribuir los fotogramas de una acción; es decir, en cuantos fotogramas se debe realizar una acción \cite{idearocket}.
+Consiste en como distribuir los fotogramas de una acción; es decir, en cuantos fotogramas se debe realizar dicha acción \cite{idearocket}.
 
 \bigskip
 
-El \textit{timing} se puede aplicar a velocidad de movimientos o la duración de los fotogramas. Ajustando el \textit{timing}, se puede expresar que un personaje es más ágil o pesado, más rápido o más lento, entre otros aspectos. También permite mostrar situaciones de nerviosismo, comedia, entre otras emociones.
+El \textit{timing} se puede aplicar a la velocidad de movimientos o a la duración de los fotogramas. Ajustando el \textit{timing}, se puede expresar que un personaje es más ágil o pesado, más rápido o más lento, entre otros aspectos. También permite mostrar situaciones de nerviosismo, comedia, acción, suspense, entre otras situaciones.
 
 \bigskip
 
@@ -191,7 +192,7 @@ Otro ejemplo puede ser el de un espectador en una pista de carreras observando l
 
 \subsection{Exageración}
 
-Consiste en exagerar los movimientos, emociones y acciones de los personajes con el objetivo de que la animación sea más humorística, emocionante o dramática.
+Consiste en exagerar los movimientos, emociones y acciones de los personajes con el objetivo de que la animación sea más humorística, emocionante o dramática. La exageración ayuda a que la animación sea más entretenida para el espectador y hace que los momentos sean más memorables.
 
 \bigskip
 
@@ -215,7 +216,7 @@ Un ejemplo clásico es el de un personaje sorprendido, ya que los animadores sue
 
 \subsection{Poses sólidas}
 
-Se refiere a la habilidad de crear dibujos tridimensionales que tengan sensación de peso, profundidad y volumen correctos y convincentes \cite{plural}.
+Se refiere a la habilidad de crear dibujos tridimensionales que tengan sensación de peso, profundidad y volumen correcto y convincente \cite{plural}.
 
 \bigskip
 
@@ -235,7 +236,7 @@ Otro aspecto importante de las poses sólidas es el de evitar \textit{twinning},
 
 \subsection{Personalidad}
 
-Se basa en la idea de crear personajes atractivos (en el sentido de que sean agradables a la vista) y carismáticos, incluyendo también los antagonistas. Esto hace que sean más fáciles de recordar, más interesantes para el espectador y, en algunos casos, puede generar una conexión emocional con el personaje. \cite{idearocket}
+Se basa en la idea de crear personajes atractivos (en el sentido de que sean agradables a la vista) y carismáticos, incluyendo también los antagonistas. Esto hace que sean más fáciles de recordar, más interesantes para el espectador y, en algunos casos, puede generar una conexión emocional con el personaje \cite{idearocket}.
 
 \bigskip
 
