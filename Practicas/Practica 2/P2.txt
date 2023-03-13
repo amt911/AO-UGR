@@ -1,0 +1,4 @@
+Despues de +:
+
+Vertex -> Eliminar vertices inutiles
+Edge -> Bridge y arrastrar de un lado opuesto a otro
