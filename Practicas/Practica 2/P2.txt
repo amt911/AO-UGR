@@ -1,4 +1,5 @@
 Despues de +:
 
+Polygon Modeling -> Vertex
 Vertex -> Eliminar vertices inutiles
 Edge -> Bridge y arrastrar de un lado opuesto a otro
