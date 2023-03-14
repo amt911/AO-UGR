@@ -1,3 +1,6 @@
+%TODO: 
+% ARREGLAR FUNCION EXPONENCIAL CRECIENTE Y DECRECIENTE, DEPENDE DEL CONTEXTO
+% MULETILLAS: ADEMAS, CABE DESTACAR
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
@@ -62,7 +65,7 @@ Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente 
 
 \begin{enumerate}
     \item Instante 0: Posición inicial en el punto A.
-    \item Instante : Posición final en el punto B.
+    \item Instante 50: Posición final en el punto B.
 \end{enumerate}
 
 Y de manera gráfica, los \textit{keyframes} son:
@@ -121,5 +124,57 @@ El resultado es que la pelota acelera al principio y cuando se acerca al punto f
 
 
 \section{Ejercicio 2 - Salto de coche}
+
+En este ejercicio se pide animar un coche que arranca desde una posición, para luego subir una rampa y saltar por los aires, para finalmente cuando toca el suelo frenar.
+
+% no se si poner como he hecho la rampa.
+
+%reescribir esto
+Cabe destacar que para animar la rotacion para subir a la rampa, he cambiado el pivote para poner justo en el eje de las ruedas traseras, ya que es como realmente se deberia mover al intentar subir dicha rampa. 
+
+Además, la jerarquía utilizada ha sido la de dejar como padre el cubo más grande del vehículo y como hijos las ruedas y el cubo más pequeño que hace de pilares y cristales.
+
+
+La animación consiste en 8 \textit{keyframes}, que son los siguientes:
+
+\begin{enumerate}
+    \item Instante 0: El vehículo se encuentra en la posición inicial.
+    \item Instante 13: El vehículo ha realizado la aceleración.
+    \item Instante 26: El vehículo se encuentra en el instante anterior de subir la rampa.
+    \item Instante 28: El vehículo ha subido la rampa y se encuentra al principio de la misma.
+    \item Instante 32: El vehículo se encuentra en el instante anterior de estar en el aire; es decir, se encuentra tocando el final de la rampa solo con la rueda trasera.
+    \item Instante 44: El vehículo se encuentra en el punto más alto del lanzamiento y ya recto.
+    \item Instante 56: El vehículo ha tocado el suelo después del salto.
+    \item Instante 85: Finalmente, el vehículo frena hasta pararse del todo.
+\end{enumerate}
+
+A modo visual, los \textit{keyframes} son los siguientes:
+
+%fotos de los keyframes
+
+Y las curvas utilizadas para la animación:
+
+%fotos de las curvas, separadas por partes (si no son muchas)
+
+% reescribir lo de abajo con chatgpt
+Como se puede ver en la curva roja (posición en el eje X), al principio la curva tiene forma exponencial creciente, para simula la aceleración. A continuación, todo el trayecto se mantiene lineal, hasta llegar a la parte de frenado, donde tiene forma exponencial para que frene y se pare.
+
+En cuanto a la curva de color azul (Posición en el eje Z), solo es usada para animar la subida de la rampa y la trayectoria que sigue el vehículo cuando sale despedido de la rampa. Entonces, la parte en la que sube a la rampa es lineal, con la misma pendiente que la rampa. Mientras que la animación de la trayectoria se hace con dos funciones exponenciales, para animar la fuerza que realiza la gravedad en la parte de la subida y para animar la aceleración de la gravedad en la bajada. Cabe destacar que, en este caso, la forma que tenga la curva será reflejada en la animación directamente; es decir, si la trayectoria se hubiera hecho lineal, el lanzamiento hubiese tenido forma triangular.
+
+En cuanto a la curva verde (Rotación en el eje Y), es usada para rotar el vehículo en el cambio de pendiente de la subida de la rampa y cuando se endereza durante el lanzamiento del vehículo.
+% fin rescritura
+
+\section{Ejercicio 3 - Pelota botando}
+
+En este ejercicio se pide animar una pelota que rebota varias veces sobre una mesa y que finalmente se cae al suelo. 
+
+La mesa la he realizado usando 5 cubos: uno grande para el tablero y otros 4 del mismo tamaño para hacer las patas. Además, la jerarquía utilizada ha sido de dejar como padre al tablero y como hijos las patas.
+
+%rescribir
+En cuanto a la animacion, he utilizado un factor de 2 para la altura del rebote y para la distancia recorrida entre rebotes; es decir, que en cada salto su altura y distancia de divide a la mitad. Esta aniamción la he realizado usando 10 \textit{keyframes}, que son:
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \end{document}
