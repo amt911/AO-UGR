@@ -52,8 +52,74 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %    \footnotesize{Fuente: https://...}
 %\end{figure}
 
-\section{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo, nunc a molestie rutrum, lorem justo aliquet quam, suscipit viverra diam sapien eget purus. Aenean ac dapibus lacus, sed fringilla magna. Integer scelerisque arcu id commodo finibus. Etiam posuere arcu id tempor fermentum. Aliquam posuere faucibus eros sed fermentum. Vivamus viverra commodo ipsum vel fermentum. Donec vitae nibh a nibh semper lobortis. Ut eget neque leo. Nulla ullamcorper in nisi nec consectetur. }
+\section{Ejercicio 1 - Pelota rodando}
 
-...
+En este ejercicio se pide implementar la animacion cuatro pelotas (o un haciendo un cuadrado) que parten desde un punto A y llegan al mismo tiempo a otro punto B haciendo, mediante curvas, animaciones distintas.
+
+\bigskip
+
+Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente los mismos, pero cambiando la forma de la curva. Entonces, los \textit{keyframes} son los siguientes:
+
+\begin{enumerate}
+    \item Instante 0: Posición inicial en el punto A.
+    \item Instante : Posición final en el punto B.
+\end{enumerate}
+
+Y de manera gráfica, los \textit{keyframes} son:
+
+%fotos de una bola nada mas con los keyframes
+
+\bigskip
+
+%foto con todas las pelotas xd
+
+Estas animaciones las voy a dividir en subapartados para explicar mejor como son las curvas:
+
+\subsection{Movimiento uniforme}
+
+Para esta animacion es necesario usar un curva lineal, para que en cada instante de tiempo se avance siempre la misma distancia. La curva para esta pelota tiene la siguiente forma:
+
+%foto de la curva
+
+En la animación final se puede apreciar como mantiene la velocidad desde el primer momento hasta que acaba su recorrido.
+
+\subsection{Aceleración}
+
+Para realizar esta animación se debe usar una curva exponencial, cuya pendiente sea creciente. Esto va a hacer que progresivamente vaya recorriendo la pelota más distancia para la misma cantidad de tiempo. 
+
+La curva tiene la siguiente forma:
+
+%foto de la grafica
+
+En la animación se puede apreciar como poco a poco la pelota va acelerando cada vez más, hasta para bruscamente en en el putno B.
+
+Cabe decir que he modificado la forma de la curva para que se pueda apreciar mejor la aceleración en la animación resultante, ya que con la curva por defecto del programa no se puede apreciar del todo bien.
+
+\subsection{Deceleración}
+
+En este caso se debe usar una curva similar para la de aceleración, pero con una pendiente que vaya siendo cada vez menor. Esto resultará en que la pelota cada vez va a recorrer menos distancia para la misma cantidad de tiempo, haciendo que al final frene.
+
+La curva tiene la siguiente forma:
+
+%foto de la curva
+
+En la aniamción resultante la pelota comienza moviéndose muy rápido y conforme se acerca a la posición final va frenando.
+
+Al igual que con la aceleración, he modificado la curva para que el frenado sea más pronunciado.
+
+\subsection{Aceleración y deceleración}
+
+Esta animación es la combinación de la versión de aceleración y deceleración, haciendo que la pelota acelere cuando salga del punto A y vaya frenando cuando se acerque al punto B. 
+
+La curva resultante es la unión de dichas versiones, haciendo que la pendiente sea progresivamente crenciente, hasta llegar a un punto en el que la pendiente decrece. 
+
+Dicha curva es la siguiente:
+
+%imagen de la curva
+
+El resultado es que la pelota acelera al principio y cuando se acerca al punto final comienza a frenar. Ademas, como en los anteriroes subapartados, he modificado la curva para que el resultado sea mas facil de ver.
+
+
+\section{Ejercicio 2 - Salto de coche}
 
 \end{document}
