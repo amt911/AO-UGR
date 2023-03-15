@@ -4,7 +4,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx, graphics, float, fancyhdr, titling}
+\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{fancyhdr}
@@ -55,6 +55,20 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %    \footnotesize{Fuente: https://...}
 %\end{figure}
 
+% \begin{figure}[H]
+%     \centering 
+% 	\begin{subfigure}[H]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
+%         \caption{Pelotas en el instante 0.}
+%     \end{subfigure}
+%     \hfill
+% 	\begin{subfigure}[H]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
+%         \caption{Pelotas en el instante 50.}
+%     \end{subfigure}    
+% \end{figure}
 \section{Ejercicio 1 - Pelota rodando}
 
 En este ejercicio se pide implementar la animacion cuatro pelotas (o un haciendo un cuadrado) que parten desde un punto A y llegan al mismo tiempo a otro punto B haciendo, mediante curvas, animaciones distintas.
@@ -71,10 +85,22 @@ Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente 
 Y de manera gráfica, los \textit{keyframes} son:
 
 %fotos de una bola nada mas con los keyframes
+\begin{figure}[H]
+    \centering 
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
+        \caption{Pelotas en el instante 0.}
+    \end{subfigure}
+    \hfill
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
+        \caption{Pelotas en el instante 50.}
+    \end{subfigure}    
+\end{figure}
 
 \bigskip
-
-%foto con todas las pelotas xd
 
 Estas animaciones las voy a dividir en subapartados para explicar mejor como son las curvas:
 
@@ -83,6 +109,11 @@ Estas animaciones las voy a dividir en subapartados para explicar mejor como son
 Para esta animacion es necesario usar un curva lineal, para que en cada instante de tiempo se avance siempre la misma distancia. La curva para esta pelota tiene la siguiente forma:
 
 %foto de la curva
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/uniforme.png}
+   \caption{Curva de la pelota con movimiento uniforme.}
+\end{figure}
 
 En la animación final se puede apreciar como mantiene la velocidad desde el primer momento hasta que acaba su recorrido.
 
@@ -93,6 +124,11 @@ Para realizar esta animación se debe usar una curva exponencial, cuya pendiente
 La curva tiene la siguiente forma:
 
 %foto de la grafica
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/aceleracion.png}
+    \caption{Curva de la pelota que acelera.}
+ \end{figure}
 
 En la animación se puede apreciar como poco a poco la pelota va acelerando cada vez más, hasta para bruscamente en en el putno B.
 
@@ -105,6 +141,12 @@ En este caso se debe usar una curva similar para la de aceleración, pero con un
 La curva tiene la siguiente forma:
 
 %foto de la curva
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/deceleracion.png}
+    \caption{Curva de la pelota que desacelera.}
+ \end{figure}
+
 
 En la aniamción resultante la pelota comienza moviéndose muy rápido y conforme se acerca a la posición final va frenando.
 
@@ -119,6 +161,11 @@ La curva resultante es la unión de dichas versiones, haciendo que la pendiente 
 Dicha curva es la siguiente:
 
 %imagen de la curva
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/aceldecel.png}
+    \caption{Curva de la pelota que acelera y desacelera.}
+ \end{figure}
 
 El resultado es que la pelota acelera al principio y cuando se acerca al punto final comienza a frenar. Ademas, como en los anteriroes subapartados, he modificado la curva para que el resultado sea mas facil de ver.
 
@@ -151,11 +198,66 @@ La animación consiste en 8 \textit{keyframes}, que son los siguientes:
 A modo visual, los \textit{keyframes} son los siguientes:
 
 %fotos de los keyframes
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/0.png}
+    \caption{Vehículo en el instante 0.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/13.png}
+    \caption{Vehículo en el instante 13.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/26.png}
+    \caption{Vehículo en el instante 26.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/28.png}
+    \caption{Vehículo en el instante 28.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/32.png}
+    \caption{Vehículo en el instante 32.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/44.png}
+    \caption{Vehículo en el instante 44.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/56.png}
+    \caption{Vehículo en el instante 56.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/86.png}
+    \caption{Vehículo en el instante 86.}
+ \end{figure}
+
 
 Y las curvas utilizadas para la animación:
 
 %fotos de las curvas, separadas por partes (si no son muchas)
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/curvas/red.png}
+    \caption{Curva referente a la posición del vehículo en el eje X.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/curvas/blue.png}
+    \caption{Curva referente a la posición del vehículo en el eje Z.}
+ \end{figure}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio2/curvas/green.png}
+    \caption{Curva referente a la rotación del vehículo en el eje Y.}
+ \end{figure}
 % reescribir lo de abajo con chatgpt
 Como se puede ver en la curva roja (posición en el eje X), al principio la curva tiene forma exponencial creciente, para simula la aceleración. A continuación, todo el trayecto se mantiene lineal, hasta llegar a la parte de frenado, donde tiene forma exponencial para que frene y se pare.
 
@@ -183,6 +285,56 @@ En cuanto a la animacion, he utilizado un factor de 2 para la altura del rebote 
 \end{enumerate}
 
 % imagenes con los keyframes
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/0.png}
+    \caption{Pelota en el instante 0.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/15.png}
+    \caption{Pelota en el instante 15.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/25.png}
+    \caption{Pelota en el instante 25.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/35.png}
+    \caption{Pelota en el instante 35.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/42.png}
+    \caption{Pelota en el instante 42.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/49.png}
+    \caption{Pelota en el instante 49.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/54.png}
+    \caption{Pelota en el instante 54.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/59.png}
+    \caption{Pelota en el instante 59.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/71.png}
+    \caption{Pelota en el instante 71.}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/84.png}
+    \caption{Pelota en el instante 84.}
+\end{figure}
 
 Y para animar los rebotes y el movimiento de manera realista, se han usado las siguientes curvas en la pelota:
 
