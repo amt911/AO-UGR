@@ -339,6 +339,17 @@ En cuanto a la animacion, he utilizado un factor de 2 para la altura del rebote 
 Y para animar los rebotes y el movimiento de manera realista, se han usado las siguientes curvas en la pelota:
 
 % imagenes separadas de las curvas
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/curvas/red.png}
+    \caption{Posición de la pelota en el eje X.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio3/curvas/blue.png}
+    \caption{Posición de la pelota en el eje Z.}
+\end{figure}
 
 La curva de color rojo (Posición en el eje X) sigue una forma lineal para todos los \textit{keyframes}. También se puede observar como el conjunto de todos los \textit{keyframes}, al seguir el factor 2, tiene una forma exponenecial, haciendo que en la animación la pelota vaya recorriendo cada vez menos distancia. 
 Esto se podría haber hecho directamente con dos \textit{keyframes} y dicha curva, pero se perdería demasiada precisión. % quizas quitar esto
@@ -353,7 +364,11 @@ En este ejercicio se pide animar un montacargas que se mueve desde la izquierda 
 La figura del montacargas la he realizado usando como plataforma un cubo achatado y para la cadena he usado como figuras básicas un cilindro y una esfera para la articulación. Usando estas figuras, he anidado las distintas secciones del brazo, haciendo que el hijo sea la pieza de abajo y el padre la de arriba. Así se consigue que el hijo herede las transofrmaciones del padre.
 
 %foto de la jerarquia
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/jerarquia.png}
+    \caption{Jerarquía de las distintas partes del montacargas.}
+\end{figure}
 
 En cuanto a la animacion, ha sido necesario utilizar 2 \textit{keyframes} para la plataforma y 6 \textit{keyframes} para cada una de las partes del brazo, pero que realizan exactamente lo mismo. 
 
@@ -380,6 +395,43 @@ En cuanto a la animacion, ha sido necesario utilizar 2 \textit{keyframes} para l
 
 A modo visual, los \textit{keyframes} son los siguientes:
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/0.png}
+    \caption{Rotación de los segmentos del brazo en el instante 0. También posición inicial de la plataforma.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/18.png}
+    \caption{Rotación de los segmentos del brazo en el instante 18.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/30.png}
+    \caption{Rotación de los segmentos del brazo en el instante 30. Tambien posicion final de la plataforma.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/50.png}
+    \caption{Rotación de los segmentos del brazo en el instante 50.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/64.png}
+    \caption{Rotación de los segmentos del brazo en el instante 64.}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/77.png}
+    \caption{Rotación de los segmentos del brazo en el instante 77.}
+\end{figure}
+
 % explicar el significado del instante 18 (rescribir)
 El instante 18 lo he puesto porque sin él la animación de rotar el brazo por la velocidad no se acababa hasta el punto en el que la plataforma parase, haciendo que la animación no quedase demasiado convincente. Haciendo esto, he conseguido que el brazo rote del todo antes de parar.
 
@@ -387,12 +439,23 @@ El instante 18 lo he puesto porque sin él la animación de rotar el brazo por l
 La curva para la aniamción de la plataforma es la siguiente:
 
 %foto de la curva
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/curvas/base/red.png}
+    \caption{Curva de la posición en el eje X de la plataforma con respecto al tiempo.}
+\end{figure}
+
 
 Dicha curva lo que hace es, al principio acelera y cuando llega al punto final se para bruscamente (mediante la curva lineal). Esto lo he hecho asi para que el latigazo que realiza el brazo sea mas realista, ya que si se va frenando progresivamente no queda del todo bien.
 
 Las curvas de los segmentos del brazo son muy similares entre si, por lo que solo voy a mostrar uno.
 
 %foto de la curva
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/curvas/segmentos/green.png}
+    \caption{Curva de la rotación en el eje Y de los segmentos con respecto el tiempo.}
+\end{figure}
 
 %rescribir
 Esta curva lo que hace es seguir la aceleracion de la plataforma al principio, hasta llegar al instante 18 que he hablado anteriormente, asi se consigue que el movimiento sea mas natural. Despues se mantiene constante al no requerir rotacion ninguna. Cuando la plataforma para, se sigue una curva de desaceleracion, ya que la energia que tenia la pataforma se transfiere al brazo. Finalmente, se utilizan curvas de aceleración, desaceleracion y \textit{Slow in/Slow out} (union de ambas) para simular el baiben que hace hasta parar por las distintas fuerzas.
