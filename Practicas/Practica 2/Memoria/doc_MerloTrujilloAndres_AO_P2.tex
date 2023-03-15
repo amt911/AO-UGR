@@ -171,10 +171,79 @@ En este ejercicio se pide animar una pelota que rebota varias veces sobre una me
 La mesa la he realizado usando 5 cubos: uno grande para el tablero y otros 4 del mismo tamaño para hacer las patas. Además, la jerarquía utilizada ha sido de dejar como padre al tablero y como hijos las patas.
 
 %rescribir
-En cuanto a la animacion, he utilizado un factor de 2 para la altura del rebote y para la distancia recorrida entre rebotes; es decir, que en cada salto su altura y distancia de divide a la mitad. Esta aniamción la he realizado usando 10 \textit{keyframes}, que son:
+En cuanto a la animacion, he utilizado un factor de 2 para la altura del rebote y para la distancia recorrida entre rebotes; es decir, que en cada salto su altura y distancia de divide a la mitad. La única parte en la que no se sigue esto es en el primer lanzamiento horizontal, ya que probando a seguir este factor el resultado era menos realista, pero la altura sí lo respeta, como pedía el ejercicio. Esta aniamción la he realizado usando 10 \textit{keyframes}, que son:
 
 \begin{enumerate}
-    \item 
+    \item Instante 0: La pelota se encuentra en el aire, lista para ser lanzada a la mesa.
+    \item Instante 15: La pelota ha tocado la mesa por primera vez.
+    \item Instantes 25, 42, 54: La pelota ha rebotado y se encuentra en el aire.
+    \item Instantes 35, 49, 59: La pelota ha tocado de nuevo el tablero de la mesa.
+    \item Instante 71: La pelota se encuentra en el borde de la mesa, justo antes de que se caiga al suelo.
+    \item Instante 84: La pelota ha caido y se encuentra en el suelo.
 \end{enumerate}
+
+% imagenes con los keyframes
+
+Y para animar los rebotes y el movimiento de manera realista, se han usado las siguientes curvas en la pelota:
+
+% imagenes separadas de las curvas
+
+La curva de color rojo (Posición en el eje X) sigue una forma lineal para todos los \textit{keyframes}. También se puede observar como el conjunto de todos los \textit{keyframes}, al seguir el factor 2, tiene una forma exponenecial, haciendo que en la animación la pelota vaya recorriendo cada vez menos distancia. 
+Esto se podría haber hecho directamente con dos \textit{keyframes} y dicha curva, pero se perdería demasiada precisión. % quizas quitar esto
+
+Mientras que la curva de color azul (Posición en el eje Z) sigue las trayectorias que hace la bola. Para que sean realistas los botes, he utilizado una curva de desaceleración en la subida y otro de aceleración en la bajada, para simular el efecto de la gravedad en la pelota. Cuando cae de la mesa se sigue la misma curva de aceleración.
+
+\section{Ejercicio 4 - Montacargas}
+
+En este ejercicio se pide animar un montacargas que se mueve desde la izquierda hasta la derecha y para burscamente al final aplicando el principio de \textit{Overlap \& Follow Through}. Por tanto, la cadena del montacargas debe ser ``arrastrada'' por la plataforma y cuando esta pare, la cadena debe dar un latigazo en el sentido contrario, para luego detenerse en el sitio final.
+
+%jerarquia de las piezas (reescribir)
+La figura del montacargas la he realizado usando como plataforma un cubo achatado y para la cadena he usado como figuras básicas un cilindro y una esfera para la articulación. Usando estas figuras, he anidado las distintas secciones del brazo, haciendo que el hijo sea la pieza de abajo y el padre la de arriba. Así se consigue que el hijo herede las transofrmaciones del padre.
+
+%foto de la jerarquia
+
+
+En cuanto a la animacion, ha sido necesario utilizar 2 \textit{keyframes} para la plataforma y 6 \textit{keyframes} para cada una de las partes del brazo, pero que realizan exactamente lo mismo. 
+
+\textit{Keframes} de la plataforma:
+
+
+\begin{enumerate}
+    \item Instante 0: Posición inicial, a la izquierda del todo.
+    \item Instante 30: Posición final, a la derecha del todo.
+\end{enumerate}
+
+\textit{Keframes} generales del brazo:
+
+\begin{enumerate}
+    \item Instante 0: Se encuentra el segmento en reposo; es decir, en vertical.
+    \item Instante 18: Se encuentra cada segmento del brazo rotado al máximo, siendo arrastrado por la plataforma en movimiento.
+    \item Instante 30: Exactamente igual que antes, pero en este caso la plataforma ya ha parado.
+    % arreglar parada en seco con otras palabras
+    \item Instante 50: Cada segmento del brazo ahora se encuentra rotado al lado contrario, fruto de la parada en seco de la plataforma, haciendo que de un latigazo.
+    \item Instante 64: Cada segmente vuelve a estar rotado hacia el otro lado, pero esta vez con una rotación algo menor que la primera vez, simulando las distintas fuerzas que actuan.
+    \item Instante 76: Los segementos se encuentran de nuevo verticales, como en el instante 0.
+\end{enumerate}
+%keyframes
+
+A modo visual, los \textit{keyframes} son los siguientes:
+
+% explicar el significado del instante 18 (rescribir)
+El instante 18 lo he puesto porque sin él la animación de rotar el brazo por la velocidad no se acababa hasta el punto en el que la plataforma parase, haciendo que la animación no quedase demasiado convincente. Haciendo esto, he conseguido que el brazo rote del todo antes de parar.
+
+%curva
+La curva para la aniamción de la plataforma es la siguiente:
+
+%foto de la curva
+
+Dicha curva lo que hace es, al principio acelera y cuando llega al punto final se para bruscamente (mediante la curva lineal). Esto lo he hecho asi para que el latigazo que realiza el brazo sea mas realista, ya que si se va frenando progresivamente no queda del todo bien.
+
+Las curvas de los segmentos del brazo son muy similares entre si, por lo que solo voy a mostrar uno.
+
+%foto de la curva
+
+%rescribir
+Esta curva lo que hace es seguir la aceleracion de la plataforma al principio, hasta llegar al instante 18 que he hablado anteriormente, asi se consigue que el movimiento sea mas natural. Despues se mantiene constante al no requerir rotacion ninguna. Cuando la plataforma para, se sigue una curva de desaceleracion, ya que la energia que tenia la pataforma se transfiere al brazo. Finalmente, se utilizan curvas de aceleración, desaceleracion y \textit{Slow in/Slow out} (union de ambas) para simular el baiben que hace hasta parar por las distintas fuerzas.
+
 
 \end{document}
