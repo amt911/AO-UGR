@@ -195,23 +195,23 @@ Cabe destacar que para animar la rotación necesaria para subir a la rampa, he c
 
 % Además, la jerarquía utilizada ha sido la de dejar como padre el cubo más grande del vehículo y como hijos las ruedas y el cubo más pequeño que hace de pilares y cristales.
 Además, para la jerarquía de objetos, he utilizado el cubo más grande del vehículo como padre y las ruedas y el cubo más pequeño como hijos.
-}
 
 
 La animación consiste en 8 \textit{keyframes}, que son los siguientes:
 
 \begin{enumerate}
-    \item Instante 0: El vehículo se encuentra en la posición inicial.
-    \item Instante 13: El vehículo ha realizado la aceleración.
-    \item Instante 26: El vehículo se encuentra en el instante anterior de subir la rampa.
-    \item Instante 28: El vehículo ha subido la rampa y se encuentra al principio de la misma.
-    \item Instante 32: El vehículo se encuentra en el instante anterior de estar en el aire; es decir, se encuentra tocando el final de la rampa solo con la rueda trasera.
-    \item Instante 44: El vehículo se encuentra en el punto más alto del lanzamiento y ya recto.
-    \item Instante 56: El vehículo ha tocado el suelo después del salto.
-    \item Instante 85: Finalmente, el vehículo frena hasta pararse del todo.
+    \item \textbf{Instante 0:} El vehículo se encuentra en la posición inicial y está listo para acelerar.
+    \item \textbf{Instante 13:} El vehículo ha acelerado.
+    \item \textbf{Instante 26:} El vehículo se encuentra en el instante anterior de subir la rampa.
+    \item \textbf{Instante 28:} El vehículo ha subido la rampa y se encuentra al principio de la misma.
+    \item \textbf{Instante 32:} El vehículo se encuentra en el instante anterior de estar en el aire; es decir, se encuentra tocando el final de la rampa solo con la rueda trasera.
+    \item \textbf{Instante 44:} El vehículo se encuentra en el punto más alto del lanzamiento y ya recto (paralelo al suelo).
+    \item \textbf{Instante 56:} El vehículo ha tocado el suelo después del salto y va a comenzar a frenar.
+    \item \textbf{Instante 85:} El vehículo ha frenado y se encuentra parado.
 \end{enumerate}
 
 A modo visual, los \textit{keyframes} son los siguientes:
+
 
 %fotos de los keyframes
 \begin{figure}[H]
@@ -256,8 +256,8 @@ A modo visual, los \textit{keyframes} son los siguientes:
  \end{figure}
 
 
-Y las curvas utilizadas para la animación:
-
+Y las curvas utilizadas para la animación son:
+}
 %fotos de las curvas, separadas por partes (si no son muchas)
 \begin{figure}[H]
     \centering
