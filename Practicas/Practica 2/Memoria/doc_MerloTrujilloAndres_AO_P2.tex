@@ -1,14 +1,19 @@
 %TODO: 
 % ARREGLAR FUNCION EXPONENCIAL CRECIENTE Y DECRECIENTE, DEPENDE DEL CONTEXTO
-% MULETILLAS: ADEMAS, CABE DESTACAR
+% MULETILLAS: ADEMAS, CABE DESTACAR, es decir
+
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption}
+\usepackage[draft]{graphicx}
+\usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{fancyhdr}
+\usepackage{xcolor}
 \usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
+
+\color{red}
 
 %\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
 
@@ -70,16 +75,16 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %     \end{subfigure}    
 % \end{figure}
 \section{Ejercicio 1 - Pelota rodando}
-
-En este ejercicio se pide implementar la animacion cuatro pelotas (o un haciendo un cuadrado) que parten desde un punto A y llegan al mismo tiempo a otro punto B haciendo, mediante curvas, animaciones distintas.
+{\color{green}
+En este ejercicio se pide implementar la animación de cuatro pelotas (o de una sola pelota haciendo una trayectoria cuadrada) que parten desde un punto A y llegan al mismo tiempo a otro punto B. Se deben usar curvas para crear las animaciones diferentes.
 
 \bigskip
 
-Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente los mismos, pero cambiando la forma de la curva. Entonces, los \textit{keyframes} son los siguientes:
+Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente los mismos, pero cambiando la forma de la función de interpolación para que sus movimientos sean distintos. Entonces, los \textit{keyframes} son los siguientes:
 
 \begin{enumerate}
-    \item Instante 0: Posición inicial en el punto A.
-    \item Instante 50: Posición final en el punto B.
+    \item \textbf{Instante 0:} Posición inicial en el punto A.
+    \item \textbf{Instante 50:} Posición final en el punto B.
 \end{enumerate}
 
 Y de manera gráfica, los \textit{keyframes} son:
@@ -102,11 +107,11 @@ Y de manera gráfica, los \textit{keyframes} son:
 
 \bigskip
 
-Estas animaciones las voy a dividir en subapartados para explicar mejor como son las curvas:
+Estas animaciones las voy a dividir en subsecciones para explicar mejor como son las curvas:
 
 \subsection{Movimiento uniforme}
 
-Para esta animacion es necesario usar un curva lineal, para que en cada instante de tiempo se avance siempre la misma distancia. La curva para esta pelota tiene la siguiente forma:
+Para esta animación es necesario utilizar una curva lineal, que permita avanzar siempre la misma distancia en cada instante de tiempo. La función tiene la siguiente forma:
 
 %foto de la curva
 \begin{figure}[H]
@@ -115,11 +120,10 @@ Para esta animacion es necesario usar un curva lineal, para que en cada instante
    \caption{Curva de la pelota con movimiento uniforme.}
 \end{figure}
 
-En la animación final se puede apreciar como mantiene la velocidad desde el primer momento hasta que acaba su recorrido.
-
+En la animación se puede apreciar cómo la pelota mantiene su velocidad constante desde la posición inicial hasta la final.
 \subsection{Aceleración}
 
-Para realizar esta animación se debe usar una curva exponencial, cuya pendiente sea creciente. Esto va a hacer que progresivamente vaya recorriendo la pelota más distancia para la misma cantidad de tiempo. 
+Para realizar esta animación se debe usar una curva de aceleración cuya pendiente sea creciente. Esto hará que la pelota recorra progresivamente una mayor distancia en la misma cantidad de tiempo.
 
 La curva tiene la siguiente forma:
 
@@ -128,15 +132,16 @@ La curva tiene la siguiente forma:
     \centering
     \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/aceleracion.png}
     \caption{Curva de la pelota que acelera.}
- \end{figure}
+\end{figure}
 
-En la animación se puede apreciar como poco a poco la pelota va acelerando cada vez más, hasta para bruscamente en en el putno B.
+En la animación se puede observar como la pelota acelera gradualmente hasta que se detiene abruptamente en el punto B.
 
-Cabe decir que he modificado la forma de la curva para que se pueda apreciar mejor la aceleración en la animación resultante, ya que con la curva por defecto del programa no se puede apreciar del todo bien.
+
+Cabe decir que he modificado la forma de la curva para que se pueda apreciar con mayor claridad la aceleración en la animación, dado que la curva por defecto del programa no es lo suficientemente pronunciada como para apreciarlo.
 
 \subsection{Deceleración}
 
-En este caso se debe usar una curva similar para la de aceleración, pero con una pendiente que vaya siendo cada vez menor. Esto resultará en que la pelota cada vez va a recorrer menos distancia para la misma cantidad de tiempo, haciendo que al final frene.
+En este caso, se debe utilizar una curva de desaceleración, similar a la curva de aceleración, pero con una pendiente cada vez menor. Esto provocará que la pelota recorra una distancia cada vez menor en la misma cantidad de tiempo, logrando así que finalmente se detenga en el punto B.
 
 La curva tiene la siguiente forma:
 
@@ -145,18 +150,22 @@ La curva tiene la siguiente forma:
     \centering
     \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/deceleracion.png}
     \caption{Curva de la pelota que desacelera.}
- \end{figure}
+\end{figure}
 
 
-En la aniamción resultante la pelota comienza moviéndose muy rápido y conforme se acerca a la posición final va frenando.
+En la animación, la pelota comienza moviéndose a gran velocidad y a medida que se acerca a su posición final, disminuye su velocidad hasta detenerse por completo.
 
 Al igual que con la aceleración, he modificado la curva para que el frenado sea más pronunciado.
 
 \subsection{Aceleración y deceleración}
 
-Esta animación es la combinación de la versión de aceleración y deceleración, haciendo que la pelota acelere cuando salga del punto A y vaya frenando cuando se acerque al punto B. 
+% Esta animación es la combinación de la versión de aceleración y deceleración, haciendo que la pelota acelere cuando salga del punto A y vaya frenando cuando se acerque al punto B. 
 
-La curva resultante es la unión de dichas versiones, haciendo que la pendiente sea progresivamente crenciente, hasta llegar a un punto en el que la pendiente decrece. 
+Esta animación es el resultado de combinar las versiones de aceleración y deceleración, lo que provoca que la pelota acelere al salir del punto A y desacelere al acercarse al punto B.
+
+% La curva resultante es la unión de ambas versiones, haciendo que la pendiente sea progresivamente creciente, hasta llegar a un punto en el que la pendiente decrece. 
+
+La curva resultante es la unión de ambas versiones, con una pendiente que aumenta progresivamente hasta alcanzar un punto en el que comienza a disminuir.
 
 Dicha curva es la siguiente:
 
@@ -165,21 +174,28 @@ Dicha curva es la siguiente:
     \centering
     \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/curvas/aceldecel.png}
     \caption{Curva de la pelota que acelera y desacelera.}
- \end{figure}
+\end{figure}
 
-El resultado es que la pelota acelera al principio y cuando se acerca al punto final comienza a frenar. Ademas, como en los anteriroes subapartados, he modificado la curva para que el resultado sea mas facil de ver.
+% El resultado es que la pelota acelera al principio y cuando se acerca al punto final comienza a frenar. Además, como en los anteriores subsecciones, he modificado la curva para que el resultado sea más fácil de ver.
+
+Como resultado, la pelota acelera al principio y comienza a desacelerar al acercarse al punto final. Además, al igual que en las subsecciones anteriores, he modificado la curva para que el resultado sea más fácil de apreciar.
+
 
 
 \section{Ejercicio 2 - Salto de coche}
 
-En este ejercicio se pide animar un coche que arranca desde una posición, para luego subir una rampa y saltar por los aires, para finalmente cuando toca el suelo frenar.
+% En este ejercicio se pide animar un coche que arranca desde una posición, para luego subir una rampa y saltar por los aires, para finalmente cuando toca el suelo frenar.
+
+En este ejercicio se pide animar un coche que parte desde una posición inicial, sube una rampa, la salta y finalmente frena al tocar el suelo.
 
 % no se si poner como he hecho la rampa.
 
 %reescribir esto
-Cabe destacar que para animar la rotacion para subir a la rampa, he cambiado el pivote para poner justo en el eje de las ruedas traseras, ya que es como realmente se deberia mover al intentar subir dicha rampa. 
+Cabe destacar que para animar la rotación necesaria para subir a la rampa, he cambiado el pivote del coche para que se sitúe justo en el eje de las ruedas traseras, ya que esto representa mejor el movimiento real al subir dicha rampa.
 
-Además, la jerarquía utilizada ha sido la de dejar como padre el cubo más grande del vehículo y como hijos las ruedas y el cubo más pequeño que hace de pilares y cristales.
+% Además, la jerarquía utilizada ha sido la de dejar como padre el cubo más grande del vehículo y como hijos las ruedas y el cubo más pequeño que hace de pilares y cristales.
+Además, para la jerarquía de objetos, he utilizado el cubo más grande del vehículo como padre y las ruedas y el cubo más pequeño como hijos.
+}
 
 
 La animación consiste en 8 \textit{keyframes}, que son los siguientes:
@@ -416,8 +432,8 @@ A modo visual, los \textit{keyframes} son los siguientes:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/50.png}
-    \caption{Rotación de los segmentos del brazo en el instante 50.}
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/47.png}
+    \caption{Rotación de los segmentos del brazo en el instante 47.}
 \end{figure}
 
 \begin{figure}[H]
@@ -429,8 +445,14 @@ A modo visual, los \textit{keyframes} son los siguientes:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/77.png}
-    \caption{Rotación de los segmentos del brazo en el instante 77.}
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/80.png}
+    \caption{Rotación de los segmentos del brazo en el instante 80.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/96.png}
+    \caption{Rotación de los segmentos del brazo en el instante 96.}
 \end{figure}
 
 % explicar el significado del instante 18 (rescribir)
