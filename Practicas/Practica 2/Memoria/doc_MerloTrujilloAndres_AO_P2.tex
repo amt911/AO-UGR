@@ -5,7 +5,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx}
+\usepackage[draft]{graphicx}
 \usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
@@ -42,7 +42,7 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 
 \begin{document}
 \begin{titlingpage}
-\maketitle
+    \maketitle
 \end{titlingpage}
 
 \tableofcontents
@@ -52,34 +52,13 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 \pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
 \fancyhead[L]{Andrés Merlo Trujillo}
 \fancyhead[R]{Animación por Ordenador}
-%\section{Ejercicio 1}
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
-%    \vspace{10pt}
-%    \footnotesize{Fuente: https://...}
-%\end{figure}
 
-% \begin{figure}[H]
-%     \centering 
-% 	\begin{subfigure}[H]{0.48\textwidth}
-% 	    \centering
-% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
-%         \caption{Pelotas en el instante 0.}
-%     \end{subfigure}
-%     \hfill
-% 	\begin{subfigure}[H]{0.48\textwidth}
-% 	    \centering
-% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
-%         \caption{Pelotas en el instante 50.}
-%     \end{subfigure}    
-% \end{figure}
 \section{Ejercicio 1 - Pelota rodando}
 En este ejercicio se pide implementar la animación de cuatro pelotas (o de una sola pelota haciendo una trayectoria cuadrada) que parten desde un punto A y llegan al mismo tiempo a otro punto B. Se deben usar curvas para crear las animaciones diferentes.
 
 \bigskip
 
-Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente los mismos, pero cambiando la forma de la función de interpolación para que sus movimientos sean distintos. 
+Cabe destacar que los \textit{keyframes} para todas las pelotas son exactamente los mismos, pero cambiando la forma de la función de interpolación para que sus movimientos sean distintos.
 
 \bigskip
 
@@ -90,27 +69,29 @@ Entonces, los \textit{keyframes} son los siguientes:
     \item \textbf{Instante 50:} Posición final en el punto B.
 \end{enumerate}
 
+\bigskip
+
 Y de manera gráfica, los \textit{keyframes} son:
 
 %fotos de una bola nada mas con los keyframes
 \begin{figure}[H]
-    \centering 
-	\begin{subfigure}[H]{0.48\textwidth}
-	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
+    \centering
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
         \caption{Pelotas en el instante 0.}
     \end{subfigure}
     \hfill
-	\begin{subfigure}[H]{0.48\textwidth}
-	    \centering
-	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
         \caption{Pelotas en el instante 50.}
-    \end{subfigure}    
+    \end{subfigure}
 \end{figure}
 
-\bigskip
-
 Estas animaciones las voy a dividir en subsecciones para explicar mejor como son las curvas:
+
+\newpage
 
 \subsection{Movimiento uniforme}
 
@@ -118,14 +99,15 @@ Para esta animación es necesario utilizar una curva lineal, que permita avanzar
 
 %foto de la curva
 \begin{figure}[H]
-   \centering
-   \includegraphics[width=0.6\textwidth]{imagenes/Ejercicio 1/curvas/uniforme.png}
-   \caption{Curva de la pelota con movimiento uniforme.}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imagenes/Ejercicio 1/curvas/uniforme.png}
+    \caption{Curva de la pelota con movimiento uniforme.}
 \end{figure}
 
-\bigskip
-
 En la animación se puede apreciar cómo la pelota mantiene su velocidad constante desde la posición inicial hasta la final.
+
+\newpage
+
 \subsection{Aceleración}
 
 Para realizar esta animación se debe usar una curva de aceleración cuya pendiente sea creciente. Esto hará que la pelota recorra progresivamente una mayor distancia en la misma cantidad de tiempo.
@@ -141,13 +123,13 @@ La curva tiene la siguiente forma:
     \caption{Curva de la pelota que acelera.}
 \end{figure}
 
-\bigskip
-
 En la animación se puede observar como la pelota acelera gradualmente hasta que se detiene abruptamente en el punto B.
 
 \bigskip
 
 Cabe decir que he modificado la forma de la curva para que se pueda apreciar con mayor claridad la aceleración en la animación, dado que la curva por defecto del programa no es lo suficientemente pronunciada como para apreciarlo.
+
+\newpage
 
 \subsection{Deceleración}
 
@@ -164,13 +146,13 @@ La curva tiene la siguiente forma:
     \caption{Curva de la pelota que desacelera.}
 \end{figure}
 
-\bigskip
-
 En la animación, la pelota comienza moviéndose a gran velocidad y a medida que se acerca a su posición final, disminuye su velocidad hasta detenerse por completo.
 
 \bigskip
 
 Al igual que con la aceleración, he modificado la curva para que el frenado sea más pronunciado.
+
+\newpage
 
 \subsection{Aceleración y deceleración}
 
@@ -193,6 +175,7 @@ Dicha curva es la siguiente:
 
 Como resultado, la pelota acelera al principio y comienza a desacelerar al acercarse al punto final. Además, al igual que en las subsecciones anteriores, he modificado la curva para que el resultado sea más fácil de apreciar.
 
+\newpage
 
 \section{Ejercicio 2 - Salto de coche}
 
@@ -253,7 +236,7 @@ A modo visual, los \textit{keyframes} son los siguientes:
     \end{subfigure}
     % \hfill
     \par\bigskip
-     \begin{subfigure}[H]{0.48\textwidth}
+    \begin{subfigure}[H]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{imagenes/Ejercicio2/keyframes/26.png}
         \caption{Vehículo en el instante 26.}
@@ -293,7 +276,6 @@ A modo visual, los \textit{keyframes} son los siguientes:
     \caption{\textit{Keyframes} para animar el coche.}
 \end{figure}
 
-\bigskip
 
 Y las curvas utilizadas para la animación son:
 %fotos de las curvas, separadas por partes (si no son muchas)
@@ -330,7 +312,7 @@ En cuanto a la curva verde (Rotación en el eje Y), se utiliza para rotar el veh
 
 \section{Ejercicio 3 - Pelota botando}
 
-En este ejercicio se pide animar una pelota que rebota varias veces sobre una mesa y que finalmente cae al suelo. 
+En este ejercicio se pide animar una pelota que rebota varias veces sobre una mesa y que finalmente cae al suelo.
 
 \bigskip
 
@@ -372,7 +354,7 @@ Esta animación la he realizado usando 10 \textit{keyframes}, que son:
 
 % imagenes con los keyframes
 \begin{figure}[H]
-    \centering 
+    \centering
     \begin{subfigure}[H]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{imagenes/Ejercicio3/keyframes/0.png}
@@ -486,7 +468,7 @@ Para crear la figura del montacargas se ha utilizado un cubo achatado como plata
 
 \bigskip
 
-En cuanto a la animación, ha sido necesario utilizar 2 \textit{keyframes} para la plataforma y 7 \textit{keyframes} para cada una de las partes de la cadena, pero estas realizan la misma animación. 
+En cuanto a la animación, ha sido necesario utilizar 2 \textit{keyframes} para la plataforma y 7 \textit{keyframes} para cada una de las partes de la cadena, pero estas realizan la misma animación.
 
 \bigskip
 
@@ -516,49 +498,52 @@ En cuanto a la animación, ha sido necesario utilizar 2 \textit{keyframes} para 
 A modo visual, los \textit{keyframes} son los siguientes:
 \begin{figure}[H]
     \centering
-\begin{subfigure}[H]{0.48\textwidth}
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/0.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 0. También es el \textit{keyframe} de la plataforma.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/18.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 18.}
+    \end{subfigure}
+    \par\bigskip
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/30.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 30. También es el \textit{keyframe} de la plataforma.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/47.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 47.}
+    \end{subfigure}
+    \par\bigskip
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/64.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 64.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/80.png}
+        \caption{Rotación de los segmentos de la cadena en el instante 80.}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]\ContinuedFloat
     \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/0.png}
-    \caption{Rotación de los segmentos de la cadena en el instante 0. También es el \textit{keyframe} de la plataforma.}
-\end{subfigure}
-\hfill
-\begin{subfigure}[H]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/18.png} 
-    \caption{Rotación de los segmentos de la cadena en el instante 18.}
-\end{subfigure}
-\par\bigskip
-\begin{subfigure}[H]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/30.png}
-    \caption{Rotación de los segmentos de la cadena en el instante 30. También es el \textit{keyframe} de la plataforma.}
-\end{subfigure}
-\hfill
-\begin{subfigure}[H]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/47.png}
-    \caption{Rotación de los segmentos de la cadena en el instante 47.}
-\end{subfigure}
-\par\bigskip
-\begin{subfigure}[H]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/64.png}
-    \caption{Rotación de los segmentos de la cadena en el instante 64.}
-\end{subfigure}
-\hfill
-\begin{subfigure}[H]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/80.png}
-    \caption{Rotación de los segmentos de la cadena en el instante 80.}
-\end{subfigure}
-\par\bigskip
 \begin{subfigure}[H]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/Ejercicio4/keyframes/96.png}
     \caption{Rotación de los segmentos de la cadena en el instante 96.}
 \end{subfigure}
+\caption{\textit{Keyframes} de la plataforma y el brazo.}
 \end{figure}
-
 
 
 \bigskip
@@ -580,7 +565,7 @@ La curva para la animación de la plataforma es la siguiente:
 
 Esta curva hace que la plataforma acelere al principio y se detenga bruscamente al llegar al punto final (mediante una cura lineal). Se ha realizado de esta manera para lograr que el latigazo que realiza la cadena parezca más realista.
 
-\bigskip
+\newpage
 
 Las curvas de los segmentos de la cadena son muy similares entre sí, por lo que solo voy a mostrar uno.
 
