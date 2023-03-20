@@ -112,4 +112,45 @@ Mientras que en postproduccion son etapas lineales, ya que una vez realizada la 
 
 En conclusion, el proceso de produccion sigue un modelo mixto, al ser principalmente lineal, pero con matices ciclicos tambien.
 
+\section{Indica en 3DS Max cómo se realizan cada una de las transformaciones anteriores (traslación, escalado, rotación). Haz una captura para cada caso.}
+
+\begin{itemize}
+    \item \textbf{Traslación: }Se realiza mediante la opción \textit{Select and Move}. Aparecerá en el objeto seleccionado unas flechas para mover dicho objeto.
+    
+    %FOTO DE LA OPCION Y OTRA DEL OBJETO
+    
+    \item \textbf{Escalado: }Las opciones \textit{Select and Uniform Scale} y \textit{Select and Non-Uniform Scale} permite escalar el objeto de manera uniforme y no uniforme. Apareceran los ejes del pivote de la figura de manera distinta, permitiendo escalarlo.
+    
+    %FOTACA DE ESO
+
+    \item \textbf{Rotación: }Se realiza mediante la opción \textit{Select and Rotate}. Aparecerá una esfera con cirvunferencias en los tres ejes sobre el pivote de la figura.
+    
+    %FOTO DE LA OPCION Y OTRA DEL OBJETO
+\end{itemize}
+
+\subsection{¿Conoces alguna otra transformación que ofrezca 3DS Max y que hayamos visto en clase? Indica su nombre y haz una captura.}
+
+Existe la opción \textit{Select and Squash}, que se encuetnra en la opción de escalado, manteniendo pulsado sobre el icono, la opción de más abajo.
+
+%foto de la opcion
+
+Esta opción permite escalar un objeto de una manera peculiar, ya que cuando se achata por un eje, el perpendicular se agranad. Esta opción es muy util para aplicar el principio \textit{Squash and Stretch}, visto en el tema anterior de teoria y utilizado, entre otras cosas, para animar el aplastamiento de una pelota cuando toca el suelo.
+
+%foto de la preview.
+
+\section{¿Cómo podríamos conseguir esta transformación?}
+
+%IMAGEN DE LA TETERA
+
+Se puede hacer de dos formas:
+
+\begin{itemize}
+    \item La primera es moviendo el pivote de la figura mediante la opción de \textit{Affect Pivot Only}, como se hizo para el péndulo en la primera práctica.
+    
+    %foto de eso
+    
+    \item La segunda opción es creando un objeto \textit{Dummy}, cuyo pivote se va a usar para mover la otra figura. Para ello, el objeto \textit{Dummy} debe ser padre de la figura hija, para que funcionen las transformaciones.
+    %foto de eso
+\end{itemize}
+
 \end{document}
