@@ -165,6 +165,45 @@ Y la figura tiene la siguiente forma:
 
 %foto en varias poses de la lampara
 
+% rescribir esta frase
 Cabe destacar que para que la figura sea lo más fácil de animar o mover posible, es necesario hacer que la base sea el padre, y conforme se va subiendo cada parte de la lampara, es un hijo, siendo la cabeza donde se pone la bombilla el hijo mas profudno.
+
+\section{Basándonos en la imagen, ¿qué dos tipos de sombras debemos diferenciar durante la creación de una escena y relacionado con el aspecto del modelo?}
+
+%imagen sombras
+
+Las sombras propias, que son aquellas que se proyectan sobre el propio objeto y que surgen del mismo objeto [https://piziadas.com/2010/07/animacion-3d-luces-sombras-blogs.html]. En el ejemplo de la imagen, las sombras propias son las caras más oscuras del cubo, al ser producidas por cada uno de los cubos y ser arrojados a ellos mismos.
+
+%imagen con sombra en color rojo
+
+El otro tipo de sombras son las sombras proyectadas, que son aquellas que produce un objeto y se proyectan sobre otro, normalmente la superficie. En la imaen de las transparencias, se puede ver este tipo de sombra proyectada en el plano, que hace de suelo.
+
+%imagen con sombra en color rojo
+
+\section{Busca información sobre el algoritmo de Ray Tracing. ¿Qué relación tiene que con lo visto hasta ahora? ¿Qué problema resuelve? Propón algún ejemplo visual.}
+
+El \textit{Ray Tracing} tiene relacion con lo visto hasta ahora al ser un algoritmo utilizado para generar la iluminacion, osmbras y reflejos, entre otras muchas propiedades, en la escena durante el renderizado.
+
+Intentar resolver la falta de realismo en los resultados de otros algoritmos, ya que este lanza rayos desde el \textit{viewport} de la camara a la escena, simulando los rebotes que harian los fotones y calculando el color que tendra cada objeto en la escena. 
+
+%rescribir quitando esto al principio
+Esto permite tener efectos de iluminacion muy realistas, permitiendo reflejar otros objetos de la escena en superficies reflectantes. Además, es capaz de simular ejectos como: reflexion, refracion, oclusión ambiental, desenfoque de movimiento, dispersion, etc [\verb|https://en.wikipedia.org/wiki/Ray_tracing_(graphics)|].
+
+%ejemplos de rt
+% fortnite https://www.eurogamer.net/digitalfoundry-2022-fortnite-massive-ue5-update-tech-analysis
+
+\subsection{¿Qué problema tiene?}
+
+El principla problema es que es muy costoso computacionalmente, siendo una mala opción para poder ver una aproximación en el \textit{viewport} de los programas de animacion. Se puede acelerar el proceso haciendo que los rayos reboten menos veces. No obstante, las tarjetas gráficas modernas tienen integradas núcleos específicos para realizar trazado de rayos, permitiendo acelerar mucho el proceso y en algunos casos poder ver los resultados en tiempo real.
+
+% Otro problema que tiene esta tecnica es el sonido que puede llegar a generar; es decir, cuando se dan ciertas condiciones, pueden aparecer muchos puntos de colores incorrectos en la escena, empeorando mucho la calidad. Esto se podría solucionar hacienod que el algoritmo calcule más rebotes sobre el objeto, con la desbentaja de ser mucho más costoso computacionalmente.
+
+%imagen ruido
+
+\section{¿Se podrían detectar fallos en la animación visualizando solamente las curvas?}
+
+Sí se podría. Un ejemplo claro es en las caidas de objetos por la gravedad, si no se ha usado una curva de aceleracion, se puede ver que no va a ser del todo correcta la animacion sin necesidad de ejecutarla. Otro ejemplo es para movimientos
+
+\section{¿Las curvas nos pueden proporcionar información sobre si un objeto está en movimiento o parado?}
 
 \end{document}
