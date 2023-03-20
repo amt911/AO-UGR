@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}	%Si se quiere compilar con las imagenes
+% \usepackage[draft]{graphicx}	%Si NO se quiere compilar con las imagenes porque tarda mucho
+\usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
+\usepackage{listings}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
+
+%\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
+
+\renewcommand{\footrulewidth}{0.4pt}
+\title{
+\includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
+\vspace*{1in}
+\textbf{Cuestiones Tema 3} \\
+Animación por Ordenador \\
+\vspace*{0.5in}}
+\author{Andrés Merlo Trujillo \\
+andresmerlo@correo.ugr.es \\
+77147239H \\ 
+\vspace*{0.5in} \\
+E.T.S. de Ingenierías Informática y de Telecomunicación \\
+\textbf{Universidad de Granada}} \date{\today}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
+\fancyhead[L]{Andrés Merlo Trujillo}
+\fancyhead[R]{Animación por Ordenador}
+%\section{Ejercicio 1}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%    \vspace{10pt}
+%    \footnotesize{Fuente: https://...}
+%\end{figure}
+
+% \begin{figure}[H]
+%     \centering 
+% 	\begin{subfigure}[H]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
+%         \caption{Pelotas en el instante 0.}
+%     \end{subfigure}
+%     \hfill
+%     %\par\bigskip %si se desea dejar un margen entre la imagen de arriba y de abajo
+% 	\begin{subfigure}[H]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
+%         \caption{Pelotas en el instante 50.}
+%     \end{subfigure}    
+% \end{figure}
+
+\section{Buscad un esquema general del proceso de producción 3D.}
+
+Un ejemplo del proceso de producción es el siguiente:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/prod.png}
+   \caption{Etapas del proceso de producción 3D.}
+   \vspace{10pt}
+   \footnotesize{Fuente: \url{https://www.renderforest.com/es/blog/3d-animation}}
+\end{figure}
+
+
+Voy a dividir cada pregunta en subsecciones:
+
+\subsection{Describid las etapas brevemente.}
+Las etapas se dividen en: preproduccion, produccion y postproduccion.
+
+
+La etapa del proceso de preroduccion consiste en escribir el guion y realizar storyboards, que son bocetos que permiten plasmar la idea del guion y sus distintas escenas, junto a la apariencia de los personajes [diapos profe].
+
+Las etapas de la producción 3D son:
+
+\begin{itemize}
+    % \item \textbf{Guión y Storyboards: }Se crea el guión que va a seguir la animación y algunos bocetos hechos a mano para plasmar la idea de las distintas escenas que va a componer la animación [Dispositivas del profe].
+    \item \textbf{Modelado: }Se generan la geometria de los objetos que van a intervenir en la escena, desde los personajes hasta la vegetacion de alrededor [https://www.esi.uclm.es/www/cglez/fundamentos3D/01.02.Ciclo3D.html].
+    \item \textbf{Rigging: }Se construye un esqueleto al personaje para que pueda moverse y cambiar de expresion [https://www.animum3d.com/blog/la-produccion-3d/].
+    \item \textbf{Materiales y Texturas: }Se le aplica a los objetos las propiedades de luz, color, transparencia, rugosidad, etc. Esto hace que el modelo sea mas realista [https://www.animum3d.com/blog/la-produccion-3d/].
+    \item \textbf{Iluminación: }En esta fase se ilumina la escena mediante distintos puntos de luz, controlando parametros como: posicion de la luz, temperatura de color, \dots [https://www.animum3d.com/blog/la-produccion-3d/]
+    \item \textbf{Animación: }Consiste en dar movimiento (``dar vida'') a los modelos de la escena, creando la ilusión de movimiento y de que los personajes sienten [https://www.animum3d.com/blog/la-produccion-3d/].
+    \item \textbf{Render: }Fase en la que se genera las imagenes finales que componen la animacion mediante diversos calculos, como el de iluminacion.
+\end{itemize}
+
+Y el proces de postproduccion consiste en modificar las imagenes obtenidas de la renderizacion y aplicarles diversos filtros y efectos para obtener la imagen final [https://www.esi.uclm.es/www/cglez/fundamentos3D/01.02.Ciclo3D.html].
+
+\subsection{¿Es un proceso lineal, cíclico o mixto?}
+Es un proceso mixto, ya que si nos fijamos en la imagen anterior, hay etapas en preproduccion y produccion que siguen ciclos, haciendo alusion a que se pueden refinar dichas etapas aun mas. Un ejemplo claro de esto es cuando se realiza un personaje y se desea hacer algun cambio para que sea mas acorde a su personalidad.
+
+Mientras que en postproduccion son etapas lineales, ya que una vez realizada la etapa anterior se realiza la siguiente. Esto no implica que pueda ser necesario volver a una etapa anterior para corregir o mejorar algun defecto.
+
+En conclusion, el proceso de produccion sigue un modelo mixto, al ser principalmente lineal, pero con matices ciclicos tambien.
+
+\end{document}
