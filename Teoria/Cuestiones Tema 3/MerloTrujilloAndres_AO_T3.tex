@@ -274,6 +274,30 @@ Intentar resolver la falta de realismo en los resultados de otros algoritmos, ya
 Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar otros objetos de la escena en superficies reflectantes. Además, es capaz de simular efectos como: reflexión, refracción, oclusión ambiental, desenfoque de movimiento, dispersión, etc \cite{raytracing}.
 
 %ejemplos de rt
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/minecraft1.png}
+    \caption{Ejemplo de trazado de rayos en Minecraft. Además, se puede observar como el agua refracta el fondo, dando la sensación de tener menos profundidad.}
+ \end{figure}
+
+\begin{figure}[H]
+    \centering 
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/minecraftvanilla.png}
+        \caption{Iluminación por defecto.}
+    \end{subfigure}
+    \hfill
+    %\par\bigskip %si se desea dejar un margen entre la imagen de arriba y de abajo
+	\begin{subfigure}[H]{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{imagenes/minecraftrt.png}
+        \caption{Iluminación usando trazado de rayos. Se puede observar como los cristales tiñen la luz, dando un resultado realista.}
+    \end{subfigure}   
+    \caption{Comparativa de distintas técnicas de iluminación en Minecraft.} 
+\end{figure}
+
+
 % fortnite https://www.eurogamer.net/digitalfoundry-2022-fortnite-massive-ue5-update-tech-analysis
 
 \subsection{¿Qué problema tiene?}
