@@ -88,17 +88,21 @@ Voy a dividir cada pregunta en subsecciones:
 \subsection{Describid las etapas brevemente.}
 Las etapas se dividen en: preproducción, producción y postproducción.
 
-El proceso de preproducción consiste en escribir el guion y realizar \textit{storyboards}, que son bocetos que permiten plasmar la idea del guion y sus distintas escenas, junto a la apariencia de los personajes \cite{diapos}.
+\bigskip
 
-Las etapas de la producción 3D son:
+El proceso de preproducción consiste en escribir el guion y realizar \textit{storyboards}, que son bocetos que plasman la idea del guion y sus distintas escenas, junto a la apariencia de los personajes \cite{diapos}.
+
+\bigskip
+
+Es la etapa en la que se llevan a cabo las tareas más costosas en todo el proyecto \cite{uclm}. Esta etapa se divide en fases, que son:
 
 \begin{itemize}
     \item \textbf{Modelado: }Se generan la geometría de los objetos que van a intervenir en la escena, desde los personajes hasta la vegetación de alrededor \cite{uclm}.
-    \item \textbf{Rigging: }Se construye un esqueleto al personaje para que pueda moverse y cambiar de expresión \cite{animum}.
+    \item \textbf{Rigging: }Se le construye el esqueleto a cada personaje para que puedan moverse y cambiar de expresión \cite{animum}.
     \item \textbf{Materiales y Texturas: }Se le aplica a los objetos las propiedades de luz, color, transparencia, rugosidad, etc. Esto hace que el modelo sea más realista \cite{animum}.
     \item \textbf{Iluminación: }En esta fase se ilumina la escena mediante distintos puntos de luz, controlando parámetros como: posición de la luz, temperatura de color, \dots \cite{animum}
-    \item \textbf{Animación: }Consiste en dar movimiento (``dar vida'') a los modelos de la escena, creando la ilusión de movimiento y de que los personajes sienten \cite{animum}.
-    \item \textbf{Render: }Fase en la que se genera las imágenes finales que componen la animación mediante diversos cálculos, como el de iluminación.
+    \item \textbf{Animación: }Consiste en dar movimiento (animar) a los modelos de la escena, creando la ilusión de se mueven, expresan emociones y sienten \cite{animum}.
+    \item \textbf{Render: }Fase en la que se genera las imágenes finales que componen la animación mediante diversos cálculos y algoritmos. En este paso se suele generar la iluminación de mejor calidad y a una resolución mayor de lo que tienen los editores para trabajar.
 \end{itemize}
 
 Y el proceso de postproducción consiste en modificar las imágenes obtenidas de la renderización y aplicarles diversos filtros y efectos para obtener la imagen final \cite{uclm}.
@@ -112,33 +116,67 @@ En conclusión, el proceso de producción sigue un modelo mixto, al ser principa
 
 \section{Indica en 3DS Max cómo se realizan cada una de las transformaciones anteriores (traslación, escalado, rotación). Haz una captura para cada caso.}
 
+Todas las transformaciones principales se encuentran en el panel superior:
+
+% imagen
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/tools.png}
+ \end{figure}
+
 \begin{itemize}
     \item \textbf{Traslación: }Se realiza mediante la opción \textit{Select and Move}. Aparecerá en el objeto seleccionado unas flechas para mover dicho objeto.
     
     %FOTO DE LA OPCION Y OTRA DEL OBJETO
-    
-    \item \textbf{Escalado: }Las opciones \textit{Select and Uniform Scale} y \textit{Select and Non-Uniform Scale} permite escalar el objeto de manera uniforme y no uniforme. Aparecerán los ejes del pivote de la figura de manera distinta, permitiendo escalarlo.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/trans.png}
+        \caption{Botón de traslación señalado y ejemplo sobre una figura.}
+     \end{figure}
+
+    \item \textbf{Escalado: }Las opciones \textit{Select and Uniform Scale} y \textit{Select and Non-Uniform Scale} permiten escalar el objeto de manera uniforme y no uniforme. Aparecerán los ejes del pivote de la figura de manera distinta, permitiendo escalarlo.
     
     %FOTACA DE ESO
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/scale.png}
+        \caption{Botón de escalado señalado y ejemplo sobre una figura.}
+     \end{figure}
+
 
     \item \textbf{Rotación: }Se realiza mediante la opción \textit{Select and Rotate}. Aparecerá una esfera con circunferencias en los tres ejes sobre el pivote de la figura.
     
     %FOTO DE LA OPCION Y OTRA DEL OBJETO
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/scale.png}
+        \caption{Botón de rotación señalado y ejemplo sobre una figura.}
+     \end{figure}    
 \end{itemize}
 
 \subsection{¿Conoces alguna otra transformación que ofrezca 3DS Max y que hayamos visto en clase? Indica su nombre y haz una captura.}
 
 Existe la opción \textit{Select and Squash}, que se encuentra en la opción de escalado, manteniendo pulsado sobre el icono, la opción de más abajo.
 
-%foto de la opcion
+\bigskip
 
 Esta opción permite escalar un objeto de una manera peculiar, ya que cuando se achata por un eje, el perpendicular se agranda. Esta opción es muy útil para aplicar el principio \textit{Squash and Stretch}, visto en el tema anterior de teoría y utilizado, entre otras cosas, para animar el aplastamiento de una pelota cuando toca el suelo.
 
 %foto de la preview.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/squash.png}
+    \caption{Botón de \textit{Squash} señalado y ejemplo sobre una figura.}
+ \end{figure} 
+
 
 \section{¿Cómo podríamos conseguir esta transformación?}
 
 %IMAGEN DE LA TETERA
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/tetera.png}
+\end{figure}
 
 Se puede hacer de dos formas:
 
@@ -146,43 +184,91 @@ Se puede hacer de dos formas:
     \item La primera es moviendo el pivote de la figura mediante la opción de \textit{Affect Pivot Only}, como se hizo para el péndulo en la primera práctica.
     
     %foto de eso
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/tetepivote.png}
+        \caption{Rotación de la tetera modificando la posición del pivote.}
+     \end{figure}    
     
     \item La segunda opción es creando un objeto \textit{Dummy}, cuyo pivote se va a usar para mover la otra figura. Para ello, el objeto \textit{Dummy} debe ser padre de la figura hija, para que funcionen las transformaciones.
     %foto de eso
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/tetepivote.png}
+        \caption{Rotación de la tetera usando un objeto \textit{Dummy} como apoyo.}
+     \end{figure}    
+
 \end{itemize}
 
 \section{Propón un esquema jerarquizado para representar el siguiente objeto.}
 
 %imagen de la lampara
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/lamp.png}
+ \end{figure}    
+
 
 La jerarquía utilizada en 3ds Max es la siguiente:
 
 %foto de la jerarquia
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/lampjerar.png}
+    \caption{Jerarquía de la lámpara en 3ds Max.}
+ \end{figure}    
+
 
 Y la figura tiene la siguiente forma:
 
 %foto en varias poses de la lampara
 
-% rescribir esta frase
-Cabe destacar que para que la figura sea lo más fácil de animar o mover posible, es necesario hacer que la base sea el padre, y conforme se va subiendo cada parte de la lámpara, es un hijo, siendo la cabeza donde se pone la bombilla el hijo más profundo.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/lamp1.png}
+    \caption{Posición original de la lámpara.}
+ \end{figure}    
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/lamp2.png}
+    \caption{Posición modificada de la lámpara.}
+ \end{figure}    
+
+Cabe destacar que, para facilitar la animación y el movimiento de la figura, es necesario establecer una jerarquía donde el padre sea la base de la lámpara, el hijo sea el segmento conectado a la base, y así sucesivamente, hasta llegar a la cabeza de la lámpara, que es el hijo más profundo.
 
 \section{Basándonos en la imagen, ¿qué dos tipos de sombras debemos diferenciar durante la creación de una escena y relacionado con el aspecto del modelo?}
 
 %imagen sombras
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sombra0004.png}
+ \end{figure}    
 
-Las sombras propias, que son aquellas que se proyectan sobre el propio objeto y que surgen del mismo objeto \cite{sombras}. En el ejemplo de la imagen, las sombras propias son las caras más oscuras del cubo, al ser producidas por cada uno de los cubos y ser arrojados a ellos mismos.
+Las sombras propias, que son aquellas que se proyectan sobre el propio objeto y que surgen de él mismo \cite{sombras}. En el ejemplo de la imagen, las sombras propias son las caras más oscuras del cubo, al ser producidas por cada uno de los cubos y ser arrojados a ellos mismos.
 
 %imagen con sombra en color rojo
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sombra0004propia.png}
+    \caption{Contorno de la sombra propia marcado en rojo oscuro.}
+ \end{figure}    
 
 El otro tipo de sombras son las sombras proyectadas, que son aquellas que produce un objeto y se proyectan sobre otro, normalmente la superficie. En la imagen de las transparencias, se puede ver este tipo de sombra proyectada en el plano, que hace de suelo.
 
 %imagen con sombra en color rojo
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/sombra0004proy.png}
+    \caption{Contorno de la sombra propia marcado en rojo proyectada.}
+ \end{figure}    
 
 \section{Busca información sobre el algoritmo de Ray Tracing. ¿Qué relación tiene que con lo visto hasta ahora? ¿Qué problema resuelve? Propón algún ejemplo visual.}
 
 El \textit{Ray Tracing} tiene relación con lo visto hasta ahora al ser un algoritmo utilizado para generar la iluminación, sombras y reflejos, entre otras muchas propiedades, en la escena durante el renderizado.
 
-Intentar resolver la falta de realismo en los resultados de otros algoritmos, ya que este lanza rayos desde el \textit{viewport} de la cámara a la escena, simulando los rebotes que harían los fotones y calculando el color que tendrá cada objeto en la escena. 
+Intentar resolver la falta de realismo en los resultados de otros algoritmos, ya que este lanza rayos desde el \textit{viewport} de la cámara a la escena, simulando los rebotes que harían los fotones y calculando el color que tendrá cada objeto en dicha escena. 
 
 %rescribir quitando esto al principio
 Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar otros objetos de la escena en superficies reflectantes. Además, es capaz de simular efectos como: reflexión, refracción, oclusión ambiental, desenfoque de movimiento, dispersión, etc \cite{raytracing}.
@@ -194,17 +280,17 @@ Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar o
 
 El principal problema es que es muy costoso computacionalmente, siendo una mala opción para poder ver una aproximación en el \textit{viewport} de los programas de animación. Se puede acelerar el proceso haciendo que los rayos reboten menos veces. No obstante, las tarjetas gráficas modernas tienen integradas núcleos específicos para realizar trazado de rayos, permitiendo acelerar mucho el proceso y en algunos casos poder ver los resultados en tiempo real.
 
-% Otro problema que tiene esta tecnica es el sonido que puede llegar a generar; es decir, cuando se dan ciertas condiciones, pueden aparecer muchos puntos de colores incorrectos en la escena, empeorando mucho la calidad. Esto se podría solucionar hacienod que el algoritmo calcule más rebotes sobre el objeto, con la desbentaja de ser mucho más costoso computacionalmente.
-
 %imagen ruido
 
 \section{¿Se podrían detectar fallos en la animación visualizando solamente las curvas?}
 
-Sí se podría. Un ejemplo claro es en las caídas de objetos por la gravedad, si no se ha usado una curva de aceleración, se puede ver que no va a ser del todo correcta la animación sin necesidad de ejecutarla. Otro ejemplo es para movimientos
+Sí se podría. Un ejemplo claro es en las caídas de objetos por la gravedad, si no se ha usado una curva de aceleración, se puede ver que no va a ser del todo correcta la animación sin necesidad de ejecutarla.
 
 \section{¿Las curvas nos pueden proporcionar información sobre si un objeto está en movimiento o parado?}
 
-Sí. Uno de los ejes de las curvas, concretamente el eje Y, representa la posición del objeto. Por tanto, esta curva representa la posición con respecto al tiempo. Entonces lo que hay que buscar en las curvas son secciones horizontales, que significan que cualquier atributo del objeto no ha variado en un tiempo.
+% Sí. Uno de los ejes de la representación de las curvas, concretamente el eje Y, representa la posición del objeto. Por tanto, esta curva representa la posición con respecto al tiempo. Entonces lo que hay que buscar en las curvas son secciones horizontales, que significan que cualquier atributo del objeto no ha variado en un tiempo.
+
+Sí. La representación de las curvas tiene como eje vertical la posición o transformación del objeto. Esto, unido al eje horizontal, permite representar la posición con respecto al tiempo. Entonces lo que hay que buscar en las curvas son secciones horizontales, que significan que cualquier atributo del objeto no ha variado en un tiempo.
 
 \begin{thebibliography}{1}
     \bibitem{uclm} Modelado en proceso de producción y explicación del proceso de postproducción: \url{https://www.esi.uclm.es/www/cglez/fundamentos3D/01.02.Ciclo3D.html}
