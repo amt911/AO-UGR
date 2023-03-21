@@ -171,8 +171,6 @@ Dicha curva es la siguiente:
     \caption{Curva de la pelota que acelera y desacelera.}
 \end{figure}
 
-\bigskip
-
 Como resultado, la pelota acelera al principio y comienza a desacelerar al acercarse al punto final. Además, al igual que en las subsecciones anteriores, he modificado la curva para que el resultado sea más fácil de apreciar.
 
 \newpage
@@ -332,8 +330,6 @@ Y las curvas utilizadas para la animación son:
     \caption{Curva referente a la posición del vehículo en el eje X.}
 \end{figure}
 
-\bigskip
-
 Como se puede ver en la curva roja (posición en el eje X), al principio tiene forma exponencial creciente para simular la aceleración, seguida de un tramo lineal hasta la parte de frenado, donde la curva tiene forma exponencial decreciente para que el coche frene y se detenga.
 
 \begin{figure}[H]
@@ -342,8 +338,6 @@ Como se puede ver en la curva roja (posición en el eje X), al principio tiene f
     \caption{Curva referente a la posición del vehículo en el eje Z.}
 \end{figure}
 
-\bigskip
-
 En cuanto a la curva azul (Posición en el eje Z), se utiliza para animar la subida a la rampa y la trayectoria que sigue el vehículo cuando sale despedido de ella. Durante la subida, la curva es lineal con la misma pendiente que la rampa, mientras que durante el lanzamiento se utiliza una combinación de dos funciones exponenciales para simular la fuerza que ejerce la gravedad en la subida y la bajada. Cabe destacar que la forma de esta curva afecta directamente a la animación resultante; es decir, si se hubiera utilizado una curva lineal, el lanzamiento habría tenido una forma triangular.
 
 \begin{figure}[H]
@@ -351,8 +345,6 @@ En cuanto a la curva azul (Posición en el eje Z), se utiliza para animar la sub
     \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio2/corregidas/curvas/green.png}
     \caption{Curva referente a la rotación del vehículo en el eje Y.}
 \end{figure}
-
-\bigskip
 
 En cuanto a la curva verde (Rotación en el eje Y), se utiliza para rotar el vehículo durante el cambio de pendiente a la subida de la rampa y para enderezarlo durante el lanzamiento.
 
@@ -367,7 +359,15 @@ La mesa la he realizado usando 5 cubos: uno grande para el tablero y otros 4 del
 
 \bigskip
 
-En cuanto a la animación, he utilizado un factor de 2 para la altura del rebote y la distancia recorrida entre ellos, lo que significa que en cada salto su altura y distancia se reducen a la mitad. La única excepción a esto es en el primer lanzamiento horizontal, ya que al probar con este factor, el resultado era menos realista. Sin embargo, se ha respetado el factor para la altura, tal como lo exigía el ejercicio.
+En cuanto a la animación, he utilizado un factor de 2 para la altura del rebote y la distancia recorrida entre ellos, lo que significa que en cada salto su altura y distancia se reducen a la mitad. La única excepción a esto es en el primer lanzamiento y en el recorrido horizontal para caer al suelo, ya que al probar a seguirlo el resultado era menos realista. 
+
+\bigskip
+
+El movimiento horizontal podría haberse implementado con menos \textit{keyframes}, pero como he querido simular la pérdida de velocidad en cada acción que realiza la pelota, he necesitado incluir más \textit{keyframes} de manera obligatoria. 
+
+\bigskip
+
+Asimismo, el penúltimo \textit{keyframe} del movimiento horizontal (cuando la pelota va a caer al suelo) puede parecer que no sea necesario, al tener una pendiente muy similar al segmento anterior, pero he deseado simular que ha perdido velocidad después de todos los rebotes, sin seguir el factor de 2, que hacía que perdiera demasiada velocidad. Entonces, tampoco se puede eliminar, al ser una parte importante de la animación.
 
 \bigskip
 
@@ -383,21 +383,6 @@ Esta animación la he realizado usando 10 \textit{keyframes}, que son:
 \end{enumerate}
 
 \bigskip
-
-% \begin{figure}[H]
-%     \centering 
-% 	\begin{subfigure}[H]{0.48\textwidth}
-% 	    \centering
-% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
-%         \caption{Pelotas en el instante 0.}
-%     \end{subfigure}
-%     \hfill
-% 	\begin{subfigure}[H]{0.48\textwidth}
-% 	    \centering
-% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
-%         \caption{Pelotas en el instante 50.}
-%     \end{subfigure}    
-% \end{figure}
 
 % imagenes con los keyframes
 \begin{figure}[H]
@@ -472,31 +457,40 @@ Esta animación la he realizado usando 10 \textit{keyframes}, que son:
     \end{subfigure}
     \caption{\textit{Keyframes} utilizados para animar la pelota.}
 \end{figure}
-
-\bigskip
-
 Y para animar los rebotes y el movimiento de manera realista, se han usado las siguientes curvas en la pelota:
 
 % imagenes separadas de las curvas
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio3/curvas/red.png}
+    \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio3/corregidas/curvas/red.png}
     \caption{Posición de la pelota en el eje X.}
 \end{figure}
 
+La curva de color rojo (Posición en el eje X) sigue una forma lineal para todos los \textit{keyframes}. También se puede observar como el conjunto de todos los \textit{keyframes}, al seguir el factor 2, tiene una forma exponencial, haciendo que en la animación la pelota vaya recorriendo cada vez menos distancia para la misma cantidad de tiempo.
+
 \bigskip
 
-La curva de color rojo (Posición en el eje X) sigue una forma lineal para todos los \textit{keyframes}. También se puede observar como el conjunto de todos los \textit{keyframes}, al seguir el factor 2, tiene una forma exponencial, haciendo que en la animación la pelota vaya recorriendo cada vez menos distancia para la misma cantidad de tiempo.
+Un aspecto importante a tener en cuenta es que esta curva se podría haber hecho con menos \textit{keyframes}, pero para darle más realismo he decidido implementar un factor de 2, al igual que en la altura. Por lo que realmente todos los \textit{keyframes} que aparecen son necesarios.
+
+\newpage
+
+Además, he eliminado los \textit{keyframes} relativos a cuando la pelota estaba en el aire, ya que no tenían ningún sentido. Esto se puede ver en la siguiente imagen:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio3/curvas/blue.png}
+    \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio3/corregidas/curvas/both.png}
+    \caption{Se puede apreciar como la curva roja no tiene \textit{keyframes} en los instantes rodeados en rojo.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio3/corregidas/curvas/blue.png}
     \caption{Posición de la pelota en el eje Z.}
 \end{figure}
 
-\bigskip
-
 La curva de color azul (Posición en el eje Z) sigue las trayectorias que hace la bola. Para que los rebotes sean realistas, he utilizado una curva de desaceleración en la subida y otro de aceleración en la bajada, para simular el efecto de la gravedad en la pelota. Cuando cae de la mesa se sigue la misma curva de aceleración anteriormente mencionada.
+
+\newpage
 
 \section{Ejercicio 4 - Montacargas}
 
@@ -512,8 +506,6 @@ Para crear la figura del montacargas se ha utilizado un cubo achatado como plata
     \includegraphics[width=0.5\textwidth]{imagenes/Ejercicio4/jerarquia.png}
     \caption{Jerarquía de las distintas partes del montacargas.}
 \end{figure}
-
-\bigskip
 
 En cuanto a la animación, ha sido necesario utilizar 2 \textit{keyframes} para la plataforma y 7 \textit{keyframes} para cada una de las partes de la cadena, pero estas realizan la misma animación.
 
@@ -592,12 +584,9 @@ A modo visual, los \textit{keyframes} son los siguientes:
 \caption{\textit{Keyframes} de la plataforma y el brazo.}
 \end{figure}
 
-
-\bigskip
-
 Se ha colocado el \textit{keyframe} en el instante 18, ya que sin él la animación de la rotación de la cadena debido a la velocidad no se completaría hasta que la plataforma se detuviera en el instante 30, lo que haría que la animación no fuera muy convincente. Al hacer esto, se ha logrado que la cadena rote completamente antes de que la plataforma se detenga.
 
-\bigskip
+\newpage
 %curva
 La curva para la animación de la plataforma es la siguiente:
 
@@ -608,11 +597,10 @@ La curva para la animación de la plataforma es la siguiente:
     \caption{Curva de la posición en el eje X de la plataforma con respecto al tiempo.}
 \end{figure}
 
-\bigskip
-
 Esta curva hace que la plataforma acelere al principio y se detenga bruscamente al llegar al punto final (mediante una cura lineal). Se ha realizado de esta manera para lograr que el latigazo que realiza la cadena parezca más realista.
 
-\newpage
+% \newpage
+\bigskip
 
 Las curvas de los segmentos de la cadena son muy similares entre sí, por lo que solo voy a mostrar uno.
 
@@ -622,8 +610,6 @@ Las curvas de los segmentos de la cadena son muy similares entre sí, por lo que
     \includegraphics[width=0.8\textwidth]{imagenes/Ejercicio4/curvas/segmentos/green.png}
     \caption{Curva para la rotación en el eje Y de los segmentos con respecto el tiempo.}
 \end{figure}
-
-\bigskip
 
 Esta curva sigue la misma aceleración que la plataforma al principio de la animación, logrando que el movimiento sea más natural. A partir del instante 18, la curva se mantiene constante al no requerir rotación. Cuando la plataforma se detiene, se utiliza una curva lineal, ya que la energía que tenía la plataforma se transfiere a la cadena y finalmente se utilizan curvas de aceleración, desaceleración y \textit{Slow in/Slow out} (combinación de ambas) para simular el vaivén que realiza la cadena antes de detenerse debido a las distintas fuerzas.
 
