@@ -149,7 +149,7 @@ Todas las transformaciones principales se encuentran en el panel superior:
     %FOTO DE LA OPCION Y OTRA DEL OBJETO
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{imagenes/scale.png}
+        \includegraphics[width=\textwidth]{imagenes/rot.png}
         \caption{Botón de rotación señalado y ejemplo sobre una figura.}
      \end{figure}    
 \end{itemize}
@@ -194,10 +194,17 @@ Se puede hacer de dos formas:
     %foto de eso
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{imagenes/tetepivote.png}
+        \includegraphics[width=\textwidth]{imagenes/tetedummy.png}
         \caption{Rotación de la tetera usando un objeto \textit{Dummy} como apoyo.}
      \end{figure}    
 
+     Y la jerarquía utilizada es la siguiente:
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/tetejer.png}
+        \caption{Jerarquía para rotar la tetera.}
+     \end{figure}         
 \end{itemize}
 
 \section{Propón un esquema jerarquizado para representar el siguiente objeto.}
@@ -261,7 +268,7 @@ El otro tipo de sombras son las sombras proyectadas, que son aquellas que produc
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/sombra0004proy.png}
-    \caption{Contorno de la sombra propia marcado en rojo proyectada.}
+    \caption{Contorno de la sombra proyectada marcado en rojo.}
  \end{figure}    
 
 \section{Busca información sobre el algoritmo de Ray Tracing. ¿Qué relación tiene que con lo visto hasta ahora? ¿Qué problema resuelve? Propón algún ejemplo visual.}
@@ -271,7 +278,7 @@ El \textit{Ray Tracing} tiene relación con lo visto hasta ahora al ser un algor
 Intentar resolver la falta de realismo en los resultados de otros algoritmos, ya que este lanza rayos desde el \textit{viewport} de la cámara a la escena, simulando los rebotes que harían los fotones y calculando el color que tendrá cada objeto en dicha escena. 
 
 %rescribir quitando esto al principio
-Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar otros objetos de la escena en superficies reflectantes. Además, es capaz de simular efectos como: reflexión, refracción, oclusión ambiental, desenfoque de movimiento, dispersión, etc \cite{raytracing}.
+Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar otros objetos de la escena en superficies reflectantes. Además, es capaz de simular efectos como: reflexión, refracción, oclusión ambiental, desenfoque de movimiento, dispersión, etc \cite{raytracing}. Una característica que separa este algoritmo de los demás, es la capacidad de poder ``teñir'' los objetos del color de otros a su alrededor e incluso la luz.
 
 %ejemplos de rt
 \begin{figure}[H]
@@ -297,9 +304,14 @@ Esto permite tener efectos de iluminación muy realistas, permitiendo reflejar o
     \caption{Comparativa de distintas técnicas de iluminación en Minecraft.} 
 \end{figure}
 
-
-% fortnite https://www.eurogamer.net/digitalfoundry-2022-fortnite-massive-ue5-update-tech-analysis
-
+% https://developer.apple.com/videos/play/wwdc2018/606/
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/raytracingapple.png}
+    \caption{Visualización de como la cámara lanza rayos a la escena para obtener la imagen final. También se puede ver como la pared verde hace que cambien de color una de las caras del cubo.}
+   \vspace{10pt}
+   \footnotesize{Fuente: \url{https://developer.apple.com/videos/play/wwdc2018/606/}}    
+ \end{figure}
 \subsection{¿Qué problema tiene?}
 
 El principal problema es que es muy costoso computacionalmente, siendo una mala opción para poder ver una aproximación en el \textit{viewport} de los programas de animación. Se puede acelerar el proceso haciendo que los rayos reboten menos veces. No obstante, las tarjetas gráficas modernas tienen integradas núcleos específicos para realizar trazado de rayos, permitiendo acelerar mucho el proceso y en algunos casos poder ver los resultados en tiempo real.
