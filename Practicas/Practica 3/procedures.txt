@@ -1,0 +1,3 @@
+ambient light
+
+Rendering -> Environment -> Background -> Color

@@ -1,9 +1,16 @@
-es mejor usar un dummy?
 
 
+PRIORIDAD 2:
+
+para hacer el movimiento de yoyo es necesario estirar los keyframes de manera que no se muevan, no?
 la cutrada que he hecho para evitar la trayectoria rotada de la pelota de la derecha esta bien? hay alguna forma de solucionarlo?
 
 
-por que los dummies hacen que cambien los ejes de la figura hija?
 
-para hacer el movimiento de yoyo es necesario estirar los keyframes de manera que no se muevan, no?
+PRIORIDAD 1:
+la camara debe hacer ping pong tambien?
+por que los dummies hacen que cambien los ejes de la figura hija?
+cual es el orden exacto de las luces?
+como podria hacer para que la animacion vaya mas rapido, manteniendo la restriccion de los 5 segundos?
+es mejor usar un dummy?
+he puesto al principio de la luz del centro el color rojo, aunque no lo ponga en el guion, se puede hacer?
