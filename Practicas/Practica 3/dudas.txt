@@ -1,0 +1,9 @@
+es mejor usar un dummy?
+
+
+la cutrada que he hecho para evitar la trayectoria rotada de la pelota de la derecha esta bien? hay alguna forma de solucionarlo?
+
+
+por que los dummies hacen que cambien los ejes de la figura hija?
+
+para hacer el movimiento de yoyo es necesario estirar los keyframes de manera que no se muevan, no?
