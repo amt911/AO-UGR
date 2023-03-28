@@ -14,3 +14,4 @@ cual es el orden exacto de las luces?
 como podria hacer para que la animacion vaya mas rapido, manteniendo la restriccion de los 5 segundos?
 es mejor usar un dummy?
 he puesto al principio de la luz del centro el color rojo, aunque no lo ponga en el guion, se puede hacer?
+por encender se refiere a encenderse de golpe, o poco a poco?
