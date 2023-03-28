@@ -8,14 +8,14 @@
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
-
+\usepackage{amsmath}
 %\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
 
 \renewcommand{\footrulewidth}{0.4pt}
 \title{
 \includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
 \vspace*{1in}
-\textbf{Cuestiones Tema X} \\
+\textbf{Memoria de la práctica 3} \\
 Animación por Ordenador \\
 \vspace*{0.5in}}
 \author{Andrés Merlo Trujillo \\
@@ -70,8 +70,23 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %     \end{subfigure}    
 % \end{figure}
 
-\section{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo, nunc a molestie rutrum, lorem justo aliquet quam, suscipit viverra diam sapien eget purus. Aenean ac dapibus lacus, sed fringilla magna. Integer scelerisque arcu id commodo finibus. Etiam posuere arcu id tempor fermentum. Aliquam posuere faucibus eros sed fermentum. Vivamus viverra commodo ipsum vel fermentum. Donec vitae nibh a nibh semper lobortis. Ut eget neque leo. Nulla ullamcorper in nisi nec consectetur. }
 
-...
+\section{Introducción}
+% rescribir
+En esta práctica se pide animar un conjunto de pelotas, que rebotan y caen a un balancín, haciendo que la otra rebote y caiga en una plataforma. También se debe animar un conjunto de luces que iluminará la parte de la escena que está en movimiento actualmente y una cámara, que rotará alrededor de la escena.
+
+Todo lo mencionado anteriormente se debe \textit{loopear} de forma invertida, de manera que cuando acabe la animación vuelva a realizarse, pero al revés, comenzando por el final y acabando por el principio.
+
+En esta memoria voy a dividir cada una de las partes que he realizado en secciones, las cuales se encontrarán a continuación.
+
+\section{Número de fotogramas}
+
+% rescribir
+En la práctica se pedía que la animación durase 5 segundos, y otros 5 segundos haciendo la animación inversa. 
+
+En mi caso, he usado 30 fotogramas por segundo, los que pone por defecto 3ds Max. Por tanto los cálculos para obtener lo números de fotogramas necesarios son los siguientes:
+
+
+$30 \text{ fps} \times 2 \times 5 \text{ segundos} = 300 \text{ fotogramas} $
 
 \end{document}
