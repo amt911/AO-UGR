@@ -3,7 +3,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage[draft]{graphicx}	%Si se quiere compilar con las imagenes
+\usepackage{graphicx}	%Si se quiere compilar con las imagenes
 % \usepackage[draft]{graphicx}	%Si NO se quiere compilar con las imagenes porque tarda mucho
 \usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
@@ -143,7 +143,7 @@ Las curvas de animación para la pelota son:
 
 \begin{figure}[H]
    \centering
-   \includegraphics[width=\textwidth]{imagenes/curvas/PL/pelota/green.png}
+   \includegraphics[width=0.6\textwidth]{imagenes/curvas/PL/pelota/green.png}
    \caption{Curva que representa la posición en el eje Y de la pelota con respecto el tiempo.}
 \end{figure}
 
@@ -151,7 +151,7 @@ Esta curva representa la posición en el eje Y de la pelota con respecto el tiem
 
 \begin{figure}[H]
    \centering
-   \includegraphics[width=\textwidth]{imagenes/curvas/PL/pelota/red.png}
+   \includegraphics[width=0.6\textwidth]{imagenes/curvas/PL/pelota/red.png}
    \caption{Curva que representa la posición en el eje X con respecto el tiempo.}
 \end{figure}
 
@@ -172,7 +172,7 @@ Las curva de animación para el \textit{Dummy} son:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/PL/dummy/green.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/PL/dummy/green.png}
     \caption{Curva que representa la rotación en el eje Y con respecto el tiempo.}
  \end{figure}
 
@@ -182,14 +182,6 @@ Esta curva representa la rotación del \textit{dummy} con respecto al tiempo. La
 \bigskip
 
 Todo esto que he dicho es aplicable al trampolín, por lo que la explicación correspondiente va a ser muy similar.
-
-Y la trayectoria resultante es:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/animaciones/PL/pelota/motionpath.png}
-    \caption{Trayectoria final que sigue la pelota.}
- \end{figure}
 
 
 \subsection{Pelota de la derecha}
@@ -209,7 +201,7 @@ Las curvas de animación es:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/PR/pelota/green.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/PR/pelota/green.png}
     \caption{Curva que representa la posición en el eje Y con respecto el tiempo.}
  \end{figure}
 
@@ -217,7 +209,7 @@ Las curvas de animación es:
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/PR/pelota/red.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/PR/pelota/red.png}
     \caption{Curva que representa la posición en el eje X con respecto el tiempo.}
  \end{figure}
 
@@ -237,19 +229,11 @@ La curva de animación para el \textit{Dummy} es:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/PR/dummy/green.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/PR/dummy/green.png}
     \caption{Curva que representa la rotación en el eje Y con respecto el tiempo.}
  \end{figure}
 
 De nuevo, ocurre de manera similar que con el \textit{Dummy} de la otra pelota. La curva es lineal, ya que la pelota le transfiere al trampolín toda la energía potencial que tenía, haciendo que no tenga tiempo de acelerar y se ponga a la velocidad máxima directamente.
-
-Y la trayectoria resultante es:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{imagenes/animaciones/PR/pelota/motionpath.png}
-    \caption{Trayectoria resultante de la pelota de la derecha.}
- \end{figure}
  
 % rescribir
 Como se puede ver, esta pelota sigue el mismo espaciado de instantes que la otra, pero comenzando desde la derecha y sobre el trampolín, en vez de la izquierda. Esto hace que se pueda repetir la animación de manera sencilla, al ser simétricas dichas animaciones.
@@ -271,7 +255,7 @@ Y la curva de animación es:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/Trampolin/blue.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/Trampolin/blue.png}
     \caption{Curva que representa la rotación en el eje Z con respecto al tiempo.}
  \end{figure}
 
@@ -297,7 +281,7 @@ En los menús de arriba, hace falta darle clic a ``Rendering'' $\rightarrow$ ``E
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/misc/bg-color1.png}
+    \includegraphics[width=0.7\textwidth]{imagenes/misc/bg-color1.png}
     \caption{Ubicación de la opción para cambiar el color de fondo.}
  \end{figure}
 
@@ -305,15 +289,19 @@ Se abrirá una ventana a la que hay que darle al rectángulo de selección de co
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/misc/bg-color2.png}
+    \includegraphics[width=0.5\textwidth]{imagenes/misc/bg-color2.png}
     \caption{Ventana con la opción para cambiar el color de fondo.}
  \end{figure}
 
 \subsection{Puntos de luz de la escena}
-% rescribir
 Para la iluminación de la escena he utilizado 3 \textit{Target Lights} junto a una distribución de luz de tipo \textit{Spotlight}, permitiéndome modificar el cono de luz para que solo ilumine las bases, para el caso de las luces de los extremos, y el trampolín, para el caso de la luz intermedia.
 
-Ahora bien, los \textit{keyframes} para el foco de la izquierda son:
+Esta subsección la voy a dividir a su vez en distintas subsecciones, una para cada luz puesta en la escenaL
+
+\subsubsection{Luz de la izquierda}
+% rescribir
+
+Los \textit{keyframes} para el foco de la izquierda son:
 
 \begin{itemize}
     \item \textbf{Instante 0: }No hay ningún cambio de ningún tipo, es para hacer que la animación de ping-pong funcione bien y para ver los rebotes previos que realiza la bola. La luz ahora mismo se encuentra encendida y de color blanco.
@@ -326,7 +314,7 @@ Las curvas de animación son las siguientes:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LL/filter.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LL/filter.png}
     \caption{Curva que representa el color de la luz con respecto al tiempo.}
  \end{figure}
 
@@ -334,13 +322,13 @@ En la curva he usado una función \textit{Slow-in/Slow-out} para simular la ilum
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LL/intensity.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LL/intensity.png}
     \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
  \end{figure}
 
  En esta curva también he usado el mismo tipo de función que en la anterior, con el objetivo de simular el encendido y apagado progresivo que tienen algunas luces, entre ellas las incandescentes como antes.
 
- \bigskip
+ \subsubsection{Luz de la derecha}
 
  El punto de luz del otro extremo que ilumina la otra pelota tiene los mismos \textit{keyframes}, pero comenzando desde el final:
 
@@ -355,20 +343,22 @@ Las curvas de animación son las siguientes:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LR/filter.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LR/filter.png}
     \caption{Curva que representa el color de la luz con respecto al tiempo.}
  \end{figure}
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LR/intensity.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LR/intensity.png}
     \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
  \end{figure}
 
 Al igual que con la luz del otro extremo, esta se encenderá y apagará progresivamente, simulando una luz incandescente.
 
 
-Por último, la luz intermedia, utilizada para iluminar el trampolín, tiene los siguientes \textit{keyframes}:
+\subsubsection{Luz central}
+
+La luz intermedia, utilizada para iluminar el trampolín, tiene los siguientes \textit{keyframes}:
 
 \begin{itemize}
     \item \textbf{Instante 0: }La luz se encuentra apagada y de color rojo, para hacer la animación inversa correctamente y porque no hay movimiento en el trampolín.
@@ -383,13 +373,13 @@ Y las curvas de animación son:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LC/filter.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LC/filter.png}
     \caption{Curva que representa el color de la luz con respecto al tiempo.}
  \end{figure}
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/LC/intensity.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/LC/intensity.png}
     \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
  \end{figure}
 
@@ -409,7 +399,7 @@ La curva de animación del \textit{Dummy} de la cámara es:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{imagenes/curvas/Camara/blue.png}
+    \includegraphics[width=0.6\textwidth]{imagenes/curvas/Camara/blue.png}
     \caption{Curva que representa la rotación en el eje Z con respecto al tiempo.}
  \end{figure}
 
