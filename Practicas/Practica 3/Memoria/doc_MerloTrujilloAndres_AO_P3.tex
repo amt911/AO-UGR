@@ -3,7 +3,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx}	%Si se quiere compilar con las imagenes
+\usepackage[draft]{graphicx}	%Si se quiere compilar con las imagenes
 % \usepackage[draft]{graphicx}	%Si NO se quiere compilar con las imagenes porque tarda mucho
 \usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
@@ -74,33 +74,41 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 
 
 \section{Introducción}
-% rescribir
-En esta práctica se pide animar un conjunto de pelotas, que rebotan y caen a un balancín, haciendo que la otra rebote y caiga en una plataforma. También se debe animar un conjunto de luces que iluminará la parte de la escena que está en movimiento actualmente y una cámara, que rotará alrededor de la escena.
+En esta práctica se pide animar dos bolas. La primera bola botará varias veces y caerá a un trampolín, haciendo que la segunda bola, posada sobre dicho trampolín, sea lanzada y caiga sobre una plataforma. También se debe animar un conjunto de luces que iluminará la parte de la escena que está en movimiento actualmente y una cámara, que rotará alrededor de la escena.
 
-Todo lo mencionado anteriormente se debe \textit{loopear} de forma invertida, de manera que cuando acabe la animación vuelva a realizarse, pero al revés, comenzando por el final y acabando por el principio.
+\bigskip
 
-En esta memoria voy a dividir cada una de las partes que he realizado en secciones, las cuales se encontrarán a continuación.
+Todo lo mencionado anteriormente se debe repetir de forma invertida, de manera que cuando acabe la animación vuelva a realizarse, pero al revés, comenzando por el final y acabando por el principio.
+
+\bigskip
+
+En esta memoria, voy a dividir cada una de las partes que he realizado en secciones, las cuales se presentarán a continuación.
 
 \section{Número de fotogramas}
 
 % rescribir
-En la práctica se pedía que la animación durase 5 segundos, y otros 5 segundos haciendo la animación inversa. 
+En la práctica se pedía que la animación durara 5 segundos, seguidos de otros 5 segundos para la animación inversa. 
 
-En mi caso, he usado 30 fotogramas por segundo, los que pone por defecto 3ds Max. Por tanto los cálculos para obtener el número de fotogramas necesarios son los siguientes:
+\bigskip
 
+En mi caso, he utilizado 30 fotogramas por segundo, que es el valor por defecto en 3ds Max. Por lo tanto, los cálculos necesarios para obtener el número de fotogramas son los siguientes:
+
+\bigskip
 
 $30 \text{ fps} \times 2 \times 5 \text{ segundos} = 300 \text{ fotogramas} $
 
-Cabe destacar que la animación debe acabar en el instante 150, para dar paso a su inversa y se complete.
+\bigskip
 
-\section{Composición de los objetos compuestos}
+Cabe destacar que la animación debe acabar en el instante 150, para dar paso a la animación inversa y que esta se complete antes de comenzar de nuevo por el principio.
+
+\section{Composición de los objetos}
 
 Los distintos objetos de la escena se han construido de la siguiente forma:
 
 \begin{itemize}
-    \item \textbf{Trampolín: }Se ha utilizado un cubo achatado y estirado para hacer la tabla y para el punto de apoyo se ha usado un cilindro con un círculo de 3 líneas, haciendo que sea un triángulo.
+    \item \textbf{Trampolín: }He utilizado un cubo achatado y estirado para hacer la tabla y para el punto de apoyo he usado un cilindro con una base de 3 aristas, haciendo que sea un triángulo.
     
-    Además, he modificado el pivote del tablero para que se encuentre justo en la unión del punto de apoyo con la tabla, para que gire de manera realista.
+    Además, he modificado el pivote del tablero para que se encuentre justo en la unión del punto de apoyo con la tabla, con el objetivo de que gire de manera realista.
 
     Cabe destacar que he realizado una jerarquía en la que el punto de apoyo es el padre.
 
@@ -110,20 +118,34 @@ Los distintos objetos de la escena se han construido de la siguiente forma:
 
 \section{Animación de la escena}
 
-La animación la he realizado algo distinta a la que se pedía en el guion, ya que le comenté al profesor que el resultado era muy lento y me dijo que podía añadir algunos rebotes antes de comenzar la animación pedida. Para dar simetría, he animado dos rebotes al principio de la animación y al final. 
+La animación la he realizado algo distinta a la que se pedía en el guion, ya que le comenté al profesor que el resultado final era muy lento y me dijo que podía añadir algunos rebotes antes de comenzar la animación pedida. Para dar simetría, he animado dos rebotes al principio de la animación y al final y en ambas pelotas, para que la repetición inversa sea igual. 
 
-Además, como se pide seguir una forma ping-pong cuando esté fuera de los \textit{keyframes} animados, va a haber \textit{keyframes} que se van a repetir en el instante 0 y 150; es decir, que no va a haber cambio con el siguiente o el anterior. Esto es necesario, ya que hay animaciones que no duran lo mismo, como el balancín, que su animación es más corta y si no se hiciera daría como resultado un giro prematuro del trampolín.
+\bigskip
+
+Además, se pide hacer que los últimos 5 segundos realice la misma animación, pero al revés. Esto se realiza usando la forma ping-pong, accesible desde la ventana para el editor de curvas.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\textwidth]{imagenes/misc/ping-pong.png}
+   \caption{Pasos necesarios para seleccionar el tipo ping-pong.}
+\end{figure}
+
+Esta forma obliga a repetir \textit{keyframes} en los instantes 0 y 150; es decir, no va a haber cambio con el \textit{keyframe} siguiente o anterior. Esto es necesario porque hay animaciones que no duran lo mismo, como el balancín, que su animación es más corta y si no se hiciera daría como resultado un giro prematuro, haciendo que la animación no sea correcta en los últimos 5 segundos.
 
 \bigskip
 
 % rescribir
-Para animar el movimiento de las pelotas que realizan en el balancín, he usado un objeto \textit{Dummy} con centro en la superficie del balancín y siendo padre de la pelota en la jerarquía; es decir, en la misma superficie donde las pelotas se encuentra.
-
-Además, para que la trayectoria que realicen no se vea afectada por la rotación del \textit{Dummy}, este se debe encontrar sin ninguna rotación en el momento en el que salen/entran al trampolín.
+Para animar el movimiento de las pelotas, he usado un objeto \textit{Dummy} con centro en la superficie donde tocan las pelotas el balancín y centrado en el eje X. Este objeto será padre de las pelotas en la jerarquía.
 
 \bigskip
 
-Ahora bien, como puede haber confusión sobre los distintos \textit{keyframes} para los objetos de la escena, voy a dividir cada objeto junto a su \textit{Dummy}, si lo tiene, en subsecciones:
+Asimismo, para que la trayectoria que realicen no se vea afectada por la rotación del \textit{Dummy}, este se debe encontrar sin ninguna rotación en el momento en el que salen/entran al trampolín. Si no se siguiera esto, la trayectoria seguida en los saltos estaría rotada, de acuerdo al ángulo que tenga el \textit{Dummy} en ese momento.
+
+\bigskip
+
+% Ahora bien, como puede haber confusión sobre los distintos \textit{keyframes} para los objetos de la escena, voy a dividir cada objeto junto a su \textit{Dummy}, si lo tiene, en subsecciones:
+
+Voy a dividir cada parte de la escena animada en subsecciones, que se encuentran a continuación.
 
 \subsection{Pelota de la izquierda}
 
@@ -131,13 +153,15 @@ Los \textit{keyframes} para la pelota de la izquierda son:
 
 \begin{itemize}
     \item \textbf{Instante 0: }La pelota se encuentra sobre su base, a cierta altura de la misma para realizar varios rebotes.
-    \item \textbf{Instante 14: }La pelota se encuentra sobre su base, tocando la superficie de la misma, debido a la caída de la pelota.
-    \item \textbf{Instante 26: }La pelota se encuentra en el aire, con la misma altura que en el instante 0. Esto lo hago así para que la animación ping-pong funcione de manera más o menos realista.
+    \item \textbf{Instante 14: }La pelota se encuentra tocando la superficie de la base, debido a la caída de la pelota.
+    \item \textbf{Instante 26: }La pelota se encuentra en el aire, con la misma altura que en el instante 0. No disminuyo la altura del rebote para que la animación ping-pong funcione de manera más o menos realista.
     \item \textbf{Instante 38: }La pelota se encuentra sobre la superficie de la base, esta vez lista para saltar al trampolín.
     \item \textbf{Instante 48: }La pelota se encuentra en su punto más alto del salto hacia el trampolín.
     \item \textbf{Instante 58: }La pelota ha caído y se encuentra sobre el trampolín.
     \item \textbf{Instante 150: }Exactamente igual que el instante anterior, para que la animación se pueda repetir correctamente.
 \end{itemize}
+
+\bigskip
 
 Las curvas de animación para la pelota son:
 
@@ -156,17 +180,19 @@ Esta curva representa la posición en el eje Y de la pelota con respecto el tiem
 \end{figure}
 
 % rescribir
-Esta curva representa la posición en el eje X con respecto el tiempo, solo desde la posición de la base hasta en el momento que toca por primera vez el trampolín, ya que las siguientes animaciones las realiza el \textit{Dummy} correspondiente. He elegido una función lineal, ya que es la que me ha parecido más realista de todas las opciones, dentro de lo que cabe. 
+Esta curva representa la posición en el eje X con respecto el tiempo, solo desde la posición de la base hasta en el momento que toca por primera vez el trampolín, ya que las siguientes animaciones las realiza el \textit{Dummy} correspondiente. He elegido una función lineal porque es la que me ha parecido más realista de todas las opciones, dentro de lo que cabe. 
 
 
 Los \textit{keyframes} para el \textit{Dummy} de la pelota de la izquierda son:
 
 \begin{itemize}
-    \item \textbf{Instante 0: }Se encuentra en su posición inicial, sin ninguna rotación para hacer que la trayectoria de la pelota sea correcta.
+    \item \textbf{Instante 0: }Se encuentra en su posición inicial, sin ninguna rotación para hacer que la trayectoria de la pelota sea correcta. Se hace para que la animación inversa funcione de manera correcta.
     \item \textbf{Instante 58: }Exactamente igual que el anterior \textit{keyframe}.
     \item \textbf{Instante 92: }El \textit{Dummy} se encuentra rotado hacia la izquierda, para animar el balanceo del balancín de manera correcta.
     \item \textbf{Instante 150: }Exactamente igual que el instante anterior, se hace para que la animación ping-pong comience al unísono con las demás.
 \end{itemize}
+
+\bigskip
 
 Las curva de animación para el \textit{Dummy} son:
 
@@ -177,12 +203,13 @@ Las curva de animación para el \textit{Dummy} son:
  \end{figure}
 
  % rescribir, muy repetido trampolín y pelota
-Esta curva representa la rotación del \textit{dummy} con respecto al tiempo. La he animado de forma lineal porque, al seguir la animación del trampolín, esta debe seguirla también; es decir, como la energía potencial que tiene la pelota se le transfiere al trampolín, haciendo que el trampolín tenga la misma velocidad que la que tenía la pelota y no teniendo tiempo para acelerar.
+% Esta curva representa la rotación del \textit{dummy} con respecto al tiempo. La he animado de forma lineal porque, al seguir la animación del trampolín, esta debe seguirla también; es decir, como la energía potencial que tiene la pelota se le transfiere al trampolín, haciendo que el trampolín tenga la misma velocidad que la que tenía la pelota y no teniendo tiempo para acelerar.
+
+Esta curva debe seguir la forma que la del trampolín, en este caso lineal, ya que debe girar al mismo tiempo ambos. La curva es lineal porque la pelota le transfiere la energía al trampolín, sin darle la oportunidad de acelerar y adquiriendo la velocidad que la bola tenía.
 
 \bigskip
 
 Todo esto que he dicho es aplicable al trampolín, por lo que la explicación correspondiente va a ser muy similar.
-
 
 \subsection{Pelota de la derecha}
 Los \textit{keyframes} de la pelota de la derecha son:
@@ -197,6 +224,8 @@ Los \textit{keyframes} de la pelota de la derecha son:
     \item \textbf{Instante 150: }Finalmente, la pelota da otro rebote y se encuentra en el aire de nuevo.
 \end{itemize}
 
+\bigskip
+
 Las curvas de animación es:
 
 \begin{figure}[H]
@@ -205,7 +234,7 @@ Las curvas de animación es:
     \caption{Curva que representa la posición en el eje Y con respecto el tiempo.}
  \end{figure}
 
- Al igual que con la pelota de la izquierda, debido al \textit{dummy} el eje Z pasa a ser el eje Y, pero en coordenadas del mundo sigue siendo el Z. Además, ocurre exactamente igual que en la pelota de la izquierda, se utilizan parábolas para simular los efectos de la gravedad sobre la pelota y que produzca un resultado natural, tanto en la trayectoria como en las subidas y caídas.
+ Al igual que con la pelota de la izquierda, debido al \textit{Dummy} el eje Z pasa a ser el eje Y, pero en coordenadas del mundo sigue siendo el Z. Además, ocurre exactamente igual que en la pelota de la izquierda, se utilizan parábolas para simular los efectos de la gravedad sobre la pelota y que produzca un resultado natural, tanto en la trayectoria como en las subidas y caídas.
 
  \begin{figure}[H]
     \centering
@@ -225,6 +254,8 @@ Mientras que los \textit{keyframes} para su \textit{Dummy} son:
     \item \textbf{Instante 150: }Ningún cambio realizado, solo es para que la animación inversa comience a la misma vez.
 \end{itemize}
 
+\bigskip
+
 La curva de animación para el \textit{Dummy} es:
 
 \begin{figure}[H]
@@ -234,9 +265,11 @@ La curva de animación para el \textit{Dummy} es:
  \end{figure}
 
 De nuevo, ocurre de manera similar que con el \textit{Dummy} de la otra pelota. La curva es lineal, ya que la pelota le transfiere al trampolín toda la energía potencial que tenía, haciendo que no tenga tiempo de acelerar y se ponga a la velocidad máxima directamente.
- 
-% rescribir
-Como se puede ver, esta pelota sigue el mismo espaciado de instantes que la otra, pero comenzando desde la derecha y sobre el trampolín, en vez de la izquierda. Esto hace que se pueda repetir la animación de manera sencilla, al ser simétricas dichas animaciones.
+
+\bigskip
+
+Además, esta pelota sigue el mismo espaciado en los \textit{keyframes} que la otra, pero comenzando desde el instante 150 y hacia la izquierda; es decir, es como si fuera un ``reflejo'' de la otra. Esto resultará en que la pelota comience sobre el trampolín y acabe dando saltos sobre la plataforma, así se puede repetir la animación inversa de manera fluida.
+% pero comenzando desde la derecha y sobre el trampolín, en vez de la izquierda. Esto hace que se pueda repetir la animación de manera sencilla, al ser simétricas dichas animaciones.
 \subsection{Trampolín}
 Para realizar el giro de la curva del trampolín es necesario sincronizar los instantes iniciales y finales de los \textit{dummies} de las pelotas, para que giren conjuntamente.
 
@@ -251,6 +284,8 @@ Los \textit{keyframes} para realizar la animación del trampolín son los siguie
     \item \textbf{Instante 150: }No varía nada de la animación con respecto al instante anterior. Ocurre exactamente igual que en el instante 0.
 \end{itemize}
 
+\bigskip
+
 Y la curva de animación es:
 
 \begin{figure}[H]
@@ -259,7 +294,7 @@ Y la curva de animación es:
     \caption{Curva que representa la rotación en el eje Z con respecto al tiempo.}
  \end{figure}
 
- Al igual que las pelotas, como el balancín es hijo del punto de apoyo, la rotación realmente se ve reflejada en el eje Y en coordenadas del mundo, ya que el padre actúa de manera similar a los \textit{dummies}. Al igual que estos, el trampolín tiene utiliza una curva lineal, ya que la energía potencial de la pelota que se encuentra en el aire, al tocar el trampolín se la transfiere, sin la posibilidad de que acelere poco a poco.
+ Al igual que las pelotas, como el balancín es hijo del punto de apoyo, la rotación realmente se ve reflejada en el eje Y en coordenadas del mundo, ya que el padre actúa de manera similar a los \textit{dummies}. Al igual que estos, el trampolín utiliza una curva lineal, ya que la energía potencial de la pelota que se encuentra en el aire, al tocarlo se la transfiere, sin la posibilidad de que acelere poco a poco.
 \section{Iluminación de la escena}
 Para la iluminación de la escena he utilizado una combinación de 3 luces, como se pedía en el guion, y de un cambio del color de fondo para que las zonas que no son iluminadas sean visibles.
 
@@ -274,10 +309,7 @@ El color de fondo por defecto que tienen las escenas es el negro, haciendo que c
 
 \bigskip
 
-Para realizar esto hay que seguir los siguientes pasos:
-
-% rescribir
-En los menús de arriba, hace falta darle clic a ``Rendering'' $\rightarrow$ ``Environment''.
+Para ello, es necesario irse a los menús de arriba y darle clic a ``Rendering'' $\rightarrow$ ``Environment''.
 
 \begin{figure}[H]
     \centering
@@ -296,7 +328,9 @@ Se abrirá una ventana a la que hay que darle al rectángulo de selección de co
 \subsection{Puntos de luz de la escena}
 Para la iluminación de la escena he utilizado 3 \textit{Target Lights} junto a una distribución de luz de tipo \textit{Spotlight}, permitiéndome modificar el cono de luz para que solo ilumine las bases, para el caso de las luces de los extremos, y el trampolín, para el caso de la luz intermedia.
 
-Esta subsección la voy a dividir a su vez en distintas subsecciones, una para cada luz puesta en la escenaL
+\bigskip
+
+Esta subsección la voy a dividir a su vez en distintas subsecciones, una para cada luz puesta en la escena.
 
 \subsubsection{Luz de la izquierda}
 % rescribir
@@ -304,11 +338,13 @@ Esta subsección la voy a dividir a su vez en distintas subsecciones, una para c
 Los \textit{keyframes} para el foco de la izquierda son:
 
 \begin{itemize}
-    \item \textbf{Instante 0: }No hay ningún cambio de ningún tipo, es para hacer que la animación de ping-pong funcione bien y para ver los rebotes previos que realiza la bola. La luz ahora mismo se encuentra encendida y de color blanco.
+    \item \textbf{Instante 0: }La luz ahora mismo se encuentra encendida y de color blanco. Se hace para que la animación inversa funcione correctamente.
     \item \textbf{Instante 38: }La luz se encuentra exactamente igual que en el instante anterior.
     \item \textbf{Instante 58: }La luz pasa a tener color rojo y apagarse (intensidad a 0) porque la pelota ha saltado de la plataforma.
     \item \textbf{Instante 150: }Exactamente igual que en el instante anterior. Se realiza para hacer que la animación inversa funcione bien y porque la pelota no está en la base.
 \end{itemize}
+
+\bigskip
 
 Las curvas de animación son las siguientes:
 
@@ -339,6 +375,8 @@ En la curva he usado una función \textit{Slow-in/Slow-out} para simular la ilum
     \item \textbf{Instante 150: }Se encuentra exactamente igual que en el instante anterior, con el objetivo de que la animación inversa funcione correctamente y porque la pelota está rebotando en la base.
  \end{itemize}
  
+ \bigskip
+
 Las curvas de animación son las siguientes:
 
 \begin{figure}[H]
@@ -369,6 +407,8 @@ La luz intermedia, utilizada para iluminar el trampolín, tiene los siguientes \
     \item \textbf{Instante 150: }Sigue sin haber movimiento, por lo que sigue apagada y de color rojo. También es para que la animación inversa funcione.
 \end{itemize}
 
+\bigskip
+
 Y las curvas de animación son:
 
 \begin{figure}[H]
@@ -388,12 +428,16 @@ Al igual que con las otras luces, he utilizado una curva \textit{Slow-in/Slow-ou
 \section{Animación de la cámara}
 Para animar el movimiento de la cámara he utilizado un \textit{Dummy} y he puesto como hijo a la propia cámara sin su \textit{Target}. Con esto, ya es posible animar el giro de la cámara sin demasiada complicación.
 
+\bigskip
+
 Los \textit{keyframes} de la cámara son:
 
 \begin{itemize}
     \item \textbf{Instante 0: }La cámara se encuentra en la posición inicial, con una perspectiva similar a la que aparece en el guion.
     \item \textbf{Instante 150: }La cámara se encuentra en su posición final, que en este caso he decidido que sea la misma, para que haga una rotación completa en los 5 segundos.
 \end{itemize}
+
+\bigskip
 
 La curva de animación del \textit{Dummy} de la cámara es:
 
