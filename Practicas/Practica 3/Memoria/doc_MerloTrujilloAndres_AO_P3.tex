@@ -172,7 +172,6 @@ Los \textit{keyframes} para el \textit{Dummy} de la pelota de la izquierda son:
 
 Las curva de animación para el \textit{Dummy} son:
 
-% curvas y explicacion
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/curvas/PL/dummy/green.png}
@@ -188,7 +187,6 @@ Todo esto que he dicho es aplicable al trampolin, por lo que la explicacion corr
 
 Y la trayectoria resultante es:
 
-% fotos de la trayectoria resultante
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/animaciones/PL/pelota/motionpath.png}
@@ -211,7 +209,6 @@ Los \textit{keyframes} de la pelota de la derecha son:
 
 Las curvas de animación es:
 
-% foto de la curva de animacion
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/curvas/PR/pelota/green.png}
@@ -240,7 +237,6 @@ Mientras que los \textit{keyframes} para su \textit{Dummy} son:
 
 La curva de animacion para el \textit{Dummy} es:
 
-% foto de la curva 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/curvas/PR/dummy/green.png}
@@ -251,7 +247,6 @@ De nuevo, ocurre de manera similar que con el \textit{Dummy} de la otra pelota. 
 
 Y la trayectoria resultante es:
 
-% foto de la trayectoria
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{imagenes/animaciones/PR/pelota/motionpath.png}
@@ -276,10 +271,126 @@ Los \textit{keyframes} para realizar la animación del trampolín son los siguie
 
 Y la curva de animación es:
 
-% curva de aniamcion
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/Trampolin/blue.png}
+    \caption{Curva que representa la rotación en el eje Z con respecto al tiempo.}
+ \end{figure}
 
-
+ Al igual que las pelotas, como el balancín es hijo del punto de apoyo, la rotación realmente se ve reflejada en el eje Y en coordenadas del mundo, ya que el padre actua de manera similar a los \textit{dummies}. Al igual que estos, el trampolín tiene utiliza una curva lineal, ya que la energia potencial de la pelota que se encuentra en el aire, al tocar el trampolin se la transfiere, sin la posibilidad de que acelere poco a poco.
 \section{Iluminación de la escena}
+Para la iluminación de la escena he utilizado una combinación de 3 luces, como se pedia en el guion, y de un cambio del color de fondo para que las zonas que no son iluminadas sean visibles.
+
+\bigskip
+
+Voy a dividir en subsecciones las explicaciones del color de fondo y de la iluminación:
+
+\subsection{Color de fondo}
+
+% rescribir
+El color de fondo por defecto que tienen las escenas es el negro, haciendo que cuando se utiliza iluminacion, las zonas no iluminadas por los puntos de luz aparezcan negros por completo. Para solucionar esto es necesario modificar el color de fondo por un gris oscuro, para que se pueda ver toda la escena.
+
+\bigskip
+
+Para realizar esto hay que seguir los siguientes pasos:
+
+% rescribir
+En los menús de arriba, hace falta darle click a ``Rendering'' $\rightarrow$ ``Environment''.
+
+% foto de eso
+
+Se abrirá una ventana a la que hay que darle al rectángulo de selección de color de la sección ``Background'' y elegir un tono más claro.
+
+
+% foto de mi tono
+
+\subsection{Puntos de luz de la escena}
+% rescribir
+Para la iluminación de la escena he utilizado 3 \textit{Target Lights} junto a una distribución de luz de tipo \textit{Spotlight}, permitiendome modificar el cono de luz para que solo ilumine las bases, para el caso de las luces de los extremos, y el trampolín, para el caso de la luz intermedia.
+
+% foto de los conos
+
+Ahora bien, los \textit{keyframes} para el foco de la izquierda son:
+
+\begin{itemize}
+    \item \textbf{Instante 0: }No hay ningún cambio de ningún tipo, es para hacer que la animación de ping-pong funcione bien y para ver los rebotes previos que realiza la bola. La luz ahora mismo se ecneutnra encendida y de color blanco.
+    \item \textbf{Instante 38: }La luz se encuentra exactamente igual que en el instante anterior.
+    \item \textbf{Instante 58: }La luz pasa a tener color rojo y apagarse (intensidad a 0) porque la pelota ha saltado de la plataforma.
+    \item \textbf{Instante 150: }Exactamente igual que en el instante anterior. Se realiza para hacer que la animación inversa funcione bien y porque la pelota no esta en la base.
+\end{itemize}
+
+Las curvas de animación son las isguientes:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LL/filter.png}
+    \caption{Curva que representa el color de la luz con respecto al tiempo.}
+ \end{figure}
+
+En la curva he usado una función \textit{Slow-in/Slow-out} para simular la iluminación progresiva que tendría una luz incandescente al ser encencidad y apagada.
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LL/intensity.png}
+    \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
+ \end{figure}
+
+ En esta curva también he usado el mismo tipo de función que en la anterior, con el objetivo de simular el encendido y apagado progresivo que tienen algunas luces, entre ellas las incandescentes como antes.
+
+ \bigskip
+
+ El punto de luz del otro extremo que ilumina la otra pelota tiene los mismos \textit{keyframes}, pero comenzando desde el final:
+
+ \begin{itemize}
+    \item \textbf{Instante 0: }Se encuentra de color rojo y con la intensidad a 0. Esto se hace para que la animación inversa funcione de manera correcta con las demás componentes y porque no se encuentra la pelota en la base.
+    \item \textbf{Instante 92: }La luz sigue exactamente igual que en el instante anterior.
+    \item \textbf{Instante 112: }La luz ahora se encuentra iluminada al maximo y de color blanco.
+    \item \textbf{Instante 150: }Se enceuntra exactamente igual que en el instante anterior, con el objetivo de que la animación inversa funcione correctamnet y porque la pelota esta rebotando en la base.
+ \end{itemize}
+ 
+Las curvas de animación osn las isuignetes:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LR/filter.png}
+    \caption{Curva que representa el color de la luz con respecto al tiempo.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LR/intensity.png}
+    \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
+ \end{figure}
+
+Al igualq ue con la luz del otro extremo, esta se encenderá y apagará progresivamente, simulando una luz incandescente.
+
+
+Por último, la luz intermedia, utilizada para iluminar el trampolín, tiene los siguientes \textit{keyframes}:
+
+\begin{itemize}
+    \item \textbf{Instante 0: }La luz se encuentra apagada y de color rojo, para hacer la animacion inversa correctamente y porque no hay movimiento en el trmapolin.
+    \item \textbf{Instante 38: }La luz sigue exactamente igual que en el isntante anterior.
+    \item \textbf{Instante 58: }La luz se encuentra encendida y de color blanco, indicando que hay movimiento en el tramploin.
+    \item \textbf{Instante 92: }La luz sigue exactamente igual que antes, ya que todavia hay movimiento en el trampolin.
+    \item \textbf{Instante 112: }La luz ahora se encuentra apagada y de color rojo, al no haber más movimiento en el trampolin.
+    \item \textbf{Instante 150: }Sigue sin haber movimiento, por lo que sigue apagada y de color rojo. Tambien es para que la animacion inversa funcione.
+\end{itemize}
+
+Y las curvas de animacion son:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LC/filter.png}
+    \caption{Curva que representa el color de la luz con respecto al tiempo.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/LC/intensity.png}
+    \caption{Curva que representa la intensidad de la luz con respecto al tiempo.}
+ \end{figure}
+
+Al igual que con las otras luces, he utilizado una curva \textit{Slow-in/Slow-out} para simular el encendido y apagado progresivo de la luz.
 
 \section{Animación de la cámara}
 
