@@ -119,8 +119,6 @@ Además, como se pide seguir una forma Ping-pong cuando esté fuera de los \text
 % rescribir
 Para animar el movimiento de las pelotas que realizan en el balancín, he usado un objeto \textit{Dummy} con centro en la superficie del balancín y siendo padre de la pelota en la jerarquia; es decir, en la misma superficie donde las pelotas se encuentra.
 
-% foto de los dummies
-
 Además, para que la trayectoria que realicen no se vea afectada por la rotación del \textit{Dummy}, este se debe encontrar sin ninguna rotación en el momento en el que salen/entran al trampolín.
 
 \bigskip
@@ -297,18 +295,23 @@ Para realizar esto hay que seguir los siguientes pasos:
 % rescribir
 En los menús de arriba, hace falta darle click a ``Rendering'' $\rightarrow$ ``Environment''.
 
-% foto de eso
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/misc/bg-color1.png}
+    \caption{Ubicación de la opción para cambiar el color de fondo.}
+ \end{figure}
 
 Se abrirá una ventana a la que hay que darle al rectángulo de selección de color de la sección ``Background'' y elegir un tono más claro.
 
-
-% foto de mi tono
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/misc/bg-color2.png}
+    \caption{Ventana con la opción para cambiar el color de fondo.}
+ \end{figure}
 
 \subsection{Puntos de luz de la escena}
 % rescribir
 Para la iluminación de la escena he utilizado 3 \textit{Target Lights} junto a una distribución de luz de tipo \textit{Spotlight}, permitiendome modificar el cono de luz para que solo ilumine las bases, para el caso de las luces de los extremos, y el trampolín, para el caso de la luz intermedia.
-
-% foto de los conos
 
 Ahora bien, los \textit{keyframes} para el foco de la izquierda son:
 
@@ -393,7 +396,99 @@ Y las curvas de animacion son:
 Al igual que con las otras luces, he utilizado una curva \textit{Slow-in/Slow-out} para simular el encendido y apagado progresivo de la luz.
 
 \section{Animación de la cámara}
+Para animar el movimiento de la cámara he utilziado un \textit{Dummy} y he puesto como hijo a la propia cámara sin su \textit{Target}. Con esto, ya es posible animar el giro de la cámara sin demasiada complicación.
+
+Los \textit{keyframes} de la cámara son:
+
+\begin{itemize}
+    \item \textbf{Instante 0: }La cámara se encuentra en la posición inicial, con una perspectiva similar a la que aparece en el guión.
+    \item \textbf{Instante 150: }La cámara se encuentra en su posición final, que en este caso he decidido que sea la misma, para que haga una rotación completa en los 5 segundos.
+\end{itemize}
+
+La curva de animación del \textit{Dummy} de la cámara es:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/curvas/Camara/blue.png}
+    \caption{Curva que representa la rotación en el eje Z con respecto al tiempo.}
+ \end{figure}
+
+Como se puede observar, he utilizado una función \textit{Slow-in/Slow-out}, para dar una sensación más realista al hacer la animación inversa, ya que de la otra forma parecía demasiado robótico.
 
 \section{Animación final}
+
+Los instantes más importantes de la animación final, quitando el movimiento de la cámara para más claridad, son:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/0.png}
+    \caption{Animación de la escena en el instante 0.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/14.png}
+    \caption{Animación de la escena en el instante 14.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/26.png}
+    \caption{Animación de la escena en el instante 26.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/38.png}
+    \caption{Animación de la escena en el instante 38.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/48.png}
+    \caption{Animación de la escena en el instante 48.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/58.png}
+    \caption{Animación de la escena en el instante 58.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/92.png}
+    \caption{Animación de la escena en el instante 92.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/102.png}
+    \caption{Animación de la escena en el instante 102.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/112.png}
+    \caption{Animación de la escena en el instante 112.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/124.png}
+    \caption{Animación de la escena en el instante 124.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/136.png}
+    \caption{Animación de la escena en el instante 136.}
+ \end{figure}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/animaciones/general/150.png}
+    \caption{Animación de la escena en el instante 150.}
+ \end{figure}
 
 \end{document}
