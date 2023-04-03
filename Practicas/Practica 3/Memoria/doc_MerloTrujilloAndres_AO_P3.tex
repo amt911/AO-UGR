@@ -3,7 +3,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage[draft]{graphicx}	%Si se quiere compilar con las imagenes
+\usepackage{graphicx}	%Si se quiere compilar con las imagenes
 % \usepackage[draft]{graphicx}	%Si NO se quiere compilar con las imagenes porque tarda mucho
 \usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
 \usepackage{listings}
@@ -115,6 +115,7 @@ Los distintos objetos de la escena se han construido de la siguiente forma:
     \item \textbf{Bases: }Para las bases he utilizado un cubo achatado y un cilindro para el soporte, uniendo ambos en un grupo.
 \end{itemize}
 
+\newpage
 
 \section{Animación de la escena}
 
@@ -182,6 +183,7 @@ Esta curva representa la posición en el eje Y de la pelota con respecto el tiem
 % rescribir
 Esta curva representa la posición en el eje X con respecto el tiempo, solo desde la posición de la base hasta en el momento que toca por primera vez el trampolín, ya que las siguientes animaciones las realiza el \textit{Dummy} correspondiente. He elegido una función lineal porque es la que me ha parecido más realista de todas las opciones, dentro de lo que cabe. 
 
+\bigskip
 
 Los \textit{keyframes} para el \textit{Dummy} de la pelota de la izquierda son:
 
@@ -192,7 +194,7 @@ Los \textit{keyframes} para el \textit{Dummy} de la pelota de la izquierda son:
     \item \textbf{Instante 150: }Exactamente igual que el instante anterior, se hace para que la animación ping-pong comience al unísono con las demás.
 \end{itemize}
 
-\bigskip
+\newpage
 
 Las curva de animación para el \textit{Dummy} son:
 
@@ -224,7 +226,7 @@ Los \textit{keyframes} de la pelota de la derecha son:
     \item \textbf{Instante 150: }Finalmente, la pelota da otro rebote y se encuentra en el aire de nuevo.
 \end{itemize}
 
-\bigskip
+\newpage
 
 Las curvas de animación es:
 
@@ -244,6 +246,7 @@ Las curvas de animación es:
 
 Esta curva representa la posición en el eje X con respecto al tiempo. Ocurre de manera similar que con la pelota izquierda, he utilizado una función lineal porque era la que me parecía más realista.
 
+\newpage
 
 Mientras que los \textit{keyframes} para su \textit{Dummy} son:
 
@@ -269,7 +272,8 @@ De nuevo, ocurre de manera similar que con el \textit{Dummy} de la otra pelota. 
 \bigskip
 
 Además, esta pelota sigue el mismo espaciado en los \textit{keyframes} que la otra, pero comenzando desde el instante 150 y hacia la izquierda; es decir, es como si fuera un ``reflejo'' de la otra. Esto resultará en que la pelota comience sobre el trampolín y acabe dando saltos sobre la plataforma, así se puede repetir la animación inversa de manera fluida.
-% pero comenzando desde la derecha y sobre el trampolín, en vez de la izquierda. Esto hace que se pueda repetir la animación de manera sencilla, al ser simétricas dichas animaciones.
+
+\newpage
 \subsection{Trampolín}
 Para realizar el giro de la curva del trampolín es necesario sincronizar los instantes iniciales y finales de los \textit{dummies} de las pelotas, para que giren conjuntamente.
 
@@ -295,6 +299,8 @@ Y la curva de animación es:
  \end{figure}
 
  Al igual que las pelotas, como el balancín es hijo del punto de apoyo, la rotación realmente se ve reflejada en el eje Y en coordenadas del mundo, ya que el padre actúa de manera similar a los \textit{dummies}. Al igual que estos, el trampolín utiliza una curva lineal, ya que la energía potencial de la pelota que se encuentra en el aire, al tocarlo se la transfiere, sin la posibilidad de que acelere poco a poco.
+
+ \newpage
 \section{Iluminación de la escena}
 Para la iluminación de la escena he utilizado una combinación de 3 luces, como se pedía en el guion, y de un cambio del color de fondo para que las zonas que no son iluminadas sean visibles.
 
@@ -344,7 +350,7 @@ Los \textit{keyframes} para el foco de la izquierda son:
     \item \textbf{Instante 150: }Exactamente igual que en el instante anterior. Se realiza para hacer que la animación inversa funcione bien y porque la pelota no está en la base.
 \end{itemize}
 
-\bigskip
+\newpage
 
 Las curvas de animación son las siguientes:
 
@@ -407,7 +413,7 @@ La luz intermedia, utilizada para iluminar el trampolín, tiene los siguientes \
     \item \textbf{Instante 150: }Sigue sin haber movimiento, por lo que sigue apagada y de color rojo. También es para que la animación inversa funcione.
 \end{itemize}
 
-\bigskip
+\newpage
 
 Y las curvas de animación son:
 
@@ -424,6 +430,8 @@ Y las curvas de animación son:
  \end{figure}
 
 Al igual que con las otras luces, he utilizado una curva \textit{Slow-in/Slow-out} para simular el encendido y apagado progresivo de la luz.
+
+\newpage
 
 \section{Animación de la cámara}
 Para animar el movimiento de la cámara he utilizado un \textit{Dummy} y he puesto como hijo a la propia cámara sin su \textit{Target}. Con esto, ya es posible animar el giro de la cámara sin demasiada complicación.
@@ -448,6 +456,8 @@ La curva de animación del \textit{Dummy} de la cámara es:
  \end{figure}
 
 Como se puede observar, he utilizado una función \textit{Slow-in/Slow-out}, para dar una sensación más realista al hacer la animación inversa, ya que de la otra forma parecía demasiado robótico.
+
+\newpage
 
 \section{Animación final}
 
@@ -514,7 +524,9 @@ Los instantes más importantes de la animación final, quitando el movimiento de
     \includegraphics[width=\textwidth]{imagenes/animaciones/general/124.png}
     \caption{Animación de la escena en el instante 124.}
  \end{subfigure}
-\hfill
+\end{figure}
+
+\begin{figure}[H]\ContinuedFloat
  \begin{subfigure}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/animaciones/general/136.png}
@@ -526,5 +538,6 @@ Los instantes más importantes de la animación final, quitando el movimiento de
     \includegraphics[width=\textwidth]{imagenes/animaciones/general/150.png}
     \caption{Animación de la escena en el instante 150.}
  \end{subfigure}
+ \caption{Instantes más importantes de la animación resultante.}
 \end{figure}
 \end{document}
