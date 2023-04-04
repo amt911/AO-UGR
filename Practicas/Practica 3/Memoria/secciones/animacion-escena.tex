@@ -23,7 +23,7 @@
 
 \section{Animación de la escena}
 
-La animación la he realizado algo distinta a la que se pedía en el guion, ya que le comenté al profesor que el resultado final era muy lento y me dijo que podía añadir algunos rebotes antes de comenzar la animación pedida. Para dar simetría, he animado dos rebotes al principio de la animación y al final y en ambas pelotas, para que la repetición inversa sea igual. 
+La animación la he realizado algo distinta a la que se pedía en el guion, ya que le comenté al profesor que el resultado final era muy lento y me dijo que podía añadir algunos rebotes antes de comenzar la animación pedida. Para dar simetría, he animado dos rebotes al principio de la animación y al final, en ambas pelotas, para que la repetición inversa sea igual. 
 
 \bigskip
 
@@ -35,7 +35,7 @@ Además, se pide hacer que los últimos 5 segundos realice la misma animación, 
    \caption{Pasos necesarios para seleccionar el tipo ping-pong.}
 \end{figure}
 
-Esta forma obliga a repetir \textit{keyframes} en los instantes 0 y 150; es decir, no va a haber cambio con el \textit{keyframe} siguiente o anterior. Esto es necesario porque hay animaciones que no duran lo mismo, como el trampolín, que su animación es más corta y si no se hiciera daría como resultado un giro prematuro, haciendo que la animación no sea correcta en los últimos 5 segundos.
+Esta forma obliga a repetir \textit{keyframes} en los instantes 0 y 150; es decir, no va a haber cambio con el \textit{keyframe} siguiente o anterior. Es necesario porque hay animaciones que no duran lo mismo, como el trampolín, que su animación es más corta y si no se hiciera daría como resultado un giro prematuro, haciendo que la animación no sea correcta en los últimos 5 segundos.
 
 \bigskip
 
@@ -68,9 +68,6 @@ Para animar el movimiento de las pelotas, he usado un objeto \textit{Dummy} con 
     \caption{\textit{Dummies} utilizados para realizar la animación de las pelotas en el trampolín.}
 \end{figure}
 
-
-
-
 \bigskip
 
 Asimismo, para que la trayectoria que realicen no se vea afectada por la rotación del \textit{Dummy}, este se debe encontrar sin ninguna rotación en el momento en el que salen/entran al trampolín. Si no se siguiera esto, la trayectoria seguida en los saltos estaría rotada, de acuerdo al ángulo que tenga el \textit{Dummy} en ese momento.
@@ -80,6 +77,8 @@ Asimismo, para que la trayectoria que realicen no se vea afectada por la rotaci�
 % Ahora bien, como puede haber confusión sobre los distintos \textit{keyframes} para los objetos de la escena, voy a dividir cada objeto junto a su \textit{Dummy}, si lo tiene, en subsecciones:
 
 Voy a dividir cada parte de la escena animada en subsecciones, que se encuentran a continuación.
+
+\newpage
 
 \subsection{Pelota de la izquierda}
 Como he dicho anteriormente, la animación de la pelota de la izquierda consiste en utilizar una jerarquía, cuyo padre sea un \textit{Dummy} centrado en el trampolín, para realizar el balanceo del mismo cuando se mueve.
@@ -160,7 +159,6 @@ Todo esto que he dicho es aplicable al trampolín, por lo que la explicación co
 % \end{figure}
 
 
-\newpage
 \subsection{Pelota de la derecha}
 De nuevo, como he dicho al principio de esta sección, he utilizado un \textit{Dummy} para realizar la animación del balanceo de manera correcta y algo más fácil que animarlo manualmente.
 
@@ -178,7 +176,7 @@ Por tanto, los \textit{keyframes} de la pelota de la derecha son:
     \item \textbf{Instante 150: }Finalmente, la pelota da otro rebote y se encuentra en el aire de nuevo.
 \end{itemize}
 
-\bigskip
+\newpage
 
 Las curvas de animación es:
 
@@ -198,7 +196,7 @@ Las curvas de animación es:
 
 Esta curva representa la posición en el eje X con respecto al tiempo. Ocurre de manera similar que con la pelota izquierda, he utilizado una función lineal porque era la que me parecía más realista.
 
-\bigskip
+\newpage
 
 Mientras que los \textit{keyframes} para su \textit{Dummy} son:
 
@@ -209,7 +207,7 @@ Mientras que los \textit{keyframes} para su \textit{Dummy} son:
     \item \textbf{Instante 150: }Ningún cambio realizado, solo es para que la animación inversa comience a la misma vez.
 \end{itemize}
 
-\newpage
+\bigskip
 
 La curva de animación para el \textit{Dummy} es:
 
@@ -261,3 +259,5 @@ Y la curva de animación es:
  \end{figure}
 
  Al igual que las pelotas, como el balancín es hijo del punto de apoyo, la rotación realmente se ve reflejada en el eje Y en coordenadas del mundo, ya que el padre actúa de manera similar a los \textit{dummies}. Al igual que estos, el trampolín utiliza una curva lineal, ya que la energía potencial de la pelota que se encuentra en el aire, al tocarlo se la transfiere, sin la posibilidad de que acelere poco a poco.
+
+ \newpage
