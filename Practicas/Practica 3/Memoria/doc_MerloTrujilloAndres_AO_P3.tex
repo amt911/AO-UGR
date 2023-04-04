@@ -84,7 +84,7 @@ Todo lo mencionado anteriormente se debe repetir de forma invertida, de manera q
 
 En esta memoria, voy a dividir cada una de las partes que he realizado en secciones, las cuales se presentarán a continuación.
 
-\section{Número de fotogramas}
+\section{Duración de la escena}
 
 % rescribir
 En la práctica se pedía que la animación durara 5 segundos, seguidos de otros 5 segundos para la animación inversa. 
@@ -99,8 +99,19 @@ $30 \text{ fps} \times 2 \times 5 \text{ segundos} = 300 \text{ fotogramas} $
 
 \bigskip
 
-Cabe destacar que la animación debe acabar en el instante 150, para dar paso a la animación inversa y que esta se complete antes de comenzar de nuevo por el principio.
+Cabe destacar que este valor hay que ponerlo en la casilla \textit{Length}, ya que es la que indica la longitud de tiempo que va a tener la escena. Además, la animación debe acabar en el instante 150, para dar paso a la animación inversa y que esta se complete antes de comenzar de nuevo por el principio.
 
+\bigskip
+
+La ventana con la configuración es la siguiente:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\textwidth]{imagenes/misc/duracion.png}
+   \caption{Configuración de la duración de la escena.}
+\end{figure}
+
+Como se puede observar, \textit{Frame Count} indica un valor de 301, pero, según la documentación (\href{https://help.autodesk.com/view/3DSMAX/2022/ENU/?guid=GUID-9473CAF3-AF73-4127-A98C-58ACEF01ACAC}{Enlace}), siempre será la longitud más 1, por lo que realmente no hay que fijarse en este valor. Otra forma de comprobar que es correcto es cambiar el \textit{Time Display} a ``MM:SS:TICKS'' y mirando las casillas \textit{End Time} y \textit{Length}, que indican 10 segundos.
 \section{Composición de los objetos}
 
 Los distintos objetos de la escena se han construido de la siguiente forma:
@@ -111,6 +122,12 @@ Los distintos objetos de la escena se han construido de la siguiente forma:
     Además, he modificado el pivote del tablero para que se encuentre justo en la unión del punto de apoyo con la tabla, con el objetivo de que gire de manera realista.
 
     Cabe destacar que he realizado una jerarquía en la que el punto de apoyo es el padre.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{imagenes/misc/PivotTrampolin.png}
+      \caption{Pivote de la plataforma del trampolín.}
+   \end{figure}
 
     \item \textbf{Bases: }Para las bases he utilizado un cubo achatado y un cilindro para el soporte, uniendo ambos en un grupo.
 \end{itemize}
@@ -213,6 +230,18 @@ Esta curva debe seguir la forma que la del trampolín, en este caso lineal, ya q
 
 Todo esto que he dicho es aplicable al trampolín, por lo que la explicación correspondiente va a ser muy similar.
 
+\bigskip
+
+La pelota y su \textit{Dummy} se encuentran en la escena de la siguiente forma:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.7\textwidth]{imagenes/misc/PLDummy.png}
+   \caption{Pelota izquierda junto a su \textit{Dummy}.}
+\end{figure}
+
+
+\newpage
 \subsection{Pelota de la derecha}
 Los \textit{keyframes} de la pelota de la derecha son:
 
@@ -226,7 +255,7 @@ Los \textit{keyframes} de la pelota de la derecha son:
     \item \textbf{Instante 150: }Finalmente, la pelota da otro rebote y se encuentra en el aire de nuevo.
 \end{itemize}
 
-\newpage
+\bigskip
 
 Las curvas de animación es:
 
@@ -246,7 +275,7 @@ Las curvas de animación es:
 
 Esta curva representa la posición en el eje X con respecto al tiempo. Ocurre de manera similar que con la pelota izquierda, he utilizado una función lineal porque era la que me parecía más realista.
 
-\newpage
+\bigskip
 
 Mientras que los \textit{keyframes} para su \textit{Dummy} son:
 
@@ -257,7 +286,7 @@ Mientras que los \textit{keyframes} para su \textit{Dummy} son:
     \item \textbf{Instante 150: }Ningún cambio realizado, solo es para que la animación inversa comience a la misma vez.
 \end{itemize}
 
-\bigskip
+\newpage
 
 La curva de animación para el \textit{Dummy} es:
 
@@ -272,6 +301,16 @@ De nuevo, ocurre de manera similar que con el \textit{Dummy} de la otra pelota. 
 \bigskip
 
 Además, esta pelota sigue el mismo espaciado en los \textit{keyframes} que la otra, pero comenzando desde el instante 150 y hacia la izquierda; es decir, es como si fuera un ``reflejo'' de la otra. Esto resultará en que la pelota comience sobre el trampolín y acabe dando saltos sobre la plataforma, así se puede repetir la animación inversa de manera fluida.
+
+\bigskip
+
+La pelota y su \textit{Dummy} se encuentran en la escena de la siguiente forma:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.7\textwidth]{imagenes/misc/PRDummy.png}
+   \caption{Pelota derecha junto a su \textit{Dummy}.}
+\end{figure}
 
 \newpage
 \subsection{Trampolín}
@@ -434,7 +473,7 @@ Al igual que con las otras luces, he utilizado una curva \textit{Slow-in/Slow-ou
 \newpage
 
 \section{Animación de la cámara}
-Para animar el movimiento de la cámara he utilizado un \textit{Dummy} y he puesto como hijo a la propia cámara sin su \textit{Target}. Con esto, ya es posible animar el giro de la cámara sin demasiada complicación.
+Para animar el movimiento de la cámara he utilizado un \textit{Dummy} y he puesto como hijo a la propia cámara sin su \textit{Target}. Con esto, ya es posible animar el giro de la cámara sin demasiada complicación y permitiendo que siempre esté apuntando hacia la escena.
 
 \bigskip
 
@@ -459,7 +498,27 @@ Como se puede observar, he utilizado una función \textit{Slow-in/Slow-out}, par
 
 \newpage
 
-\section{Animación final}
+La trayectoria que sigue es la siguiente:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\textwidth]{imagenes/misc/CameraPath.png}
+   \caption{Trayectoria final seguida por la cámara.}
+\end{figure}
+
+\bigskip
+
+Y la posición del \textit{Dummy} y la cámara para que funcione correctamente es:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\textwidth]{imagenes/misc/DummyCamera.png}
+   \caption{Cámara junto a su \textit{Dummy} en la escena. Así se consigue que la cámara apunte siempre a los objetos.}
+\end{figure}
+
+\newpage
+
+\section{Configuración final}
 
 Los instantes más importantes de la animación final, quitando el movimiento de la cámara para más claridad, son:
 
