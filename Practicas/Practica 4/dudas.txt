@@ -1,0 +1,2 @@
+es mejor usar link para la animacion de la espada (tanto los brazos como la plataforma)
+he hecho brazos, y no los he agrupado, pero he usado position contraint, es correcto? o lo dejo como siempre?
