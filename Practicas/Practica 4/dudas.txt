@@ -1,2 +1,7 @@
-es mejor usar link para la animacion de la espada (tanto los brazos como la plataforma)
-he hecho brazos, y no los he agrupado, pero he usado position contraint, es correcto? o lo dejo como siempre?
+Para hacer el lookat he usado un dummy con un link que he tenido que animar en la transicion de la espada. Hay otra forma de hacerlo mejor?
+
+Hay alguna formula matematica para hacer el movimiento de las ruedas que siga el porcentaje?
+
+Hay alguna forma de usar menos dummies?
+
+La camara no capta el lookat de la espada, lo dejo asi?
