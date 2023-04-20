@@ -1,0 +1,68 @@
+\section{Coche}
+
+La composición del coche es muy similar al usado en la práctica 2, con la misma jerarquía, pero los cilindros de las ruedas tienen menos aristas, para acentuar el efecto de movimiento de las ruedas. Además, como se pide que la espada debe mirar a la parte superior del vehículo, he usado un \textit{Dummy} para que mire correctamente. Si bien se podría haber hecho con el cubo de arriba, me ha parecido más correcto hacer esto, ya que no va a mirar al centro del coche, sino a la parte trasera.
+
+\bigskip
+
+Voy a dividir cada restricción, incluyendo la de la espada, en subsecciones:
+
+
+% ACTUALIZAR ESTA SECCION SI SE CAMBIA EL LUNES ALGO
+\subsection{Configuración de la espada para que gire}
+
+Para que la espada mire, es necesario utilizar la restricción \textit{LookAt Constraint}, junto al \textit{Select LookAt Axis} en el eje Z, para que funcione correctamente. Con esto hecho, hace falta seleccionar los \textit{Targets}, que en mi caso son dos:
+
+\begin{itemize}
+    \item Un primer \textit{Dummy} que siempre se encuentra encima de la espada para que esta apunte hacia arriba en un primer momento. Este objeto tiene una restricción \textit{Link}, que está unida a las manos y la plataforma, haciendo que así siga siempre a la espada.
+    \item El segundo \textit{Dummy} es el comentado anteriormente, uno que se encuentra en la parte trasera superior del coche.
+\end{itemize}
+
+Con esto hecho, solo falta hacer una transición suave de un \textit{target} a otro. Entonces, los instantes referentes a esta restricción son:
+
+\begin{itemize}
+    \item \textbf{Instante : }La espada sigue mirando al \textit{Dummy} que tiene justo encima.
+    \item \textbf{Instante : }La espada ahora está mirando completamente hacia el coche.
+\end{itemize}
+
+Las curvas de animación de la restricción son:
+
+% curvas de la restricción
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+\end{figure}
+
+% HABLAR DE LA CURVA
+\blindtext
+
+\subsection{Seguimiento de la curva}
+
+Lo primero que hay que hacer es generar un spline que será usado por el coche para realizar la ruta.
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+   \caption{Forma que tiene el spline, se puede ver que sube y baja también.}
+\end{figure}
+
+Una vez generado, es necesario ponerle al coche, en mi caso he decidido ponérselo al padre de la jerarquía, que es el cubo inferrior, la restricción \textit{Path Constraint} con el \textit{Path} creado anteriromente. Además, hay que habilitar la opción \textit{Follow} para que el coche lo siga y deshabilitar la opción \textit{Loop} para que no siga infinitamente.
+
+\bigskip
+
+Una vez hecho esto, simplemente es neceasrio modifircar los \textit{keyframes} de inicio y final, que en mi caso han sido los instantes \textbf{X} y \textbf{Z}.
+
+\bigskip
+
+Tras hacer esto, se puede ver como el coche se mueve siguiendo el spline de manera correcta.
+
+\bigskip
+
+La curva de animación es:
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+\end{figure}
+
+\blindtext
+

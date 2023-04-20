@@ -1,0 +1,77 @@
+% TODO: ARREGLAR JERARQUIA DE LAS MANOS
+
+\section{Cambio de mano}
+
+Antes de nada, voy a explicar la composición de las manos y de la espada en la escena:
+
+\begin{itemize}
+    \item \textbf{Manos: }Están formadas por una esfera, que simula las manos, y un cilindro, que simula el antebrazo. Cabe destacar que para facilitar su animación, he realizado una jerarquía en la que las manos son el padre de los antebrazos.
+    
+    % foto de eso
+    \item \textbf{Espada: }La espada la he realizado utilizando como empuñadura un cilindro, un cubo achatado como guarda y para la hoja una pirámide de base rectangular y estirado en el eje Z para que sea más alto y puntiagudo.
+    
+    \bigskip
+
+    Todas estas piezas las he agrupado para que sea más fácil trabajar con ellas. No obstante, al agrupar las piezas, el pivote se ha movido a la hoja, haciendo que cuando la agarre la mano no sea realista. Por tanto, es necesario mover el pivote de la espada de nuevo a la empuñadura.
+    
+    % foto de la espada
+    % caption{Forma final de la espada.}
+\end{itemize}
+
+Voy a dividir la configuración de las manos y de la espada en distintas subsecciones.
+
+\subsection{Configuración de las manos}
+
+Para la animación del cambio de mano, he utilizado los siguientes \textit{keyframes} para la mano más a la izquierda de la escena:
+
+\begin{itemize}
+    \item \textbf{Instante 0: }La mano se encuentra en su posición inicial.
+    \item \textbf{Instante : }La mano se ha acercado a la otra para darle la espada.
+    % \item \textbf{Instante : }
+    % \item \textbf{Instante : }
+    % \item \textbf{Instante : }
+    % \item \textbf{Instante : }
+\end{itemize}
+
+Las curvas de la animación son:
+
+% curvas
+
+Como se puede ver, en todas las curvas he usado la forma por defecto \textit{Slow-in/Slow-out}, ya que genera unos resultados más orgánicos y acordes a estas extremidades.
+
+
+Mientras que la animación para la mano más a la derecha de la escena es: 
+
+\begin{itemize}
+    \item \textbf{Instante : }La mano se encuentra en su posición inicial y ha recibido la espada de la otra mano.
+    \item \textbf{Instante : }Ahora la mano se ha dirigido a la plataforma de abajo de la grúa para dejar la espada.
+    \item \textbf{Instante : }Finalmente la mano vuelve a la posición inicial.
+\end{itemize}
+
+Las curvas de animación para esta mano son:
+
+% curvas
+
+De nuevo, se peude ver que en todas las curvas se ha utilizado la misma forma que para la otra mano, para dar un resultado más realista. 
+
+\bigskip
+
+Además, se puede observar como hay una animación en el eje Z. Esto es debido a que la plataforma se encuentra ligeramente más alta que los brazos, haciendo que este tenga que subir un poco y luego bajar para llegar a su posición inicial.
+
+\bigskip
+
+En cuanto a restricciones, ambas manos no tienen restricción de ningún tipo, es la espada la que tiene restricciones.
+
+
+\subsection{Espada}
+
+% HABLAR SOLO DE LA RESTRICCION DE POSICION, LA OTRA VA EN EL COCHE
+
+La espada tiene \dots
+
+
+\subsection{Resultado final en el cambio de manos}
+
+El resultado final de todo esto es el siguiente:
+
+% fotos de los fotogramas mas importantes.

@@ -5,3 +5,7 @@ Hay alguna formula matematica para hacer el movimiento de las ruedas que siga el
 Hay alguna forma de usar menos dummies?
 
 La camara no capta el lookat de la espada, lo dejo asi?
+
+La camara debe animarse con un spline?
+
+Las manos deben animarse con un spline?

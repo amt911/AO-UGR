@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx, graphics, float, fancyhdr, titling}
@@ -7,13 +7,16 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
 
+\usepackage{blindtext}
+\usepackage{mwe}
+
 %\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
 
 \renewcommand{\footrulewidth}{0.4pt}
 \title{
 \includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
 \vspace*{1in}
-\textbf{Cuestiones Tema X} \\
+\textbf{Memoria de la Práctica 4} \\
 Animación por Ordenador \\
 \vspace*{0.5in}}
 \author{Andrés Merlo Trujillo \\
@@ -49,8 +52,10 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 %    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
 %\end{figure}
 
-\section{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo, nunc a molestie rutrum, lorem justo aliquet quam, suscipit viverra diam sapien eget purus. Aenean ac dapibus lacus, sed fringilla magna. Integer scelerisque arcu id commodo finibus. Etiam posuere arcu id tempor fermentum. Aliquam posuere faucibus eros sed fermentum. Vivamus viverra commodo ipsum vel fermentum. Donec vitae nibh a nibh semper lobortis. Ut eget neque leo. Nulla ullamcorper in nisi nec consectetur. }
-
-...
+\input{secciones/introduccion}
+\input{secciones/manos}
+\input{secciones/grua}
+\input{secciones/coche}
+\input{secciones/espada}
 
 \end{document}
