@@ -1,0 +1,61 @@
+\section{Cámara}
+
+Para la cámara he utilizado una de tipo \textit{Target}, cuya posición comienza en la izquierda de la escena.
+
+Voy a dividir en dos subsecciones la animación del propio movimiento de la cámara y del seguimiento de los objetos de la escena:
+
+% REVISAR ESTA PARTE PORQUE PUEDE SER QUE HAGA FALTA USAR UN PATH
+\subsection{Movimiento de la cámara}
+
+Para realizar el movimiento de pasar de izquierda a la derecha de la escena lo he animado de forma manual usando los siguientes \textit{keyframes}:
+
+\begin{itemize}
+    \item \textbf{Instante : }La cámara se encuentra a la izquierda de la escena.
+    \item \textbf{Instante : }La cámara se encuentra a la derecha de la escena.
+\end{itemize}
+
+\bigskip
+
+Las curvas de animación son las siguientes: 
+
+% curvas de animacion
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+\end{figure}
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-b}
+\end{figure}
+
+% explicacion de las curvas
+\blindtext
+
+\subsection{Seguimiento de los objetos}
+
+Para realizar el seguimiento de los objetos he utilizado en el \textit{target} de la cámara una restricción de posición (\textit{Position Constraint}), cuyos objetivos son la espada y el coche.
+
+\bigskip
+
+Estos pesos deben cambiar cuando el coche proceda a moverse, para pasar de fijarse en la espada al propio coche. Los \textit{keyframes} de esta restricción son:
+
+\begin{itemize}
+    \item \textbf{Instante : }El \textit{target} está fijado completamente en la espada y la está siguiendo.
+    \item \textbf{Instante : }El \textit{target} ahora está fijándose completamente en el coche y lo sigue.
+\end{itemize}
+
+\bigskip
+
+En cuanto a las curvas de animación utilizadas, son las siguientes:
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+\end{figure}
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-b}
+\end{figure}
+
+% explicacion
+\blindtext

@@ -66,3 +66,22 @@ La curva de animación es:
 
 \blindtext
 
+\subsection{Movimiento de las ruedas}
+
+Para hacer el movimiento de las ruedas, he usado \textit{Wire Parameter}, he seleccionado la rotación en el eje Y de una de ellas y la he unido a la caja del coche que tiene el \textit{Path Constraint}, más concretamente al porcentaje que ha recorrido en el spline. Esto lo he hecho así, ya que si hubiese elegido la posición en el eje X, al estar el coche en una zona que no fuera paralela al eje X girarían las ruedas menos.
+
+\bigskip
+
+% QUIZAS COMPROBAR ESTO, QUE PUEDE SER QUE CAMBIE
+En cuanto a la rotación, la he multiplicado por un factor muy grande para que se note el giro.
+
+% foto del menu wire parameter
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.5\textwidth]{example-image-a}
+   \caption{Menú con la configuración de la rueda.}
+\end{figure}
+
+Para simplificar futuros cambios en el factor de rotación, he asignado la rotación de las demás ruedas en el eje Y con la que tiene el porcentaje del spline, así se puede cambiar solo una vez el parámetro.
+
+% no me acuerdo de si tenia curva, creo que no, pero iria aqui
