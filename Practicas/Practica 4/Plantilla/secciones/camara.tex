@@ -4,14 +4,19 @@ Para la cámara he utilizado una de tipo \textit{Target}, cuya posición comienz
 
 Voy a dividir en dos subsecciones la animación del propio movimiento de la cámara y del seguimiento de los objetos de la escena:
 
-% REVISAR ESTA PARTE PORQUE PUEDE SER QUE HAGA FALTA USAR UN PATH
 \subsection{Movimiento de la cámara}
 
-Para realizar el movimiento de pasar de izquierda a la derecha de la escena lo he animado de forma manual usando los siguientes \textit{keyframes}:
+Cabe destacar que aparte del movimiento de izquierda a derecha en la escena, he animado un tercer movimiento final que hace que la cámara se ponga justo detrás de la espada, para visualizar su movimiento y el recorrido que hace el coche.
+
+\bigskip
+
+Por tanto, para realizar la animación de la cámara hacen falta los siguientes \textit{keyframes}:
 
 \begin{itemize}
-    \item \textbf{Instante : }La cámara se encuentra a la izquierda de la escena.
-    \item \textbf{Instante : }La cámara se encuentra a la derecha de la escena.
+    \item \textbf{Instante 65: }La cámara se encuentra a la izquierda de la escena.
+    \item \textbf{Instante 90: }La cámara se encuentra a la derecha de la escena.
+    \item \textbf{Instante 125: }La cámara se encuentra en la posición que en el instante anterior, está esperando a que la espada suba junto a la plataforma.
+    \item \textbf{Instante 150: }La cámara se encuentra detrás de la espada, mostrando el movimiento de esta y del coche junto a sus ruedas.
 \end{itemize}
 
 \bigskip
@@ -29,7 +34,7 @@ Las curvas de animación son las siguientes:
 \end{figure}
 
 % explicacion de las curvas
-\blindtext
+Como se puede ver, he utilizado la forma de la curva \textit{Slow-in/Slow-out}, ya que es la que me ha parecido que hace un movimiento más suave y realista.
 
 \subsection{Seguimiento de los objetos}
 
@@ -40,8 +45,8 @@ Para realizar el seguimiento de los objetos he utilizado en el \textit{target} d
 Estos pesos deben cambiar cuando el coche proceda a moverse, para pasar de fijarse en la espada al propio coche. Los \textit{keyframes} de esta restricción son:
 
 \begin{itemize}
-    \item \textbf{Instante : }El \textit{target} está fijado completamente en la espada y la está siguiendo.
-    \item \textbf{Instante : }El \textit{target} ahora está fijándose completamente en el coche y lo sigue.
+    \item \textbf{Instante 125: }El \textit{target} está fijado completamente en la espada y la está siguiendo.
+    \item \textbf{Instante 150: }El \textit{target} ahora está fijándose completamente en el coche y lo sigue.
 \end{itemize}
 
 \bigskip
@@ -57,5 +62,4 @@ En cuanto a las curvas de animación utilizadas, son las siguientes:
    \includegraphics[width=0.5\textwidth]{example-image-b}
 \end{figure}
 
-% explicacion
-\blindtext
+De nuevo, he usado \textit{Slow-in/Slow-out} porque es el que me ha parecido más realista, ya que para mover una cámara de objetivo es necesario hacer un esfuerzo extra al principio, luego pasa a moverse más o menos con la misma velocidad y finalmente hay que aplicar una fuerza en el sentido contrario para pararla. Esto se puede con este tipo de curva.

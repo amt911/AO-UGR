@@ -9,3 +9,15 @@ La camara no capta el lookat de la espada, lo dejo asi?
 La camara debe animarse con un spline?
 
 Las manos deben animarse con un spline?
+
+
+
+---------------------------------------------------------------------------------------
+
+
+Se puede modificar la forma de la curva del path constraint?
+
+Puedo hacer otro movimiento de la camra para que se vea la espada?
+
+Las ruedas las he hecho que dependan de otra, es correcto?
+
