@@ -21,3 +21,6 @@ Puedo hacer otro movimiento de la camra para que se vea la espada?
 
 Las ruedas las he hecho que dependan de otra, es correcto?
 
+
+
+CAMBIAR ROTACION DE LA PLATAFORMA A LA DERECHA

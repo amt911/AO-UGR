@@ -5,20 +5,24 @@
 Antes de nada, voy a explicar la composición de las manos y de la espada en la escena:
 
 \begin{itemize}
-    \item \textbf{Manos: }Están formadas por una esfera, que simula las manos, y un cilindro, que simula el antebrazo. Cabe destacar que para facilitar su animación, he realizado una jerarquía en la que las manos son el padre de los antebrazos.
-    
-    En un modelo jerárquico tendría más sentido que el antebrazo fuese el padre, pero al estar animada nada más que la mano, he preferido que sea al revés para más facilidad a la hora de realizar ajustes en la animación.
-    
-    % foto de eso
-    \item \textbf{Espada: }La espada la he realizado utilizando como empuñadura un cilindro, un cubo achatado como guarda y para la hoja una pirámide de base rectangular y estirado en el eje Z para que sea más alto y puntiagudo.
-    
-    \bigskip
+\item \textbf{Manos: }Están formadas por una esfera, que simula las manos, y un cilindro, que simula el antebrazo. Cabe destacar que para facilitar su animación, he realizado una jerarquía en la que las manos son el padre de los antebrazos.
 
-    Todas estas piezas las he agrupado para que sea más fácil trabajar con ellas. No obstante, al agrupar las piezas, el pivote se ha movido a la hoja, haciendo que cuando la agarre la mano no sea realista. Por tanto, es necesario mover el pivote de la espada de nuevo a la empuñadura.
-    
-    % foto de la espada
-    % caption{Forma final de la espada.}
+En un modelo jerárquico tendría más sentido que el antebrazo fuese el padre, pero al estar animada nada más que la mano, he preferido que sea al revés para más facilidad a la hora de realizar ajustes en la animación.
+
+\item \textbf{Espada: }La espada la he realizado utilizando como empuñadura un cilindro, un cubo achatado como guarda y para la hoja una pirámide de base rectangular y estirado en el eje Z para que sea más alto y puntiagudo.
+
+\bigskip
+
+Todas estas piezas las he agrupado para que sea más fácil trabajar con ellas. No obstante, al agrupar las piezas, el pivote se ha movido a la hoja, haciendo que cuando la agarre la mano no sea realista. Por tanto, es necesario mover el pivote de la espada de nuevo a la empuñadura.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{imagenes/espada.png}
+    \caption{Forma final de la espada.}
+\end{figure}
 \end{itemize}
+
+\bigskip
 
 Voy a dividir la configuración de las manos y de la espada en distintas subsecciones.
 
@@ -29,19 +33,23 @@ Para la animación del cambio de mano, he utilizado los siguientes \textit{keyfr
 \begin{itemize}
     \item \textbf{Instante 0: }La mano se encuentra en su posición inicial, alejada de la otra mano.
     \item \textbf{Instante 20: }La mano se ha acercado a la otra para darle la espada.
-    % \item \textbf{Instante : }
-    % \item \textbf{Instante : }
-    % \item \textbf{Instante : }
-    % \item \textbf{Instante : }
 \end{itemize}
 
 Las curvas de la animación son:
 
 % curvas
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.6\textwidth]{imagenes/manos/izquierda/posX.png}
+   \caption{Curva que representa la posición en el eje X de la mano izquierda.}
+\end{figure}
+
 
 % Como se puede ver, en todas las curvas he usado la forma por defecto \textit{Slow-in/Slow-out}, ya que genera unos resultados más orgánicos y acordes a estas extremidades.
 
-Como se puede observar, he usado una curva de aceleración al principio, para simular la aceleración necesaria que requiere la mano, y al final he usado una curva lineal, para intentar simular que la mano le ha lanzado la espada a la otra. Realmente se podría haber animado con una curva de desaceleración, pero he preferido darle más acción a la animación, simulando un pequeño lanzamiento de espada.
+Como se puede observar, he usado una curva de aceleración al principio, para simular la aceleración necesaria que requiere la mano y para intentar representar que la mano le ha lanzado la espada a la otra. Gracias a esta curva, se le puede transferir la velocidad a la espada de manera más o menos realista.
+
+\bigskip
 
 
 Mientras que la animación para la mano más a la derecha de la escena es: 
@@ -55,10 +63,32 @@ Mientras que la animación para la mano más a la derecha de la escena es:
 
 Las curvas de animación para esta mano son:
 
-% curvas
+\begin{figure}[H]
+   \centering
+   % curvas
+   \begin{subfigure}[t]{0.32\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/manos/derecha/posX.png}
+       \caption{Curva que representa la posición en el eje X de la mano derecha.}
+    \end{subfigure}
+   \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/manos/derecha/posY.png}
+       \caption{Curva que representa la posición en el eje Y de la mano derecha.}
+    \end{subfigure}
+   \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/manos/derecha/posZ.png}
+       \caption{Curva que representa la posición en el eje Z de la mano derecha.}
+    \end{subfigure}
+    \caption{Curvas de animación de la mano derecha.}
+\end{figure}
+
 
 % De nuevo, se puede ver que en todas las curvas se ha utilizado la misma forma que para la otra mano, para dar un resultado más realista. 
-En esta mano he utilizado la curva por defecto \textit{Slow-in/Slow-out}, que da un resultado convincente, sobre todo cuando debe parar para dejar la espada en la plataforma, que desacelera progresivamente.
+En esta mano he utilizado la curva por defecto \textit{Slow-in/Slow-out} para todas las curvas, ya que da un resultado convincente, sobre todo cuando debe parar para dejar la espada en la plataforma, que desacelera progresivamente, similar a como se haría en la realidad.
 
 \bigskip
 
@@ -84,6 +114,11 @@ Para animar el seguimiento de la espada en las manos y las plataformas, se debe 
 Después, he elegido como \textit{targets} las manos y la plataforma, animando después el cambio de pesos. El peso inicialmente estará en la mano más a la izquierda de la escena, después estará en la otra mano y finalmente todo el peso se encontrará en un \textit{dummy} que hay en la plataforma.
 
 % foto de los pesos
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imagenes/espada/pesosPC.png}
+    \caption{Objetivos utilizados para esta restricción.}
+ \end{figure}
 
 Los \textit{keyframes} referentes a este \textit{constraint} son:
 
@@ -99,11 +134,76 @@ Los \textit{keyframes} referentes a este \textit{constraint} son:
 En cuanto a la curva de animación referente al \textit{Position Constraint} es la siguiente:
 
 % curva de animacion
+\begin{figure}[H]
+   \centering
+   % curvas
+   \begin{subfigure}[t]{0.27\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/espada/peso0.png}
+       \caption{Curva que representa el peso de la mano izquierda con respecto al tiempo.}
+    \end{subfigure}
+   \hfill
+    \begin{subfigure}[t]{0.27\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/espada/peso1.png}
+       \caption{Curva que representa el peso de la mano derecha con respecto al tiempo.}
+    \end{subfigure}
+   \hfill
+    \begin{subfigure}[t]{0.27\textwidth}
+       \centering
+       \includegraphics[width=\textwidth]{imagenes/espada/peso2.png}
+       \caption{Curva que representa el peso de la plataforma con respecto al tiempo.}
+    \end{subfigure}
+    \caption{Curvas de los pesos del \textit{Position Constraint}.}
+\end{figure}
 
 Como se puede observar, las curvas de animación son lineales. Lo he hecho así para simular el lanzamiento de la espada de la mano izquierda, que le transfiere su velocidad. El paso de la mano derecha a la plataforma lo he hecho de forma lineal también, ya que la mano se posa sobre el siguiente punto en el que debe estar la espada, haciendo que esta no se mueva y no se aprecie diferencia entre distintos tipos de curva.
+
+\bigskip
+
+La configuración del \textit{Position Constraint} es:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.4\textwidth]{imagenes/espada/PCconfig.png}
+   \caption{Configuración final del \textit{Position Constraint}.}
+\end{figure}
 
 \subsection{Resultado final en el cambio de manos}
 
 El resultado final de todo esto es el siguiente:
 
 % fotos de los fotogramas mas importantes.
+\begin{figure}[H]
+   \centering
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/espada/keyframes/0.png}
+    \caption{Manos en el instante 0.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/espada/keyframes/20.png}
+    \caption{Manos en el instante 20.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/espada/keyframes/27y30.png}
+    \caption{Manos en los instantes 27 y 30.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/espada/keyframes/65y70.png}
+    \caption{Manos en los instantes 65 y 70.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/espada/keyframes/90.png}
+    \caption{Manos en el instante 90.}
+ \end{subfigure}
+ \caption{\textit{Keyframes} más importantes de la animación de las manos.}
+\end{figure}

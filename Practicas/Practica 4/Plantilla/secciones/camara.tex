@@ -23,14 +23,27 @@ Por tanto, para realizar la animación de la cámara hacen falta los siguientes 
 
 Las curvas de animación son las siguientes: 
 
-% curvas de animacion
 \begin{figure}[H]
     \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
-\end{figure}
-\begin{figure}[H]
-    \centering
-   \includegraphics[width=0.5\textwidth]{example-image-b}
+    % curvas de animacion
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/camara/posX.png}
+        \caption{Curva de animación de la posición en el eje X con respecto al tiempo.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/camara/posY.png}
+        \caption{Curva de animación de la posición en el eje Y con respecto al tiempo.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/camara/posZ.png}
+        \caption{Curva de animación de la posición en el eje Z con respecto al tiempo.}
+    \end{subfigure}
+    \caption{Curvas de animación para el movimiento de la cámara.}
 \end{figure}
 
 % explicacion de las curvas
@@ -53,13 +66,32 @@ Estos pesos deben cambiar cuando el coche proceda a moverse, para pasar de fijar
 
 En cuanto a las curvas de animación utilizadas, son las siguientes:
 
+
 \begin{figure}[H]
     \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
-\end{figure}
-\begin{figure}[H]
-    \centering
-   \includegraphics[width=0.5\textwidth]{example-image-b}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/camara/target/pos0.png}
+        \caption{Curva de los pesos de la restricción para la espada.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/camara/target/pos1.png}
+        \caption{Curva de los pesos de la restricción para el \textit{dummy} del coche.}
+    \end{subfigure}
+    \caption{Curvas de animación para los pesos del \textit{target}.}
 \end{figure}
 
 De nuevo, he usado \textit{Slow-in/Slow-out} porque es el que me ha parecido más realista, ya que para mover una cámara de objetivo es necesario hacer un esfuerzo extra al principio, luego pasa a moverse más o menos con la misma velocidad y finalmente hay que aplicar una fuerza en el sentido contrario para pararla. Esto se puede con este tipo de curva.
+
+
+\subsection{Trayectoria seguida}
+
+La trayectoria seguida por la cámara es la siguiente:
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.6\textwidth]{imagenes/camara/trayectoria.png}
+   \caption{Trayectoria seguida por la cámara.}
+\end{figure}

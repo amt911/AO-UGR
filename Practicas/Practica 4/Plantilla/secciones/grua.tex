@@ -16,7 +16,11 @@ En cuanto a las restricciones, he usado un \textit{Position Constraint} en cada 
 Cabe destacar que estas restricciones no tienen animaciones, al no tener otro objeto al que unirse.
 
 % foto de los dummies, el pivote y general
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{imagenes/grua/grua.png}
+    \caption{Forma final de la grúa.}
+ \end{figure}
 
 Los \textit{keyframes} de la grúa, más concretamente del brazo que gira, son:
 
@@ -30,7 +34,11 @@ Los \textit{keyframes} de la grúa, más concretamente del brazo que gira, son:
 La curva de animación para el brazo es:
 
 % curva
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imagenes/grua/rotY.png}
+    \caption{Curva que representa la rotación en eje Y con respecto al tiempo.}
+ \end{figure}
 
 He vuelto a elegir una forma \textit{Slow-in/Slow-out} debido a que me parecía más realista que un motor tarde unas décimas de segundo en alcanzar la velocidad y también que requiera un tiempo en desacelerar.
 
@@ -39,3 +47,18 @@ He vuelto a elegir una forma \textit{Slow-in/Slow-out} debido a que me parecía 
 Y los fotogramas más importantes después de haber hecho todo esto son:
 
 % foto de los fotogramas mas imporantes.
+\begin{figure}[H]
+    \centering
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/grua/keyframes/90.png}
+    \caption{Grúa en el instante 90 y anterior.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/grua/keyframes/125.png}
+    \caption{Grúa en el instante 125 y siguientes.}
+ \end{subfigure}
+ \caption{\textit{Keyframes} de la grúa.}
+\end{figure}

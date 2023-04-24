@@ -27,13 +27,26 @@ Las curvas de animación son:
 
 \begin{figure}[H]
     \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
-\end{figure}
+    % curvas
+    \begin{subfigure}[t]{0.27\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/espada/peso0.png}
+        \caption{Curva que representa el peso de la mano izquierda con respecto al tiempo.}
+     \end{subfigure}
+    \hfill
+     \begin{subfigure}[t]{0.27\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/espada/peso1.png}
+        \caption{Curva que representa el peso de la mano derecha con respecto al tiempo.}
+     \end{subfigure}
+    \hfill
+     \begin{subfigure}[t]{0.27\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/espada/peso2.png}
+        \caption{Curva que representa el peso de la plataforma con respecto al tiempo.}
+     \end{subfigure}
+     \caption{Curvas de los pesos del \textit{Position Constraint}.}
+ \end{figure}
 
 Como dije en la sección de las manos, he usado para el cambio de manos una curva de aceleración y al final lineal, para simular el lanzamiento de la espada de una mano a otra. En cuanto al cambio de la plataforma, al no tener animación el cambio de pesos, he decidido hacerlo también para ser consistente.
 
@@ -55,10 +68,10 @@ No obstante, si solo se elige como objetivo el coche, la espada quedará torcida
 
 Como dije en el apartado del coche, esto se puede hacer yendo a: \textit{Hierarchy} $\rightarrow$ \textit{Link Info}.
 
-% fotaca de la opcion
 \begin{figure}[H]
     \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
+   \includegraphics[width=0.35\textwidth]{imagenes/espada/dummyTopHierarchy.png}
+   \caption{Menú para bloquear canales.}
 \end{figure}
 
 Poniendo como objetivo en el \textit{LookAt Constraint} este \textit{dummy}, ya se ha solucionado el problema, pero hay que cambiar el peso cuando la espada se encuentre arriba para que mire al coche.
@@ -78,7 +91,14 @@ La curva de animación es las siguientes:
 
 \begin{figure}[H]
     \centering
-   \includegraphics[width=0.5\textwidth]{example-image-a}
+   \includegraphics[width=0.6\textwidth]{imagenes/espada/lookat0.png}
+   \caption{Curva usada para realizar el cambio de pesos en la restricción en el objetivo del \textit{dummy}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.6\textwidth]{imagenes/espada/lookat1.png}
+   \caption{Curva usada para realizar el cambio de pesos en la restricción en el objetivo del \textit{dummy} del coche.}
 \end{figure}
 
 Como se puede observar, he usado la forma por defecto, ya que es la que me ha resultado más suave y realista.
