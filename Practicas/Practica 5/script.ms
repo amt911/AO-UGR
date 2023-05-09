@@ -88,35 +88,6 @@ fn animarObjeto obj inicio final = (
 
 			pInter = (pIni + pFin) / 2
 			pInter.z = maximo + 80
-
-			
-			-- Se rota el objeto para que esté mirando hacia la siguiente plataforma
-			v = normalize (pFin - obj.pos)
-			v.z = 0
-
-			forwardVector = obj.transform.row1
-
-			-- Se eliminan las componentes X, Y, ya que son las que pueden producir rotaciones no deseadas
-			angulo = acos (dot forwardVector v)
-
-			izdaODcha = cross forwardVector v
-
-			print "---"
-			print v
-			print forwardVector
-			print angulo
-			print "---"
-
-			-- obj.rotation = eulerAngles 0 0 (obj.rotation.z_rotation+10)
-			-- obj.rotation.z_rotation = obj.rotation.z_rotation + 10
-			if izdaODcha.z > 0 then
-				anguloFinal = obj.rotation.z_rotation + angulo
-			else 
-				anguloFinal = obj.rotation.z_rotation - angulo
-			
-			-- obj.transform.row1 = v
-			
-			-- obj.rotation.z = obj.rotation.z + 10
 			
 			-- Aqui no es hasta el final, hace falta dividirlo en trozos para las distintas plataformas
 			for t = inicio + (i - 1) * keyframesPorSalto to inicio + i * keyframesPorSalto do (
@@ -125,8 +96,6 @@ fn animarObjeto obj inicio final = (
 					
 					obj.pos = (interpolacionCuadratica pIni pFinal pInter porcentaje)
 					obj.modifiers[Stretch].Stretch  = (stretchObjeto obj porcentaje)
-
-					obj.rotation.z_rotation = anguloFinal
 				)
 			)
 		)
