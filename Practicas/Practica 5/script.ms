@@ -1,8 +1,26 @@
+fn interpolacion pIni pFin porcentaje = (
+	-- Creamos el vector de dirección.
+	v1 = pFin - pIni
+
+	return (pIni + ( (normalize v1) * ((length v1) * porcentaje) ))
+)
+
+fn interpolacionCuadraticaV2 pIni pFinal pInter porcentaje = (
+	-- Otra opcion para hacer la interpolacion cuadratica es haciendo tres interpolaciones lineales.
+	primeraInterpolacion = interpolacion pIni pInter porcentaje
+	segundaInterpolacion = interpolacion pInter pFin porcentaje
+
+	resultado = interpolacion primeraInterpolacion segundaInterpolacion porcentaje
+
+	return resultado
+)
+
 fn interpolacionCuadratica obj inicio final plataformas = (
+	-- Elimino los keyframes que ya tenga el objeto
 	deleteKeys obj
-	obj.pos = plataformas[1].pos
-	obj.pos.z = plataformas[1].height
-	sliderTime = inicio
+
+	-- Modifico la linea temporal para que se ajuste
+	animationRange = interval inicio final
 	
 	animate on (
 		-- La interpolacion al estar comprendida entre 0 y 1, es necesario saber su duracion
@@ -132,8 +150,8 @@ rollout salto "Configuración del salto" (
 		if actor == undefined then (
 			messageBox "No hay ningún actor seleccionado."
 		)
-		else if plataformas.count == 0 then (
-			messageBox "No hay ninguna plataforma seleccionada."
+		else if plataformas.count < 2 then (
+			messageBox "No hay suficientes plataforma seleccionada."
 		)
 		else if (findItem plataformas actor) != 0 then (
 			messageBox "El objeto a animar no puede ser plataforma al mismo tiempo."
@@ -142,7 +160,51 @@ rollout salto "Configuración del salto" (
 			messageBox "El keyframe de inicio debe ser menor que el del final."
 		)
 		else (
-			interpolacionCuadratica actor inicio.value final.value plataformas
+			-- Elimino los keyframes que ya tenga el objeto
+			deleteKeys obj
+
+			-- Modifico la linea temporal para que se ajuste
+			animationRange = interval inicio.value final.value
+
+			animate on (
+				-- La interpolacion al estar comprendida entre 0 y 1, es necesario saber su duracion
+				duracion = final.value - inicio.value
+
+				keyframesPorSalto = duracion / (plataformas.count - 1)
+
+				for i = 1 to plataformas.count - 1 do (
+					pIni = plataformas[i].pos
+					-- Recordar que hay que subirlo para que no se solape con el cubo
+					pIni.z = plataformas[i].height
+										
+					pFin = plataformas[i+1].pos
+					-- Recordar que hay que subirlo para que no se solape con el cubo
+					pFin.z = plataformas[i+1].height					
+					
+					/*
+					pInter = plataformas[i].pos.z + plataformas[i].height / 2
+
+					-- Si la altura de la otra plataforma es mayor, se escoge
+					if (plataformas[i+1].pos.z + plataformas[i+1].height / 2) > pInter then
+						pInter = plataformas[i+1].pos.z + plataformas[i+1].height / 2
+
+					-- Se le da cierta altura
+					pInter = pInter + 50
+					*/
+					pInter = (pIni + pFin) / 2
+					pInter.z = 80
+
+					-- Aqui no es hasta el final, hace falta dividirlo en trozos para las distintas plataformas
+					for t = inicio.value + (i - 1) * keyframesPorSalto to inicio.value + i * keyframesPorSalto do (
+						at time t (
+							tF = ((t as float - inicio.value as float ) - (i-1)*keyframesPorSalto) / keyframesPorSalto
+							
+							-- P = (1.0 - tF)^2.0 * pIni + 2.0 * tF * (1.0 - tF) * pInter + tF^2.0 * pFin
+							actor.pos = (interpolacionCuadraticaV2 pIni pFinal pInter tF)
+						)
+					)
+				)
+			)			
 		)
 	)
 )
