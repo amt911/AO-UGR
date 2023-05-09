@@ -15,12 +15,54 @@ fn interpolacionCuadratica pIni pFinal pInter porcentaje = (
 	return resultado
 )
 
-fn animarObjeto obj inicio final = (
+fn mapRangeClamped a b c d valor = (
+	valorFinal = valor
+
+	if valor < a then 
+		valorFinal = a
+
+	else if valor > b then
+		valorFinal = b
+
+	return (valorFinal-a)/(b-a) * (d-c) + c
+)
+
+fn limpiarObjeto obj = (
 	-- Elimino los keyframes que ya tenga el objeto
 	deleteKeys obj
+	
+	for m in obj.modifiers do
+		deleteModifier obj m
+
+	obj.rotation.x_rotation = 0
+	obj.rotation.y_rotation = 0
+	obj.rotation.z_rotation = 0
+)
+
+fn stretchObjeto obj porcentajeSalto = (
+	maxPorcentajePrimero = 0.15
+	maxPorcentajeSegundo = 1 - maxPorcentajePrimero
+	
+	-- (1-t) * Pini + t * Pfin
+	stretchCantidad = (1 - (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 porcentajeSalto)) * -0.5 + (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 porcentajeSalto) * 0.5
+
+	-- Si esta en fase de bajada, se hace otra cosa
+	if porcentajeSalto > maxPorcentajeSegundo then (
+		stretchCantidad = (1 - (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 porcentajeSalto)) * 0.5 + (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 porcentajeSalto) * -0.5
+	)
+
+	return stretchCantidad
+)
+
+fn animarObjeto obj inicio final = (
+	limpiarObjeto obj
 
 	-- Modifico la linea temporal para que se ajuste
 	animationRange = interval inicio final
+
+	-- Se le añade el modificador stretch para simular aplastamiento y estiramiento
+	addModifier obj (Stretch() )
+	obj.modifiers[Stretch].Stretch = -0.5
 
 	animate on (
 		-- La interpolacion al estar comprendida entre 0 y 1, es necesario saber su duracion
@@ -31,31 +73,60 @@ fn animarObjeto obj inicio final = (
 		for i = 1 to plataformas.count - 1 do (
 			pIni = plataformas[i].pos
 			-- Recordar que hay que subirlo para que no se solape con el cubo
-			pIni.z = plataformas[i].height
+			pIni.z = plataformas[i].scale.z*plataformas[i].height + plataformas[i].pos.z
 								
 			pFin = plataformas[i+1].pos
 			-- Recordar que hay que subirlo para que no se solape con el cubo
-			pFin.z = plataformas[i+1].height					
-			
-			/*
-			pInter = plataformas[i].pos.z + plataformas[i].height / 2
+			pFin.z = plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z
 
-			-- Si la altura de la otra plataforma es mayor, se escoge
-			if (plataformas[i+1].pos.z + plataformas[i+1].height / 2) > pInter then
-				pInter = plataformas[i+1].pos.z + plataformas[i+1].height / 2
+			-- Busco aquella plataforma que tenga la mayor altura, y luego le sumo 50
+			maximo = (plataformas[i].scale.z*plataformas[i].height + plataformas[i].pos.z)
 
-			-- Se le da cierta altura
-			pInter = pInter + 50
-			*/
+			if (plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z) > maximo then
+				maximo = plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z
+
+
 			pInter = (pIni + pFin) / 2
-			pInter.z = 80
+			pInter.z = maximo + 80
 
+			
+			-- Se rota el objeto para que esté mirando hacia la siguiente plataforma
+			v = normalize (pFin - obj.pos)
+			v.z = 0
+
+			forwardVector = obj.transform.row1
+
+			-- Se eliminan las componentes X, Y, ya que son las que pueden producir rotaciones no deseadas
+			angulo = acos (dot forwardVector v)
+
+			izdaODcha = cross forwardVector v
+
+			print "---"
+			print v
+			print forwardVector
+			print angulo
+			print "---"
+
+			-- obj.rotation = eulerAngles 0 0 (obj.rotation.z_rotation+10)
+			-- obj.rotation.z_rotation = obj.rotation.z_rotation + 10
+			if izdaODcha.z > 0 then
+				anguloFinal = obj.rotation.z_rotation + angulo
+			else 
+				anguloFinal = obj.rotation.z_rotation - angulo
+			
+			-- obj.transform.row1 = v
+			
+			-- obj.rotation.z = obj.rotation.z + 10
+			
 			-- Aqui no es hasta el final, hace falta dividirlo en trozos para las distintas plataformas
 			for t = inicio + (i - 1) * keyframesPorSalto to inicio + i * keyframesPorSalto do (
 				at time t (
 					porcentaje = ((t as float - inicio as float ) - (i-1)*keyframesPorSalto) / keyframesPorSalto
 					
 					obj.pos = (interpolacionCuadratica pIni pFinal pInter porcentaje)
+					obj.modifiers[Stretch].Stretch  = (stretchObjeto obj porcentaje)
+
+					obj.rotation.z_rotation = anguloFinal
 				)
 			)
 		)
@@ -92,7 +163,7 @@ rollout salto "Configuración del salto" (
 	)
 	
 	group "Duración de la animación" (
-		spinner inicio "Inicio: " type:#Integer range:[0,500,1] default:12
+		spinner inicio "Inicio: " type:#Integer range:[0,500,1]
 		spinner final "Final: " type:#Integer range:[0,500,1]
 	)
 	
