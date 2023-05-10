@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption}
+\usepackage{listings}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}   %para que funcione addcontentsline debe ser la ultima que se cargue
+
+\usepackage{blindtext}
+\usepackage{mwe}
+
+%\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
+
+\renewcommand{\footrulewidth}{0.4pt}
+\title{
+\includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
+\vspace*{1in}
+\textbf{Memoria de la Práctica 5} \\
+Animación por Ordenador \\
+\vspace*{0.5in}}
+\author{Andrés Merlo Trujillo \\
+andresmerlo@correo.ugr.es \\
+77147239H \\ 
+\vspace*{0.5in} \\
+E.T.S. de Ingenierías Informática y de Telecomunicación \\
+\textbf{Universidad de Granada}} \date{\today}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\newcommand{\rotFactor}{5000\xspace}
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
+\fancyhead[L]{Andrés Merlo Trujillo}
+\fancyhead[R]{Animación por Ordenador}
+%\section{Ejercicio 1}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%\end{figure}
+
+
+\input{secciones/intro}
+\input{secciones/interpolacion}
+\input{secciones/interfaz}
+\input{secciones/animacion}
+\input{secciones/modificador}
+
+
+\end{document}

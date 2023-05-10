@@ -1,59 +1,126 @@
-fn interpolacion pIni pFin porcentaje = (
+
+/*
+	Función que genera la interpolación lineal entre dos puntos del espacio 3D, dado el factor de interpolación
+
+	@param pIni Posición inicial en el espacio 3D.
+	@param pFin Posición final en el espacio 3D,
+	@param factor Factor de interpolación.
+
+	@return Devuelve el punto del espacio 3D interpolado.
+*/
+fn interpolacion pIni pFin factor = (
 	-- Creamos el vector de dirección.
 	v1 = pFin - pIni
 
-	return (pIni + ( (normalize v1) * ((length v1) * porcentaje) ))
+	-- Devuelvo el vector con la posición interpolada
+	return (pIni + ( (normalize v1) * ((length v1) * factor) ))
 )
 
-fn interpolacionCuadratica pIni pFinal pInter porcentaje = (
-	-- Otra opcion para hacer la interpolacion cuadratica es haciendo tres interpolaciones lineales.
-	primeraInterpolacion = interpolacion pIni pInter porcentaje
-	segundaInterpolacion = interpolacion pInter pFin porcentaje
+/*
+	Función que genera la interpolación cuadrática de Bézier entre tres puntos en el espacio 3D.
 
-	resultado = interpolacion primeraInterpolacion segundaInterpolacion porcentaje
+	@param pIni Posición inicial en el espacio 3D.
+	@param pFin Posición final en el espacio 3D.
+	@param factor Factor de interpolación.
+	
+	@return Punto en el espacio 3D interpolado.
+*/
+fn interpolacionCuadratica pIni pFinal pInter factor = (
+	-- Primero interpolo todos los puntos, para obtener el tercer segmento
+	primeraInterpolacion = interpolacion pIni pInter factor
+	segundaInterpolacion = interpolacion pInter pFinal factor
+
+	-- El resultado se interpola de nuevo para obtener el valor final
+	resultado = interpolacion primeraInterpolacion segundaInterpolacion factor
 
 	return resultado
 )
 
+/*
+	Función que ajusta el valor al rango pasado como parámetro si se sale del mismo.
+
+	@param minimo Parte inferior del intervalo.
+	@param maximo Parte superior del intervalo.
+	@param valor Valor a consultar.
+
+	@return El valor sin modificar si se encuentra dentro del intervalo, en otro caso ajustado a uno de los dos extremos,
+ */
+fn clamp minimo maximo valor = (
+	res = valor
+
+	if valor < minimo then 
+		res = minimo
+
+	else if valor > maximo then
+		res = maximo
+
+	return res
+)
+
+/*
+	Función que mapea un intervalo de valores a otro intervalo. Mapea el intervalo [a, b] -> [c, d]
+
+	@param a Valor inferior del intervalo primero.
+	@param b Valor superior del intervalo primero.
+	@param c Valor inferior del intervalo segundo.
+	@param d Valor superior del intervalo segundo.
+	@param valor Valor del primer intervalor que se desea mapear al segundo.
+
+	@return Un nuevo valor que es proporcional al valor pasado como parámetro, pero en el segundo intervalo
+ */
 fn mapRangeClamped a b c d valor = (
-	valorFinal = valor
+	-- Función clamp, para que no se salga del intervalo
+	valorFinal = clamp a b valor
 
-	if valor < a then 
-		valorFinal = a
-
-	else if valor > b then
-		valorFinal = b
-
+	-- Función mapeadora
 	return (valorFinal-a)/(b-a) * (d-c) + c
 )
 
+/*
+	Función que elimina los modificadores y animaciones de un objeto.
+
+	@param obj Objeto al que se le desea ejecutar la operación.
+ */
 fn limpiarObjeto obj = (
 	-- Elimino los keyframes que ya tenga el objeto
 	deleteKeys obj
-	
+
+	-- Elimino todos los modificadores que pueda tener
 	for m in obj.modifiers do
 		deleteModifier obj m
-
-	obj.rotation.x_rotation = 0
-	obj.rotation.y_rotation = 0
-	obj.rotation.z_rotation = 0
 )
 
-fn stretchObjeto obj porcentajeSalto = (
-	maxPorcentajePrimero = 0.15
-	maxPorcentajeSegundo = 1 - maxPorcentajePrimero
-	
-	-- (1-t) * Pini + t * Pfin
-	stretchCantidad = (1 - (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 porcentajeSalto)) * -0.5 + (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 porcentajeSalto) * 0.5
+/*
+	Función que permite estirar y aplastar un objeto, dado el factor de interpolación de la parábola.
 
-	-- Si esta en fase de bajada, se hace otra cosa
-	if porcentajeSalto > maxPorcentajeSegundo then (
-		stretchCantidad = (1 - (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 porcentajeSalto)) * 0.5 + (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 porcentajeSalto) * -0.5
+	@param obj Objeto que se desea aplastar o estirar.
+	@param factor Factor de interpolación de la parábola.
+
+	@return La cantidad de estiramiento o aplastamiento que debe tener el objeto.
+ */
+fn stretchObjeto obj factor = (
+
+	maxPorcentajePrimero = 0.15 -- Hasta que valor de interpolación se tiene que estirar
+	maxPorcentajeSegundo = 1 - maxPorcentajePrimero -- Desde que valor se tiene que aplastar
+	
+	-- Calcula la interpolación lineal para obtener la cantidad de stretch
+	stretchCantidad = (1 - (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 factor)) * -0.5 + (mapRangeClamped 0.0 maxPorcentajePrimero 0.0 1.0 factor) * 0.5
+
+	-- Si esta en fase de bajada, se calcula la fase de aplastamiento
+	if factor > maxPorcentajeSegundo then (
+		stretchCantidad = (1 - (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 factor)) * 0.5 + (mapRangeClamped maxPorcentajeSegundo 1.0 0.0 1.0 factor) * -0.5
 	)
 
 	return stretchCantidad
 )
 
+/*
+	Función principal que anima el objeto.
+
+	@param obj El objeto que se desea animar.
+	@param inicio Instante inicial de la animación
+	@param final Instante final de la animación
+ */
 fn animarObjeto obj inicio final = (
 	limpiarObjeto obj
 
@@ -68,34 +135,53 @@ fn animarObjeto obj inicio final = (
 		-- La interpolacion al estar comprendida entre 0 y 1, es necesario saber su duracion
 		duracion = final - inicio
 
+		-- El numero de keyframes que debe tener reservados cada salto
 		keyframesPorSalto = duracion / (plataformas.count - 1)
 
+		estirarUltimoSalto = false	--Utilizado para los casos en los que los keyframesPorSalto no salgan exactos
+
+		if (mod duracion (plataformas.count - 1)) != 0 then (
+			estirarUltimoSalto = true
+		)
+
+		-- Se itera sobre las plataformas, de par en par
 		for i = 1 to plataformas.count - 1 do (
 			pIni = plataformas[i].pos
-			-- Recordar que hay que subirlo para que no se solape con el cubo
+			-- Se sube la componente Z a la plataforma
 			pIni.z = plataformas[i].scale.z*plataformas[i].height + plataformas[i].pos.z
 								
 			pFin = plataformas[i+1].pos
-			-- Recordar que hay que subirlo para que no se solape con el cubo
+			
+			-- Se sube aqui tambien
 			pFin.z = plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z
 
-			-- Busco aquella plataforma que tenga la mayor altura, y luego le sumo 50
-			maximo = (plataformas[i].scale.z*plataformas[i].height + plataformas[i].pos.z)
+			-- Busco aquella plataforma que tenga la mayor altura, y luego le sumo 80
+			maximo = pIni.z
 
-			if (plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z) > maximo then
-				maximo = plataformas[i+1].scale.z*plataformas[i+1].height + plataformas[i+1].pos.z
+			if pFin.z > maximo then (
+				maximo = pFin.z
+			)
 
 
 			pInter = (pIni + pFin) / 2
-			pInter.z = maximo + 80
-			
-			-- Aqui no es hasta el final, hace falta dividirlo en trozos para las distintas plataformas
-			for t = inicio + (i - 1) * keyframesPorSalto to inicio + i * keyframesPorSalto do (
+			pInter.z = maximo + 80		-- Se le suma 80 a la altura
+
+			ultimoKeyframeSalto = inicio + i * keyframesPorSalto
+
+			-- Si la evaluacion de antes indica que no es exacto, se tiene que estirar el ultimo salto
+			if (i == (plataformas.count - 1)) and estirarUltimoSalto then (
+				ultimoKeyframeSalto = final
+			)
+
+			-- Se anima el salto
+			for t = inicio + (i - 1) * keyframesPorSalto to ultimoKeyframeSalto do (
 				at time t (
-					porcentaje = ((t as float - inicio as float ) - (i-1)*keyframesPorSalto) / keyframesPorSalto
+					-- Es necesario hacerle el clamp, para que en los casos en el que el ultimo salto
+					-- sea algo mas largo de tiempo, no pase el numero por encima de 1.0
+					factor = clamp 0.0 1.0 (((t as float - inicio as float ) - (i-1)*keyframesPorSalto) / keyframesPorSalto)
 					
-					obj.pos = (interpolacionCuadratica pIni pFinal pInter porcentaje)
-					obj.modifiers[Stretch].Stretch  = (stretchObjeto obj porcentaje)
+					obj.pos = (interpolacionCuadratica pIni pFin pInter factor)
+					obj.modifiers[Stretch].Stretch  = (stretchObjeto obj factor)
 				)
 			)
 		)
@@ -128,7 +214,7 @@ rollout salto "Configuración del salto" (
 		
 		
 		-- Boton para eliminar alguna plataforma
-		button boEliminar "Eliminar plataforma seleccionada"
+		button boEliminar "Eliminar plataforma"
 	)
 	
 	group "Duración de la animación" (
@@ -136,7 +222,7 @@ rollout salto "Configuración del salto" (
 		spinner final "Final: " type:#Integer range:[0,500,1]
 	)
 	
-	button animar "Ejecutar animación"
+	button animar "Generar"
 	
 	-- Parte de eventos de los botones
 	on boActor picked obj do (
@@ -194,6 +280,8 @@ rollout salto "Configuración del salto" (
 			messageBox "El keyframe de inicio debe ser menor que el del final."
 		)
 		else (
+			print "modulo"
+			print (mod 6 5)
 			animarObjeto actor inicio.value final.value
 		)
 	)

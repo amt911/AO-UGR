@@ -1,0 +1,17 @@
+\section{Interpolación cuadrática}
+
+En la práctica se pide implementar la interpolación cuadrática para hacer que los saltos de una plataforma a otra sigan una parábola. A diferencia de la interpolación lineal, esta requiere usar un punto adicional, que es un punto intermedio.
+
+\bigskip
+
+Hay varias formas de realizar la interpolación cuadrática: la más famosa es la interpolación de Lagrange, que para grado 2 es fácil de calcular. Otra opción es utilizar la fórmula de las curvas Bézier para obtener la parábola.
+
+\bigskip
+
+He optado por utilizar la segunda opción, ya que me parecía más fácil de implementar, ya que teníamos la interpolación lineal programada. Por tanto, los puntos pasan a ser puntos de control, que al ser unidos se obtienen dos segmentos. A dichos segmentos hay que aplicarles la interpolación lineal con el mismo valor, obteniéndose así dos puntos que forman otro segmento, al que a su vez hay que aplicarle interpolación lineal con el mismo valor que antes. Realizando esto todas las veces que sea necesario, se obtiene una parábola.
+
+\bigskip
+
+Cabe destacar que el objeto no pasará por el punto intermedio, ya que es un punto de control por el que no puede pasar, pero si pasará por el punto de inicio y el final.
+
+% imagen de la animacion esa de wikipedia
