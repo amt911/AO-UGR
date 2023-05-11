@@ -1,3 +1,7 @@
+-- Sección de variables globales
+global plataformas = #()
+global actor = undefined
+
 /*
 	Función que genera la interpolación lineal entre dos puntos del espacio 3D, dado el factor de interpolación
 
@@ -243,10 +247,7 @@ fn generarEscenaPrueba listaPlataformas inicioSpinner finalSpinner boActor boAdd
 )
 
 -- Creacion de la interfaz
-rollout salto "Configuración del salto" (
-	global plataformas = #()
-	global actor = undefined
-	
+rollout salto "Configuración del salto" (	
 	-- Etiqueta del actor
 	label etActor "Actor:"
 	
