@@ -2,13 +2,17 @@
 
 En la animación final, se puede ver como tiene el modificador \textit{Stretch} para simular el aplastamiento y el estiramiento del objeto en movimiento. 
 
-% imagen de esto primero
+\bigskip
 
 En cuanto al número de plataformas que puede saltar, es un número arbitrario, mayor o igual a 2, por lo que se pueden poner tantas plataformas como se desee, teniendo en cuenta que al aumentar dicho número la velocidad de la animación aumentará, debido a que tendrá que hacer más cosas en el mismo tiempo.
 
-\bigskip
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.64\textwidth]{imagenes/path varios saltos.png}
+   \caption{El programa genera todos los saltos necesarios para llegar a todas las plataformas.}
+\end{figure}
 
-El punto más alto de cada salto se escoge buscando aquella plataforma que se encuentre más alta y se le suma 80 para que pase por encima de ambas.
+El punto más alto de cada salto se escoge buscando aquella plataforma que se encuentre más alta y se le suma 120 para que pase por encima de ambas.
 
 \bigskip
 
@@ -16,7 +20,7 @@ Sobre el número de saltos arbitrarios, he necesitado coger las plataformas en p
 
 \bigskip
 
-Además, he tenido en cuenta que las plataformas no se encuentren en el suelo o se encuentren escaladas, de forma que la animación resultante siga funcionando.
+Además, he tenido en cuenta parámetros como que las plataformas no se encuentren en el suelo o se encuentren con un factor de escalado, de forma que la animación resultante siga funcionando.
 
 \bigskip
 

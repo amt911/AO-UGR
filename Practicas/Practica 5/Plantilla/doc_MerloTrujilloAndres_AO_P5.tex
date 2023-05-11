@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption}
+\usepackage{graphicx, graphics, float, fancyhdr, titling, caption, subcaption, amsmath}
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{fancyhdr}
@@ -29,6 +29,7 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
+    citecolor=black
 }
 
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
@@ -61,5 +62,7 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 \input{secciones/animacion}
 \input{secciones/modificador}
 
+\bibliographystyle{plainurl} % We choose the "plain" reference style
+\bibliography{bib} % Entries are in the refs.bib file
 
 \end{document}

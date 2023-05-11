@@ -1,4 +1,3 @@
-
 /*
 	Función que genera la interpolación lineal entre dos puntos del espacio 3D, dado el factor de interpolación
 
@@ -15,6 +14,7 @@ fn interpolacion pIni pFin factor = (
 	-- Devuelvo el vector con la posición interpolada
 	return (pIni + ( (normalize v1) * ((length v1) * factor) ))
 )
+
 
 /*
 	Función que genera la interpolación cuadrática de Bézier entre tres puntos en el espacio 3D.
@@ -35,6 +35,7 @@ fn interpolacionCuadratica pIni pFinal pInter factor = (
 
 	return resultado
 )
+
 
 /*
 	Función que ajusta el valor al rango pasado como parámetro si se sale del mismo.
@@ -57,6 +58,7 @@ fn clamp minimo maximo valor = (
 	return res
 )
 
+
 /*
 	Función que mapea un intervalo de valores a otro intervalo. Mapea el intervalo [a, b] -> [c, d]
 
@@ -76,6 +78,7 @@ fn mapRangeClamped a b c d valor = (
 	return (valorFinal-a)/(b-a) * (d-c) + c
 )
 
+
 /*
 	Función que elimina los modificadores y animaciones de un objeto.
 
@@ -89,6 +92,7 @@ fn limpiarObjeto obj = (
 	for m in obj.modifiers do
 		deleteModifier obj m
 )
+
 
 /*
 	Función que permite estirar y aplastar un objeto, dado el factor de interpolación de la parábola.
@@ -113,6 +117,7 @@ fn stretchObjeto obj factor = (
 
 	return stretchCantidad
 )
+
 
 /*
 	Función principal que anima el objeto.
@@ -164,7 +169,7 @@ fn animarObjeto obj inicio final = (
 
 
 			pInter = (pIni + pFin) / 2
-			pInter.z = maximo + 80		-- Se le suma 80 a la altura
+			pInter.z = maximo + 120		-- Se le suma algo a la altura del punto intermedio
 
 			ultimoKeyframeSalto = inicio + i * keyframesPorSalto
 
@@ -251,27 +256,21 @@ rollout salto "Configuración del salto" (
 		(por defecto es 0 y la lista comienza en 1)
 		*/
 		if seleccion != 0 do (
-			-- DEBUG
-			print plataformas
-			print "cambio"
-			print liPlat.items
-			
 			deleteItem plataformas seleccion
 			deleteItem liPlat.items seleccion
 			
-			-- Esta linea sirva para que se actualice la lista
+			-- Esta linea sirva para que se actualice la lista en la interfaz
 			liPlat.items = liPlat.items
 		)
 	)
 
 	on animar pressed do (
-		-- Hacer restriccion para que haya al menos dos plataformas
-		-- Primero se comprueba que todos los datos han sido introducidos
+		-- Primero se comprueba que todos los datos han sido introducidos correctamente
 		if actor == undefined then (
 			messageBox "No hay ningún actor seleccionado."
 		)
 		else if plataformas.count < 2 then (
-			messageBox "No hay suficientes plataforma seleccionada."
+			messageBox "No hay suficientes plataformas seleccionadas."
 		)
 		else if (findItem plataformas actor) != 0 then (
 			messageBox "El objeto a animar no puede ser plataforma al mismo tiempo."
@@ -280,8 +279,6 @@ rollout salto "Configuración del salto" (
 			messageBox "El keyframe de inicio debe ser menor que el del final."
 		)
 		else (
-			print "modulo"
-			print (mod 6 5)
 			animarObjeto actor inicio.value final.value
 		)
 	)

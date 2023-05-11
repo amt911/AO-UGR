@@ -2,7 +2,11 @@
 
 La interfaz es la siguiente:
 
-% imagen de la interfaz
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.2\textwidth]{imagenes/ui1.png}
+   \caption{Interfaz del programa.}
+\end{figure}
 
 Como se puede ver, aparece un primer botón para elegir el objeto que será animado.
 
@@ -16,17 +20,46 @@ Después, aparece la parte del \textit{timeline}, donde se puede elegir el insta
 
 \bigskip
 
-Finalmente aparece el botón de crear la animación, que solo se ejecutará si todo está correctamente elegido.
+Finalmente aparece el botón de generar la animación, que solo se ejecutará si todo está correctamente elegido.
 
 \bigskip
 
-Como he dicho antes, para comprobar que todo esté bien configurado he añadido comprobaciones para no poder elegir el mismo objeto como el que vaya a saltar y como plataforma. Asimismo, he puesto otras como: comprobación de que haya al menos dos plataformas, comprobación de que el tiempo de inicio sea menor que el de finalización y comprobación de que se ha elegido un objeto para animar.
-
-
-% algunas imagenes de los errores
+Como he dicho antes, para asegurarme de que todo esté bien configurado he añadido comprobaciones para no poder elegir el mismo objeto como el que vaya a saltar y como plataforma. Asimismo, he puesto otras como: comprobación de que haya al menos dos plataformas, comprobación de que el tiempo de inicio sea menor que el de finalización y comprobación de que se ha elegido un objeto para animar.
 
 \bigskip
+\newpage
 
-A continuación aparece un ejemplo de la interfaz rellena, lista para animar el objeto.
+A continuación muestro algunos errores que pueden salir:
+
+\begin{figure}[H]
+\begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/error1.png}
+    \caption{Error de un mismo objeto como actor y plataforma.}
+ \end{subfigure}
+\hfill
+ \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/error2.png}
+    \caption{Error de no haber suficientes plataformas.}
+ \end{subfigure}
+\par\bigskip
+\begin{subfigure}[t]{\textwidth}
+    \centering
+    \includegraphics[width=0.48\textwidth]{imagenes/error3.png}
+    \caption{Error de intervalo de animación inválido.}
+ \end{subfigure}
+ \caption{Pantallas con los distintos avisos que puede dar el programa.}
+\end{figure}
+
+\newpage
+
+Y un ejemplo de configuración correcta de la interfaz es:
 
 % imagen de la interfaz rellena
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{imagenes/ui2.png}
+    \caption{Interfaz con los datos rellenos correctamente.}
+ \end{figure}
