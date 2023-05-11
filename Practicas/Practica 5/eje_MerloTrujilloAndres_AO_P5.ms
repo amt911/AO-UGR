@@ -193,6 +193,54 @@ fn animarObjeto obj inicio final = (
 	)
 )
 
+/*
+	Función para generar una escena predefinida y una animación.
+
+	@param listaPlataformas Referencia a la lista de plataformas de la interfaz.
+	@param inicioSpinner Referencia al spinner del comienzo de la animación.
+	@param finalSpinner Referencia al spinner del final de la animación.
+	@param boActor Referencia al botón de añadir actor.
+	@param boAddPlataforma Referencia al botón de añadir plataforma.
+	@param boAniamr Referencia al botón para generar la animación.
+ */
+fn generarEscenaPrueba listaPlataformas inicioSpinner finalSpinner boActor boAddPlataforma boAnimar = (
+	-- Se eliminan todos los objetos de la escena
+	delete objects
+
+	-- Tambien hace falta vaciar la lista de plataformas
+	listaPlataformas.items = #()
+	plataformas = #()
+	actor = undefined
+
+	-- Plataformas, es un poco manual, para asegurarme de que esten en una posicion buena
+	caja1 = Box name:"1" pos:[-30.0,26.0,0.0] length:60 width:32 height:15 scale:[1,1,4.11]
+	caja2 = Box name:"2" pos:[7.0,-43.0,0.0] length:12 width:24 height:5
+	caja3 = Box name:"3" pos:[114.0,63.0,0.0] length:38 width:115 height:25
+	caja4 = Box name:"4" pos:[-219.0,-39.0,103.0] length:68 width:57 height:28
+	caja5 = Box name:"5" pos:[3.0,-39.0,103.0] length:68 width:57 height:28
+
+	tetera = Teapot radius:18 segments:8
+
+	-- Ahora añado todas las plataformas a la lista
+	boAddPlataforma.picked caja4
+	boAddPlataforma.picked caja1
+	boAddPlataforma.picked caja3
+	boAddPlataforma.picked caja5
+	boAddPlataforma.picked caja2
+	boAddPlataforma.picked caja4
+
+	-- Se debe hacer esto para que la lista se actualice
+	listaPlataformas.items = listaPlataformas.items
+
+	-- Se simula la acción de elegir la tetera
+	boActor.picked tetera
+	
+	-- Se escoge un tiempo de animación
+	inicioSpinner.value = 33
+	finalSpinner.value = 250
+	
+	boAnimar.pressed()
+)
 
 -- Creacion de la interfaz
 rollout salto "Configuración del salto" (
@@ -227,9 +275,13 @@ rollout salto "Configuración del salto" (
 		spinner final "Final: " type:#Integer range:[0,500,1]
 	)
 	
-	button animar "Generar"
+	button animar "Generar animación"
 	
+	button demo "Generar escena de prueba y animar" width:120 height:50 align:#center
+
 	-- Parte de eventos de los botones
+
+	-- Evento cuando se selecciona actor para que salte
 	on boActor picked obj do (
 		actor = obj
 		
@@ -237,6 +289,7 @@ rollout salto "Configuración del salto" (
 		boActor.text = obj.name
 	)
 	
+	-- Evento para cuando se añade una plataforma
 	on boPlat picked obj do (
 		if obj == actor then (
 			messageBox "El objeto a animar no puede ser plataforma al mismo tiempo."
@@ -247,6 +300,7 @@ rollout salto "Configuración del salto" (
 		)
 	)
 	
+	-- Evento para cuando se desea eliminar una plataforma
 	on boEliminar pressed do (
 		-- Se obtiene la seleccion en la lista
 		seleccion = liPlat.selection
@@ -264,6 +318,7 @@ rollout salto "Configuración del salto" (
 		)
 	)
 
+	-- Evento para cuando se pulsa el botón de animar
 	on animar pressed do (
 		-- Primero se comprueba que todos los datos han sido introducidos correctamente
 		if actor == undefined then (
@@ -281,6 +336,11 @@ rollout salto "Configuración del salto" (
 		else (
 			animarObjeto actor inicio.value final.value
 		)
+	)
+
+	-- Cuando se pulsa el boton de demo, se genera una escena y la animación
+	on demo pressed do (
+		generarEscenaPrueba liPlat inicio final boActor boPlat animar
 	)
 )
 
