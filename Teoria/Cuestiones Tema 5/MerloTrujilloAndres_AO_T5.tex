@@ -1,0 +1,214 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}	%Si se quiere compilar con las imagenes
+% \usepackage[draft]{graphicx}	%Si NO se quiere compilar con las imagenes porque tarda mucho
+\usepackage{graphics, float, fancyhdr, titling, caption, subcaption}
+\usepackage{listings, xcolor}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}		% solo se debe usar si se quiere usar \hypersetup
+\usepackage{xurl}
+
+
+% \usepackage{amsmath}      % Si se quiere usar \text{texto} dentro del modo matematico
+%\setcounter{secnumdepth}{-2}       %Poner solo esto si no se quieren numero delante de las secciones y niveles inferiores.
+
+\renewcommand{\footrulewidth}{0.4pt}
+\title{
+\includegraphics[width=1.75in]{imagenes/UGR-Logo.png} \\
+\vspace*{1in}
+\textbf{Cuestiones Tema 5} \\
+Animación por Ordenador \\
+\vspace*{0.5in}}
+\author{Andrés Merlo Trujillo \\
+andresmerlo@correo.ugr.es \\
+77147239H \\ 
+\vspace*{0.5in} \\
+E.T.S. de Ingenierías Informática y de Telecomunicación \\
+\textbf{Universidad de Granada}} \date{\today}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\lstdefinelanguage{MaxScript}{
+  keywords={break, case, catch, collect, continue, coordsys, default, do, else, exit, false, for, fn, global, if, in, local, macroScript, not, of, on, plugin, return, rollouts, silent, struct, then, to, true, try, undo, utilities, when, while, quat, rotate},
+  keywordstyle=\color{blue}\bfseries,
+%   ndkeywords={!=, #, #_, ##, %, &amp;, \&, \&, *, **, +, -, /, //, :, &lt;&lt;, &gt;&gt;, &lt;=, &gt;=, ==, ^, ~, ~=, +=, -=, *=, /=, //=, ^=, &=, &lt;&lt;=, &gt;&gt;=},
+%   ndkeywordstyle=\color{red}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{--},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{codegreen}\ttfamily,
+  stringstyle=\color{purple}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancy}   %a partir de comienza el header (se salta el indice y portada)
+\fancyhead[L]{Andrés Merlo Trujillo}
+\fancyhead[R]{Animación por Ordenador}
+%\section{Ejercicio 1}
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\textwidth]{imagenes/passwdfile.png}
+%    \vspace{10pt}
+%    \footnotesize{Fuente: https://...}
+%\end{figure}
+
+% \begin{figure}[H]\ContinuedFloat		% si se parten las imagenes en dos paginas y se desea continuar las letras de las subfiguras (a, b, c, ..., otra pag -> c, d, e)
+% \begin{figure}[H]
+%     \centering 
+% 	\begin{subfigure}[t]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/0.png}
+%         \caption{Pelotas en el instante 0.}
+%     \end{subfigure}
+%     \hfill
+%     %\par\bigskip %si se desea dejar un margen entre la imagen de arriba y de abajo
+% 	\begin{subfigure}[t]{0.48\textwidth}
+% 	    \centering
+% 	    \includegraphics[width=\textwidth]{imagenes/Ejercicio 1/keyframes/50.png}
+%         \caption{Pelotas en el instante 50.}
+%     \end{subfigure}    
+% \end{figure}
+
+% $30 \text{fps} \times 2 \times 5 \text{segundos} = 300 \text{fotogramas} $
+\section{Da algún ejemplo de objetos, o partes de objetos, con: 1 grado de libertad y 2 grados de libertad. Indica qué movimientos se permiten. Pon un ejemplo visual.}
+
+Voy a dividir los objetos y la explicación con 1 y 2 grados de libertad en subsecciones distintas:
+
+\subsection{1 grado de libertad}
+
+Un ejemplo puede ser la bisagra de una puerta, ya que solo se permite la rotación en el eje Z (suponiendo unas coordenadas Z-Up).
+
+\bigskip
+
+Otro ejemplo podría ser el muelle de un vehículo, ya que solo puede ser escalado en uno de los ejes (normalmente el eje Z).
+
+% foto del muelle y a ver si encuentro alguno de una bisagra
+
+\subsection{2 grados de libertad}
+
+Un ejemplo claro de un objeto con dos grados de libertad es el de un joystick de videojuegos, ya que permite rotaciones hacia arriba y abajo (eje Y) y rotaciones hacia la derecha e izquierda (eje X).
+
+% foto de calibracion joystick, quizas de la switch, que se ve mejor
+
+\section{Busca en 3DS Max la plantilla (Biped o CAT). Crea un esqueleto. Modifica alguna propiedad. Ponlo en una pose distinta a la que está por defecto.}
+
+Para crear un esqueleto es necesario acceder a los menús superiores: Create $\rightarrow$ System $\rightarrow$ Biped.
+
+% foto de los menus
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/menus.png}
+   \caption{Localización del biped en los menús.}
+\end{figure}
+
+Después, se pone en la escena como cualquier otro objeto.
+
+% figura del bicho puesto
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/biped.png}
+   \caption{Biped generado en la escena.}
+\end{figure}
+
+Si se selecciona cualquier extremidad, se puede rotar o trasladar, realizando un movmieento similar al del cuerpo humano.
+
+% pose distinta
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/bipedWalk.png}
+   \caption{Posición del biped modificada. Simulando que está caminando.}
+\end{figure}
+
+\section{Indica algún ejemplo en el que con cinemática inversa se podrían obtener múltiples soluciones.}
+
+Un ejemplo puede ser si se desea llegar a una pose en el que el personaje se toque la nariz con el dedo, ya que la posición del codo, la rotación del hombro y la posición de los brazos puede ser más de una.
+
+% rescribir, he puesto generos que no son.
+Otro ejemplo similar puede ser en cualquier posición de mano en la que el brazo no se encuentre extendida del todo, de forma que la posición del codo y la rotación del hombro pueda ser más de una.
+
+\subsection{¿Se podría encontrar algún escenario donde no existe una solución con cinemática inversa?}
+
+Sí. Se puede dar el caso en el que no haya ninguna solución. Un ejemplo es el de intentar tocar el codo con los dedos de la mano de un mismo brazo, ya que es una postura que no es natural para la anatomía del ser humano.
+
+\subsection{¿Qué problemas puede tener trabajar con IK?}
+
+El principal problema es que no se va a saber la interpolación utilizada para llegar al resultado final, dando lugar a soluciones que el animador no esperaba. Ocurre principalmente cuando la diferencia de posición entre los dos instantes es demasiado grande, haciendo que pueda ser necesario poner más fotogramas clave para asegurar una correcta interpolación.
+
+\section{Indica cómo se crearía un modelo con varias piezas donde: El elemento superior rote respecto del elemento que hace de juntura. La rotación de este elemento implica la rotación de los inferiores en menor grado cuanto más se aleja del primero.}
+
+% foto de ejemplo
+
+Lo primero que hay que hacer es crear la jerarquia de las piezas, de forma que el cubo rojo sea padre del azul y este a su vez del verde.
+
+% foto jerarquia
+
+Después, para que el giro del cubo rojo se vea reflejado en los demas, es necesario utilizar \textit{Wire Parameter} y hace falta aplicarle un factor de reduccion para que los cubos azul y verde vayan mas lentos.
+
+\section{¿Qué es preferible? Crear un modelo con el mayor número posible de grados de libertad, es decir un rigging completo. Crear un modelo con el menor número de grados de libertad, un rigging minimalista. Justifica la respuesta.}
+
+% rescribir
+Depende del contexto. Por ejemplo, si va a haber una toma en la que se vea de cerca las manos, lo más aconsejable es utilizar un rigging completo, con los dedos de las manos incluidos. En cambio, si es una toma de lejos de personas caminando o animales, no es necesario utilizar un rigging tan complejo y se podría prescindir de partes como la articulación del tobillo, las manos o incluso las distintas secciones de la columna, y en el caso de los animales, se podría prescindir de la cola. Así se consigue ahorrar tiempo en animación, al no ser apreciable desde lejos los detalles.
+
+\section{¿Qué sucedería si los vértices de una malla solamente estuvieran influenciados por un único hueso? Da un ejemplo visual.}
+
+Podría dar lugar a deformaciones de la malla poco realistas y a movimientos muy roboticos, ya que los huesos le aportan flexibilidad al personaje e influencia a la modificación de la malla en cierta medida. 
+
+\bigskip
+
+Además, puede darse el caso de que la parte de la malla que no tiene huesos no sea animada de ninguna manera. Por ejemplo, si un personaje mueve el brazo, pero se le eliminan los huesos del antebrazo, dicho antebrazo quedará siempre en la postura inicial, movíendose las demás partes de manera normal.
+
+% foto de esto
+% https://www.turbosquid.com/es/3d-models/samurai-boy-3d-model-1933032#
+
+Como se puede ver, la parte de la malla que ya no tiene huesos, no se mueve, encontrándose en la posición inicial del personaje.
+
+\bibliography{bibliografia}
+\bibliographystyle{plainurl}
+\end{document}
