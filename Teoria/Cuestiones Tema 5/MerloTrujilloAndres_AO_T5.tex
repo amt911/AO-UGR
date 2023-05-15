@@ -130,12 +130,28 @@ Un ejemplo puede ser la bisagra de una puerta, ya que solo se permite la rotaci�
 Otro ejemplo podría ser el muelle de un vehículo, ya que solo puede ser escalado en uno de los ejes (normalmente el eje Z).
 
 % foto del muelle y a ver si encuentro alguno de una bisagra
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/muelle.jpg}
+   \caption{Ejemplo de un muelle. Se puede observar que el escalado en el eje vertical hace que se comprima\cite{muelle}.}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/bisagra.jpeg}
+   \caption{Ejemplo de una bisagra simple\cite{bisagra}.}
+\end{figure}
 
 \subsection{2 grados de libertad}
 
 Un ejemplo claro de un objeto con dos grados de libertad es el de un joystick de videojuegos, ya que permite rotaciones hacia arriba y abajo (eje Y) y rotaciones hacia la derecha e izquierda (eje X).
 
 % foto de calibracion joystick, quizas de la switch, que se ve mejor
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/bisagra.jpeg}
+   \caption{Joystick utilizado para simuladores de aviones. Solo permite rotaciones en dos ejes\cite{joystick}.}
+\end{figure}
 
 \section{Busca en 3DS Max la plantilla (Biped o CAT). Crea un esqueleto. Modifica alguna propiedad. Ponlo en una pose distinta a la que está por defecto.}
 
@@ -157,7 +173,7 @@ Después, se pone en la escena como cualquier otro objeto.
    \caption{Biped generado en la escena.}
 \end{figure}
 
-Si se selecciona cualquier extremidad, se puede rotar o trasladar, realizando un movmieento similar al del cuerpo humano.
+Si se selecciona cualquier extremidad, se puede rotar o trasladar, realizando un movimiento similar al del cuerpo humano.
 
 % pose distinta
 \begin{figure}[H]
@@ -171,7 +187,7 @@ Si se selecciona cualquier extremidad, se puede rotar o trasladar, realizando un
 Un ejemplo puede ser si se desea llegar a una pose en el que el personaje se toque la nariz con el dedo, ya que la posición del codo, la rotación del hombro y la posición de los brazos puede ser más de una.
 
 % rescribir, he puesto generos que no son.
-Otro ejemplo similar puede ser en cualquier posición de mano en la que el brazo no se encuentre extendida del todo, de forma que la posición del codo y la rotación del hombro pueda ser más de una.
+Otro ejemplo similar puede ser en cualquier posición de mano en la que el brazo no se encuentre extendido del todo, de forma que la posición del codo y la rotación del hombro pueda ser más de una.
 
 \subsection{¿Se podría encontrar algún escenario donde no existe una solución con cinemática inversa?}
 
@@ -183,13 +199,40 @@ El principal problema es que no se va a saber la interpolación utilizada para l
 
 \section{Indica cómo se crearía un modelo con varias piezas donde: El elemento superior rote respecto del elemento que hace de juntura. La rotación de este elemento implica la rotación de los inferiores en menor grado cuanto más se aleja del primero.}
 
-% foto de ejemplo
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/pag42.png}
+   \caption{Imagen del enunciado.}
+\end{figure}
 
-Lo primero que hay que hacer es crear la jerarquia de las piezas, de forma que el cubo rojo sea padre del azul y este a su vez del verde.
+Lo primero que hay que hacer es crear la jerarquía de las piezas, de forma que el cubo rojo sea padre del azul y este a su vez del verde.
 
 % foto jerarquia
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/jerarquia.png}
+   \caption{Jerarquía utilizada para el brazo.}
+\end{figure}
 
-Después, para que el giro del cubo rojo se vea reflejado en los demas, es necesario utilizar \textit{Wire Parameter} y hace falta aplicarle un factor de reduccion para que los cubos azul y verde vayan mas lentos.
+Después, para que el giro del cubo rojo se vea reflejado en los demás, es necesario utilizar \textit{Wire Parameter} en la rotación del eje Z y hace falta aplicarle un factor de reducción para que los cubos azul y verde vayan más lentos. En mi caso, el factor de reducción ha sido de 2, de forma que el cubo de más arriba al intermedio le aporta la mitad de rotación, y el intermedio al de abajo le aporta la mitad de rotación también, haciendo que sea 0.25 con respecto al superior.
+
+\bigskip
+
+La figura final es:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/brazo1mio.png}
+   \caption{Brazo del ejercicio modelado.}
+\end{figure}
+
+Y si le aplico una rotación, se puede ver que las piezas de abajo rotan menos:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/brazo2mio.png}
+   \caption{Rotación de la figura en el eje X.}
+\end{figure}
 
 \section{¿Qué es preferible? Crear un modelo con el mayor número posible de grados de libertad, es decir un rigging completo. Crear un modelo con el menor número de grados de libertad, un rigging minimalista. Justifica la respuesta.}
 
@@ -198,16 +241,39 @@ Depende del contexto. Por ejemplo, si va a haber una toma en la que se vea de ce
 
 \section{¿Qué sucedería si los vértices de una malla solamente estuvieran influenciados por un único hueso? Da un ejemplo visual.}
 
-Podría dar lugar a deformaciones de la malla poco realistas y a movimientos muy roboticos, ya que los huesos le aportan flexibilidad al personaje e influencia a la modificación de la malla en cierta medida. 
+Podría dar lugar a deformaciones de los vértices de la malla poco realistas y a movimientos muy robóticos, ya que los huesos le aportan flexibilidad al personaje y los pesos influencian a la modificación de los vértices que no se encuentran directamente asociados al hueso, dando así más naturalidad a la animación.
+% de la malla en cierta medida para dar más naturalidad. 
 
 \bigskip
 
-Además, puede darse el caso de que la parte de la malla que no tiene huesos no sea animada de ninguna manera. Por ejemplo, si un personaje mueve el brazo, pero se le eliminan los huesos del antebrazo, dicho antebrazo quedará siempre en la postura inicial, movíendose las demás partes de manera normal.
+Por tanto, respondiendo a la pregunta, se daría el caso en el que algunos vértices que deberían estar influenciados por otros huesos no lo están, dando como resultado deformaciones incorrectas. En la página 34 de las transparencias aparece el siguiente ejemplo:
 
-% foto de esto
-% https://www.turbosquid.com/es/3d-models/samurai-boy-3d-model-1933032#
 
-Como se puede ver, la parte de la malla que ya no tiene huesos, no se mueve, encontrándose en la posición inicial del personaje.
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/pag34.png}
+   \caption{Animación de un brazo utilizando rigging\cite{diapos}.}
+\end{figure}
+
+Como se puede ver en la imagen de la derecha, la manga de la camiseta se deforma de manera incorrecta, dando como resultado solapamientos con la propia camiseta y los músculos del antebrazo no se comprimen debido a la compresión con el brazo.
+
+\bigskip
+
+A continuación muestro otro ejemplo de rigging en Blender, donde he puesto un cilindro con un solo hueso y otro con dos, simulando un brazo.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/brazo1.png}
+   \caption{Cilindro con solo 1 hueso.}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{imagenes/brazo2.png}
+   \caption{Cilindro con 2 huesos.}
+\end{figure}
+
+Como se puede observar, el cilindro que solo tiene un hueso no simula de manera realista un brazo, al no poder modificar los vértices correspondientes al antebrazo (la parte de más a la derecha). Mientras que en la versión con dos huesos, es posible doblar el codo y se deforman los vértices de manera acorde a ambos pesos. Esto se puede ver mirando la cara interior del ``brazo'', donde el cilindro ha sido aplastado un poco más para que no ocurra solapamiento.
 
 \bibliography{bibliografia}
 \bibliographystyle{plainurl}
