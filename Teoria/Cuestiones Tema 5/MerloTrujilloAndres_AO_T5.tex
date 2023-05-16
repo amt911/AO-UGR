@@ -79,6 +79,8 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 }
 
 
+\usepackage{enumitem}
+   
 \begin{document}
 \begin{titlingpage}
 \maketitle
@@ -117,7 +119,19 @@ E.T.S. de Ingenierías Informática y de Telecomunicación \\
 % \end{figure}
 
 % $30 \text{fps} \times 2 \times 5 \text{segundos} = 300 \text{fotogramas} $
-\section{Da algún ejemplo de objetos, o partes de objetos, con: 1 grado de libertad y 2 grados de libertad. Indica qué movimientos se permiten. Pon un ejemplo visual.}
+\section[Da algún ejemplo de objetos, o partes de objetos, con: 1 grado de libertad y 2 grados de libertad. Indica qué movimientos se permiten. Pon un ejemplo visual.]{
+Da algún ejemplo de objetos, o partes de objetos, con: 
+\begin{itemize}[leftmargin=4em]
+   \item 1 grado de libertad.
+   \item 2 grados de libertad.
+\end{itemize}
+\begingroup
+\addtolength{\leftmargin}{3in}
+\begin{quote}
+   Indica qué movimientos se permiten. \\Pon un ejemplo visual.
+\end{quote}
+\endgroup
+}
 
 Voy a dividir los objetos y la explicación con 1 y 2 grados de libertad en subsecciones distintas:
 
