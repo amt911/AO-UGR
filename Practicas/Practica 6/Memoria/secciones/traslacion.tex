@@ -1,0 +1,20 @@
+\section{Traslación}
+
+Para realizar la traslación de la pelota, es necesario utilizar el vector Up de la pelota guía y multiplicarlo poor -1, de forma que el vector resultante mire hacia abajo. Una vez realizado esto, se debe lanzar un rayo para intersecar la superficie, así se obtiene un vector con la posición en la que ha intersecado.
+
+\bigskip
+
+Finalmente, se modifica el valor \textit{pos} de la pelota para que sea igual que al punto intersecado. Al realizar esto la pelota aparecerá hundida en el suelo, para que se posicione bien se debe calcular el vector que va desde la pelota hasta la pelota guía, normalizándolo y multiplicándolo por el radio de la pelota. Con este vector, se puede utilizar el comando \verb|move| una vez para levantar la pelota, ya que al tener de módulo el radio, va a moverse lo necesario.
+
+% foto de hundido y despues.
+
+
+La función para implementar esta funcionalidad es el siguiente:
+
+% codigo
+\lstinputlisting[language=MaxScript,firstline=1,lastline=28 ]{../eje_MerloTrujilloAndres_AO_P6.ms}
+
+
+Y a continuación hay capturas con la pelota en distintos lugares y posicionada correctamente:
+
+% dos o tres fotos de la pelota a distintas alturas.
