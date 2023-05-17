@@ -21,7 +21,7 @@ fn moverPelota pelota guia suelo = (
 
 	-- La pelota ahora mismo se encuentra hundida en el suelo.
 	-- Es necesario hacer el vector de esta pelota a la guía, con una longitud igual al radio de la pelota.
-	v = pelota.radius * (normalize (guia.pos - pelota.pos))
+	v = pelota.radius * colision.dir
 
 	-- Se mueve la pelota, para sacarla del suelo.
 	move pelota v
@@ -29,7 +29,7 @@ fn moverPelota pelota guia suelo = (
 
 
 /*
-	Rota la pelota de acuerdo a la posición anterior y actual de la guía. Sigue las propiedades físicas
+	Rota la pelota de acuerdo a su posición anterior y actual. Sigue las propiedades físicas
 	de la pelota, por lo que la rotación será realista.
 
 	@param pelota Referencia a la pelota que se desea rotar.
@@ -38,8 +38,8 @@ fn moverPelota pelota guia suelo = (
 */
 fn girarPelota pelota guia posicionPasada = (
 	-- Primero se obtiene el vector de la posicion anterior y la actual, para saber para donde girar y cuanto
-	v = guia.pos - posicionPasada
-	distancia = distance guia.pos posicionPasada
+	v = pelota.pos - posicionPasada
+	distancia = distance pelota.pos posicionPasada
 	vNormalizado = normalize v
 	
 	ejeGiro = cross guia.dir vNormalizado
@@ -82,7 +82,7 @@ fn animar pelota guia suelo = (
 			)
 			
 			-- Se actualiza el valor de posición pasado de la guía.
-			posicionPasada = guia.pos
+			posicionPasada = pelota.pos
 		)
 	)
 )
@@ -100,6 +100,7 @@ fn main = (
 	
 	-- Ahora se llama a la función de animación
 	animar pelotaGrande pelotaGuia suelo
+	-- moverPelota pelotaGrande pelotaGuia suelo
 )
 
 main()
