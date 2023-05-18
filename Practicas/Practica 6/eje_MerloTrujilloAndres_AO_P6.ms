@@ -23,7 +23,6 @@ fn lanzarRayo guia suelo = (
 	
 	@param pelota Referencia a la pelota que se desea mover.
 	@param guia Referencia a la pelota que actua de guía.
-	@param suelo Referencia a la malla que actua de suelo.
 */
 fn moverPelota pelota colision = (
 	-- Sabiendo el punto donde ha colisionado, necesitamos ahora mover la pelota grande a ese sitio
