@@ -1,0 +1,34 @@
+\section{Controles}
+
+La excavadora tiene los siguientes controladores asociados a un hueso:
+
+\begin{itemize}
+    \item \textbf{Rotación de toda la plataforma: }Permite rotar la excavadora sobre el eje Z, de manera que pueda girar sin tener que moverse del sitio.
+    
+    % foto del controlador y algunas del movimiento
+
+    \item \textbf{Rotación del brazo: }Permite rotar la primera pieza del brazo que sale de la base de la excavadora.
+    
+    % foto del controlador y dos del movimiento
+
+    \item \textbf{Rotación del segundo brazo: }Permite rotar la segunda pieza del brazo, conectada a la pieza anterior.
+    
+    % lo mismo que antes
+
+    \item \textbf{Rotación de la pala: }Permite rotar la pala de la excavadora.
+    
+
+    % same
+\end{itemize}
+
+\bigskip
+
+Además, para tener un control más cómodo y preciso, he añadido la siguiente interfaz:
+
+% interfaz de eso
+
+Esta interfaz está compuesta de \textit{sliders} que controlan los controladores (valga la redundancia) mediante \textit{Wire parameters} del valor actual del \textit{slider}, con el eje de rotación correspondiente.
+
+\bigskip
+
+Cabe destacar que los valores de rotación en los que trabajan los \textit{sliders} son en radianes. Se podría haber arreglado y haberle aplicado una función para que apareciese en grados sexagesimales, pero me he dado cuenta cuando tenía la animación terminada, haciendo que tuviera que realizarla de nuevo.
