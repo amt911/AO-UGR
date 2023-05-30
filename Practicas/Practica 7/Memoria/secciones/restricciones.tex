@@ -1,3 +1,41 @@
 \section{Restricciones}
 
-Voy a dividir esta sección en dos subsecciones, ya que he aplicado restricciones a los pistones también.
+Voy a dividir esta sección en varias subsecciones:
+
+\subsection{Pistones}
+
+Los pistones tienen las siguientes restricciones:
+
+% fotos de las restricciones
+
+Como se puede ver, he bloqueado cualquier posibilidad de transformación, ya que el pistón es un objeto que debe seguir el movimiento de los demás. Además, he prohibido la herencia de escalado, ya que en el caso del pistón con la pala, se daba el caso de que se deformaba.
+
+\bigskip
+
+Asimismo, los cilindros que se estiran y comprimen (los que no hacen de soporte) tienen un \textit{LookAt Constraint} que se apuntan mutuamente para seguir el movimiento de manera realista.
+
+\bigskip
+
+Por último, los puntos de apoyo de los pistones tienen un \textit{Link Position} con la unión en el hueso que le corresponde.
+
+% foto de los pistones solo y los huesos
+
+\subsection{Controladores}
+
+Los controladores del brazo tienen las siguientes restricciones:
+
+% foto de las restricciones
+
+Así se prohíbe realizar movimientos del brazo no permitidos, como girar de izquierda a derecha.
+
+\bigskip
+
+El controlador que hace girar toda la excavadora tiene las siguientes restricciones:
+
+% foto de las restricciones
+
+Así se prohíbe realizar cualquier movimiento que no sea el propio del eje.
+
+\subsection{Resto de figuras}
+
+El resto de figuras tienen bloqueados todas las transformaciones, ya que son los controladores los que se encargan de mover los huesos de la grúa.
